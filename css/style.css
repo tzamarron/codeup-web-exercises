@@ -1,15 +1,7 @@
-/*H1 style*/
-h1{
-    color: red;
-}
-/*Fancy-Header class*/
-.fancy-header {
-    color: purple;
-}
 /* Background and font*/
 body {
     background-color: cadetblue;
-    background-image: url("img/sunset.jpeg");
+    background-image: url("../img/sunset.jpeg");
     background-repeat: repeat-y;
     background-size: 100%;
     font-family: 'Cairo', sans-serif;

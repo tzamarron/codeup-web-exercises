@@ -1,0 +1,12 @@
+/*Body and HTML styling*/
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+/*Overall basic information*/
+/*Overall success*/
+/*Overall warning*/
+/*Overall error*/
