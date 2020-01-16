@@ -11,17 +11,20 @@
         <label for="username">Username:
             <input type="text" id="username" name="username" required="required">
         </label>
+        <br>
         <label for="user_email">Email:
             <input type="text" id="user_email" name="user_email" required="required">
         </label>
+        <br>
         <label for="password">Password
-            <input type="password" id="password" name="password" required="required">
+            <input type="password" id="password" name="password" required="required" oninput="check(this)">
         </label>
+        <br>
         <label for="confirm_password">Confirm Password
             <input type="password" id="confirm_password" name="confirm_password" required="required" oninput="check(this)">
             <script>
                 function check(input) {
-                    if (input.value != document.getElementById('password').value) {
+                    if (document.getElementById('confirm_password').value != document.getElementById('password').value) {
                         input.setCustomValidity('Password must be matching.')
                     }   else {
                         input.setCustomValidity('')
@@ -29,6 +32,11 @@
                 }
             </script>
         </label>
+        <br>
+        <label for="mailinglist">
+            <input type="checkbox" id="mailinglist" name="mailinglist" value="yes" checked>Sign me up for the mailing list!
+        </label>
+        <br>
         <input type="submit">
     </form>
 </main>
