@@ -22,15 +22,6 @@
         <br>
         <label for="confirm_password">Confirm Password
             <input type="password" id="confirm_password" name="confirm_password" required="required" oninput="check(this)">
-            <script>
-                function check(input) {
-                    if (document.getElementById('confirm_password').value != document.getElementById('password').value) {
-                        input.setCustomValidity('Password must be matching.')
-                    }   else {
-                        input.setCustomValidity('')
-                    }
-                }
-            </script>
         </label>
         <br>
         <label for="mailinglist">
@@ -39,6 +30,15 @@
         <br>
         <button type="submit">Create New Account!</button>
     </form>
+    <script>
+        function check(input) {
+            if (document.getElementById('confirm_password').value != document.getElementById('password').value) {
+                input.setCustomValidity('Password must be matching.')
+            }   else {
+                input.setCustomValidity('')
+            }
+        }
+    </script>
 </main>
 </body>
 </html>

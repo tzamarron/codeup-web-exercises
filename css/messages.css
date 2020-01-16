@@ -6,7 +6,40 @@ body, html {
     margin: 0;
     font-family: Arial, Ubuntu, sans-serif;
 }
+.message {
+    --main-border-radius: 6px;
+    --main-margin:3em;
+}
 /*Overall basic information*/
+#bg-info {
+    background-color: #677cf5;
+    color: black;
+    border: 1px groove #677cf5;
+    border-radius: var(--main-border-radius);
+    margin: var(--main-margin);
+}
 /*Overall success*/
+#bg-success {
+    background-color: #6cf567;
+    color: black;
+    border: 1px groove #6cf567;
+    border-radius: var(--main-border-radius);
+    margin: var(--main-margin);
+}
 /*Overall warning*/
+#bg-warning {
+    background-color: #f5ee67;
+    color: black;
+    border: 1px groove #f5ee67;
+    border-radius: var(--main-border-radius);
+    margin: var(--main-margin);
+}
 /*Overall error*/
+#bg-error {
+    background-color: #f56767;
+    color: black;
+    border: 1px groove #f56767;
+    border-radius: var(--main-border-radius);
+    margin: var(--main-margin);
+
+}
