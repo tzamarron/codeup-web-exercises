@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+<!--    <form action="https://www.elformo.com/forms/fa2ffb42-ff90-4634-b2a8-eb8f1f1705ea" method="post"></form>-->
+    <form action="https://hookb.in/mZ8GnX7pZLtBVLpJXEVD" method="post">
+        <label for="username">Username:
+            <input type="text" id="username" name="username" required="required">
+        </label>
+        <label for="user_email">Email:
+            <input type="text" id="user_email" name="user_email" required="required">
+        </label>
+        <label for="password">Password
+            <input type="password" id="password" name="password" required="required">
+        </label>
+        <label for="confirm_password">Confirm Password
+            <input type="password" id="confirm_password" name="confirm_password" required="required" oninput="check(this)">
+            <script>
+                function check(input) {
+                    if (input.value != document.getElementById('password').value) {
+                        input.setCustomValidity('Password must be matching.')
+                    }   else {
+                        input.setCustomValidity('')
+                    }
+                }
+            </script>
+        </label>
+        <input type="submit">
+    </form>
+</main>
+</body>
+</html>
