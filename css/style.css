@@ -1,11 +1,12 @@
 /* Background and font*/
 body {
-    background-color: cadetblue;
+    /*background-color: cadetblue;*/
     background-image: url("../img/sunset.jpeg");
     background-repeat: repeat-y;
     background-size: 100%;
     font-family: 'Cairo', sans-serif;
     color: cyan;
+    font-size: 2em;
 }
  /* Center Text for Header */
 header {
@@ -25,11 +26,10 @@ table {
     border-radius: 5px;
     width: 80%;
     text-align: center;
-    color: black;
 }
 /*Table row styling*/
 tr {
-    height: 3.5em;
+    height: 70px;
     font-size: larger;
 }
 /*Footer font*/
