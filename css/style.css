@@ -1,54 +1,84 @@
-/* Center Text for Header */
-header {
+/* Background and font */
+body {
+    background-color: #F8F9F9;
+    background-image: url("../img/whitewall.jpeg");
+    background-repeat: round;
+    font-family: 'Comfortaa', cursive;
+    color: #34334F;
+    font-size: 1.5em;
     text-align: center;
 }
-/* Change color to ALL <h> */
+/* h element styling */
 h1, h2 {
-    color: lightgreen;
+    text-decoration: underline;
 }
-/* Background and font*/
-body {
-    background-color: cadetblue;
-    background-image: url("img/sunset.jpeg");
-    background-repeat: repeat-y;
-    background-size: 100%;
-    font-family: 'Cairo', sans-serif;
-    color: cyan;
+section#core_values {
+    display: inline-grid;
+    border: 1px groove #86848C;
+    border-radius: 5px;
+    background-color: #ACAAC0;
 }
-/*UL list bullet style*/
+section#our_process {
+    display: inline-grid;
+    border: 1px groove #86848C;
+    border-radius: 5px;
+    background-color: #ACAAC0;
+}
+section#vision {
+    display: inline-grid;
+    border: 1px groove #86848C;
+    border-radius: 5px;
+    background-color: #ACAAC0;
+}
+/* List width */
+ul#core_value_list {
+    width: 220px;
+    text-align: left;
+}
+ol#process_order {
+    width: 220px;
+    text-align: left;
+}
+ul#vision_list {
+    width: 344px;
+    text-align: left;
+}
+/* Control space next to list bullets */
+li span {
+    position: relative;
+    left: 5px;
+}
+/* UL list bullet style */
 ul {
     list-style-type: circle;
 }
-/*Table styling*/
+/* Table styling */
 table {
     border-style: groove;
     border-radius: 5px;
     width: 80%;
     text-align: center;
-    color: black;
+    margin: auto;
+    background-color: #ACAAC0;
 }
-/*Table row styling*/
+/* Table row styling */
 tr {
-    height: 3.5em;
+    height: 70px;
     font-size: larger;
 }
-/*Footer font*/
-footer {
-    color: lightgreen;
-}
-/* unvisited link */
+/* Anchor on bottom unvisited */
 a:link {
-    color:lightgreen;
+    color: #34334F;
 }
-/*visited link*/
+/* Anchor on bottom visited */
 a:visited {
-    color: antiquewhite;
+    color: #34334F;
 }
-/*mouse hover over link*/
+/* Anchor on bottom being hovered */
 a:hover {
-    color: lightcyan;
+    color: #86848C;
 }
-/* selected link */
+/* Anchor on bottom active */
 a:active {
-    color: cyan;
+    color: #998D82;
 }
