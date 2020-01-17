@@ -7,39 +7,32 @@ body, html {
     font-family: Arial, Ubuntu, sans-serif;
 }
 .message {
-    --main-border-radius: 6px;
-    --main-margin:3em;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    margin:1em;
+    padding: 5px;
+    --bg-info: #CEDEFF;
+    --bg-success:#CFF3DA;
+    --bg-warning:#FCFBC9;
+    --bg-error:#FAD3D7
 }
 /*Overall basic information*/
 #bg-info {
-    background-color: #677cf5;
-    color: black;
-    border: 1px groove #677cf5;
-    border-radius: var(--main-border-radius);
-    margin: var(--main-margin);
+    background-color: var(--bg-info);
+    color: blue;
 }
 /*Overall success*/
 #bg-success {
-    background-color: #6cf567;
-    color: black;
-    border: 1px groove #6cf567;
-    border-radius: var(--main-border-radius);
-    margin: var(--main-margin);
+    background-color: var(--bg-success);
+    color: green;
 }
 /*Overall warning*/
 #bg-warning {
-    background-color: #f5ee67;
-    color: black;
-    border: 1px groove #f5ee67;
-    border-radius: var(--main-border-radius);
-    margin: var(--main-margin);
+    background-color: var(--bg-warning);
+    color: goldenrod;
 }
 /*Overall error*/
 #bg-error {
-    background-color: #f56767;
-    color: black;
-    border: 1px groove #f56767;
-    border-radius: var(--main-border-radius);
-    margin: var(--main-margin);
-
+    background-color: var(--bg-error);
+    color: red;
 }
