@@ -17,22 +17,22 @@ body, html {
     --bg-error:#FAD3D7
 }
 /*Overall basic information*/
-#bg-info {
+.message-info {
     background-color: var(--bg-info);
     color: blue;
 }
 /*Overall success*/
-#bg-success {
+.message-success {
     background-color: var(--bg-success);
     color: green;
 }
 /*Overall warning*/
-#bg-warning {
+.message-warning {
     background-color: var(--bg-warning);
     color: goldenrod;
 }
 /*Overall error*/
-#bg-error {
+.message-error {
     background-color: var(--bg-error);
     color: red;
 }
