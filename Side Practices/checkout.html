@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span#expdate {
+            float: left;
+            margin-right: 10px;
+        }
+        input#user_ccexpm {
+            width: 20px;
+        }
+        input#user_ccexpy {
+            width: 20px;
+        }
+        input#seccode {
+            width: 25px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div id="container">
+        <form action="https://hookb.in/7ZQOxdazmrir7ZqQgBya" method="post">
+            <label for="user_ccnum">Credit Card Number:
+                <br>
+                <input type="text" id="user_ccnum" name="user_ccnum" placeholder="123456789" required>
+            </label>
+            <br>
+            <span id="expdate">
+                <label for="user_ccexpm">Exp date:
+                    <br>
+                    <input type="text" id="user_ccexpm" name="user_ccexp" placeholder="MM" required>
+                </label>
+                <label for="user_ccexpy">
+                    <input type="text" id="user_ccexpy" name="user_ccexpy" placeholder="YY" required>
+                </label>
+            </span>
+            <span id="securitycode">
+                <label for="seccode">Security code:
+                    <br>
+                    <input type="text" id="seccode" name="seccode" placeholder="123" required>
+                </label>
+
+            </span>
+            <br>
+            <label for="billadd">Billing Address:
+                <br>
+                <input type="text" id="billadd" name="billadd" placeholder="Street Address" required>
+            </label>
+            <br>
+            <label for="billcity">City
+                <br>
+                <input type="text" id="billcity" name="billcity" placeholder="City" required>
+            </label>
+            <label for="billst">State
+                <br>
+                <select name="billst" id="billst">
+                    option*
+                </select>
+            </label>
+            <label for="billzip"></label>
+        </form>
+    </div>
+</main>
+</body>
+</html>
