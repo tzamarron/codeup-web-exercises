@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        div#container {
+            border: 1px solid black;
+            padding: 10px;
+        }
         span#expdate {
             float: left;
             margin-right: 10px;
@@ -16,6 +20,13 @@
         }
         input#seccode {
             width: 25px;
+        }
+        span#state {
+            float: left;
+            margin-right: 10px;
+        }
+        input#billzip {
+            width: 75px;
         }
     </style>
 </head>
@@ -54,13 +65,30 @@
                 <br>
                 <input type="text" id="billcity" name="billcity" placeholder="City" required>
             </label>
-            <label for="billst">State
-                <br>
-                <select name="billst" id="billst">
-                    option*
-                </select>
+            <br>
+            <span id="state">
+                <label for="billst">State
+                    <br>
+                    <select name="billst" id="billst" required>
+                        <option value="alabama">Alabama</option>
+                        <option value="alaska">Alaska</option>
+                        <option value="america_samoa">America Samoa</option>
+                        <option value="Texas">Texas</option>
+                    </select>
+                </label>
+            </span>
+            <span id="zipcode">
+                <label for="billzip">Zipcode
+                    <br>
+                    <input type="text" id="billzip" name="billzip" placeholder="Zip" required>
+                </label>
+            </span>
+            <br>
+            <label for="ccfuture">Keep this credit card on file for future transactions?
+                <input type="checkbox" id="ccfuture" name="ccfuture" checked>
             </label>
-            <label for="billzip"></label>
+            <br>
+            <button type="submit">Buy Now!</button>
         </form>
     </div>
 </main>
