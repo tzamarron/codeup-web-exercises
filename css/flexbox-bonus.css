@@ -1,6 +1,10 @@
+/*Entire page modify*/
+* {
+    box-sizing: border-box;
+}
 /* Background of the entire page*/
 body {
-    background: #87CEFA;
+    /*background: #87CEFA;*/
 }
 /* Main Header above the card*/
 h1 {
@@ -8,6 +12,24 @@ h1 {
 }
 /* Container for the card*/
 .container {
-    background: #FFFFFF;
+    /*background-color: #FFFFFF;*/
+    width: 400px;
+    height: 900px;
+    margin: 0 auto;
+}
+.card {
+    height: 80%;
     width: 80%;
+    border: 1px solid black;
+    padding: 1em;
+    margin: 0 auto;
+}
+section {
+    display: flex;
+}
+.green-box {
+    height: 2em;
+    width: 2em;
+    background-color: green;
+    border: 1px solid black;
 }
