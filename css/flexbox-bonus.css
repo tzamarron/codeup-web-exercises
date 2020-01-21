@@ -4,30 +4,35 @@
 }
 /* Background of the entire page*/
 body {
-    /*background: #87CEFA;*/
+    background: #87CEFA;
 }
 /* Main Header above the card*/
 h1 {
     text-align: center;
 }
 /* Container for the card*/
-.container {
-    /*background-color: #FFFFFF;*/
+#container {
+    background-color: #FFFFFF;
     width: 400px;
     height: 900px;
     margin: 0 auto;
 }
-.card {
-    height: 80%;
-    width: 80%;
-    border: 1px solid black;
+#card {
+    height: 100%;
+    width: 100%;
     padding: 1em;
     margin: 0 auto;
 }
 section {
     display: flex;
+    margin: 2px 0;
 }
-.green-box {
+#block1 {
+    height: 3em;
+    width: 80%;
+    border: 1px solid black;
+}
+#green-box {
     height: 2em;
     width: 2em;
     background-color: green;

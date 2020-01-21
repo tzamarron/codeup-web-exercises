@@ -1,0 +1,18 @@
+#header-image {
+    float: left;
+}
+#header-image img {
+    height: 100px;
+    width: 100px;
+}
+#header-nav {
+    display: flex;
+    float: right;
+}
+#header-bot-line {
+    display: inline-block;
+    height: 100px;
+    width: 100%;
+    background-color: rebeccapurple;
+    clear: both;
+}
