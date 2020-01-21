@@ -1,0 +1,13 @@
+/* Background of the entire page*/
+body {
+    background: #87CEFA;
+}
+/* Main Header above the card*/
+h1 {
+    text-align: center;
+}
+/* Container for the card*/
+.container {
+    background: #FFFFFF;
+    width: 80%;
+}
