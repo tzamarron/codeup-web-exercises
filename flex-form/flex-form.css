@@ -23,7 +23,7 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: stretch;
+    justify-content: center;
 }
 
 .flex-form {
@@ -31,6 +31,7 @@ body {
     position: relative;
     border:20px solid rgba(0,0,0,0.3);
     border-radius:5px;
+    display: flex;
 }
 
 .flex-form > * {
@@ -61,5 +62,5 @@ body {
 }
 .destination {
     /* bigger item */
-    margin-right: auto;
+    flex-basis: 290px;
 }
