@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* nav container */
+#nav-group {
+    width: 100%;
+    height: 77px;
+    background-color: #C1C1C1;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* all items in nav */
+#nav-group li {
+
+}
+
+/* All anchors in nav*/
+#nav-group a {
+    display: inline-block;
+    padding: 1.8em .5em;
+    text-decoration: none;
+    font-family: 'Work Sans', sans-serif;
+    color: black;
+}
+
+/* Nav links normal*/
+#nav-group a:link {
+    font-weight: bolder;
+}
+
+/* Nav links when hovered*/
+#nav-group a:hover {
+    color: blue;
+}
+
+/* Nav Logo in center*/
+#nav-logo {
+    font-size: 3em;
+    font-family: 'Montserrat', sans-serif;
+}
+#nav-logo a {
+    padding: .2em
+}
+
+/* Sizing for all nav icons*/
+img {
+    height: 1em;
+    width: 1em;
+}
+
+#nav-jobs {
+    margin-right: auto;
+}
+
+#nav-follow {
+    margin-left: auto;
+}
+#nav-follow, #nav-cart, #nav-info, #nav-search {
+    justify-content: flex-end;
+}
+
+#nav-articles, #nav-products, #nav-market, #nav-jobs {
+    justify-content: flex-start;
+}
+
