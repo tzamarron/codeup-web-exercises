@@ -66,17 +66,16 @@ a {
     border-radius: 4px;
 }
 
-#card-1 {
-    place-self: flex-start;
+.card:nth-of-type(1) {
+    align-self: center;
+    flex-shrink: .9;
 }
 
-#card-2 {
-    place-self: auto;
+.card:nth-of-type(3) {
+    align-self: center;
 }
 
-#card-3 {
-    place-self: flex-end;
-}
+
 .container {
     /* This is a flex container */
 }
