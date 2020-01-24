@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+}
+
+/*------------main container------------------*/
+main {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-areas:
+        "one one one one"
+        "two three four four"
+        "two five five six"
+        "two seven eight nine"
+        "two ten ten ten";
+    background-color: #FFD700;
+    color: #FFFFFF;
+}
+#a1 {
+    grid-area: one;
+    border-bottom: 10px solid #FFFFFF;
+    padding: .5em;
+}
+#a2 {
+    grid-area: two;
+    border-right: 10px solid #FFFFFF;
+    padding: .5em;
+}
+#a3 {
+    grid-area: three;
+    border-bottom: 10px solid #FFFFFF;
+    padding: .5em;
+}
+#a4 {
+    grid-area: four;
+    border-bottom: 10px solid #FFFFFF;
+    border-left: 10px solid #FFFFFF;
+    padding: .5em;
+}
+#a5 {
+    grid-area: five;
+    border-bottom: 10px solid #FFFFFF;
+    padding: .5em;
+}
+#a6 {
+    grid-area: six;
+    border-bottom: 10px solid #FFFFFF;
+    border-left: 10px solid #FFFFFF;
+    padding: 1em;
+}
+#a7 {
+    grid-area: seven;
+    padding: .5em;
+}
+#a8 {
+    grid-area: eight;
+    border-left: 10px solid #FFFFFF;
+    padding: .5em;
+}
+#a9 {
+    grid-area: nine;
+    border-left: 10px solid #FFFFFF;
+    padding: .5em;
+}
+#a10 {
+    grid-area: ten;
+    border-top: 10px solid #FFFFFF;
+    padding: .5em;
+}

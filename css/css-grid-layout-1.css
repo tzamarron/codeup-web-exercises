@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/*------------main container------------------*/
+main {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 13vh 1fr 10vh;
+    grid-template-columns: 1fr 3fr 15vw;
+    grid-template-areas:
+        "header header header"
+        "nav article ads"
+        "nav footer footer";
+    background-color: #FFD700;
+}
+#header {
+    grid-area: header;
+    border-bottom: 10px solid #FFFFFF;
+    padding: 1em;
+}
+#nav {
+    grid-area: nav;
+    border-right: 10px solid #FFFFFF;
+    padding: 1em;
+}
+#article {
+    grid-area: article;
+    padding: 1em;
+}
+#ads {
+    grid-area: ads;
+    border-left: 10px solid #FFFFFF;
+    padding: 1em;
+}
+#footer {
+    grid-area: footer;
+    border-top: 10px solid #FFFFFF;
+    padding: 1em;
+}
