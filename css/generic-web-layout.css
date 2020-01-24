@@ -42,6 +42,7 @@ body {
 
 main {
     display: grid;
+    grid-template-columns: 1.3fr 4fr 2fr;
     grid-template-areas:
             "sidenav content1 ad1"
             "sidenav content2 ad2"
@@ -54,13 +55,14 @@ main {
 
 #side-nav {
     display: flex;
-    padding: 2em 1em;
+    padding: 1em;
     flex-direction: column;
     background: #F0F0F0;
     grid-area: sidenav;
-    width: 16vw;
+    /*width: 16vw;*/
 }
 #side-nav h2 {
+    margin-top: 0;
     color: #000;
 }
 #side-nav ul {
@@ -105,11 +107,13 @@ main div {
 }
 
 .top-ad {
+    text-align: center;
     padding: 2em 7em;
     border: 2px solid #DDD;
 }
 
 .bottom-ad {
+    text-align: center;
     padding: 3em 7em;
     border: 2px solid #DDD;
 }
@@ -143,7 +147,7 @@ main div {
 #page a {
     color: #000;
     text-decoration: none;
-    padding: 1em;
+    padding: 1em 1.3em;
 }
 
 #page a:hover {
@@ -167,6 +171,7 @@ footer {
     background: #666666;
     padding: 1em;
     color: #fff;
+    font-size: 1.3em;
 }
 
 #bottom-foot {
