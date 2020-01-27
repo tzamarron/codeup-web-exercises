@@ -1,0 +1,79 @@
+/* screen sizes between 320px and 1000px */
+/*@media screen and (min-width:320px) and (max-width:1000px) {*/
+/*    add*/
+/*}*/
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+/*---------- top nav ----------*/
+
+.hidden-on-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid lightgrey;
+    background: #CCFEFF;
+    margin: 1em;
+}
+
+/* top nav links */
+
+.hidden-on-desktop a {
+    padding: 1em 4em;
+    text-decoration: none;
+    color: #000;
+}
+/*---------- h1 under top nav ----------*/
+
+h1:nth-of-type(1) {
+    text-align: center;
+    font-size: 3em;
+    margin: 0 1em .5em;
+}
+
+/*---------- links under header ----------*/
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.nav-links li {
+    background: #CCCCCC;
+    margin: 1em;
+    padding: 1em;
+}
+
+.nav-links a {
+    padding: 1em;
+}
+
+/*---------- Body picture ----------*/
+
+.header-img {
+    margin: .5em 1em;
+}
+
+.header-img img {
+    width: 339px;
+    height: 224px;
+}
+
+/*---------- 1st Section ----------*/
+
+.main {
+    margin: .5em 1em;
+}
+
+/*---------- 2nd Section ----------*/
+
+.sub-section {
+    margin: .5em 1em;
+}
