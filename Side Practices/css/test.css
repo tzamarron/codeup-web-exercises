@@ -16,3 +16,15 @@ h2 {
     font-family: 'Anton', sans-serif;
     font-size: 48px;
 }
+#design-circle {
+    background: #E6563B;
+}
+#develop-circle {
+    background: #EB9D3A;
+}
+#support-circle {
+    background: #7CB06C;
+}
+#host-circle {
+    background: #00ABA9;
+}
