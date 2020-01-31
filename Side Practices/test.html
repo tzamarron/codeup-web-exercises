@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -8,112 +8,371 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/5811016069.js" crossorigin="anonymous"></script>
 
-    <title>Test Exercise</title>
-    <link rel="stylesheet" href="css/test.css">
+
     <link href="https://fonts.googleapis.com/css?family=Abel|Anton&display=swap" rel="stylesheet">
+    <link href="css/test.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <title>Codeup Design</title>
 </head>
 <body>
+<div id="big-bang">
+    <div id="white-comet ">
 
-<!-- Spacing Div On Top Of Nav Bar Start -->
-    <div class="mt-4" id="spacing-top">
-
-
-<!-- Nav bar Start -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-around">
-        <div id="left-nav">
-            <a class="navbar-brand " href="#">
-                <img class="rounded-circle" src="../img/assets/logo.jpg" width=105px height=105px alt="">
-                Codeup Design
-            </a>
-        </div>
-        <div id="right-nav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Work</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-<!-- Nav bar End-->
     </div>
-<!-- Spacing Div On Top Of Nav Bar End-->
+
+<!-- NAV BAR -->
+
+<!-- For XS screens-->
+
+<div class="nav-for-xs d-block d-sm-none">
+    <div class="nav-white-bar-xs d-flex justify-content-center align-items-center container-fluid">
+        <img class="rounded-circle" id="logo-for-xs" src="../img/assets/logo.jpg" alt="company-logo">
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center mb-5" id="nav-container-xs">
+        <span class="logo-text">Codeup Design</span>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Work</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- For small screens -->
+
+<div class="nav-for-sm d-none d-sm-block d-md-none">
+
+    <div class="nav-white-bar-sm d-flex justify-content-center align-items-center container-fluid">
+        <ul class="nav justify-content-center align-items-baseline">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Work</a>
+            </li>
+            <li class="nav-item">
+                <img class="rounded-circle" id="logo-for-sm" src="../img/assets/logo.jpg" alt="company logo">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center" id="nav-container-sm">
+        <span class="logo-text">Codeup Design</span>
+    </div>
+</div>
+
+<!-- For med+ screens -->
+
+<div class="nav-for-md d-none d-md-block">
+    <div class="nav-white-bar-sm px-5 d-flex align-items-center container-fluid">
+        <img class="rounded-circle mr-3" id="logo-for-md" src="../img/assets/logo.jpg" alt="company logo">
+        <span class="logo-text">Codeup Design</span>
+        <ul class="nav d-flex justify-content-between ml-auto">
+            <li class="nav-item">
+                <a class="nav-link active push" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Work</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
 
-<!-- Main Body Start-->
+<!--  PAGE TITLE  -->
+
+<div class="container-fluid text-uppercase text-center p-0" id="title-container">
+    <h1 class="my-5 d-block d-sm-none">Visual Design &<br>Web Development</h1>
+    <h2 class="my-5 d-none d-sm-block d-md-none text-nowrap">Visual Design & Web Development</h2>
+    <h3 class="my-5 d-none d-md-block text-nowrap">Visual Design & Web Development</h3>
+    <h2 class="my-5 d-block d-sm-none">From Park City, Utah</h2>
+    <h3 class="my-5 d-none d-sm-block d-md-none">From Park City, Utah</h3>
+    <h4 class="my-5 d-none d-md-block">From Park City, Utah</h4>
+</div>
+
+<!-- MAIN BODY -->
+
+<div class="container-fluid text-center text-uppercase">
+    <div class="row">
+        <div class="col-12">
+
+            <!-- CIRCLE LINKS -->
+
+            <!--     LARGE CIRCLES (FOR XS)       -->
+
+            <div class="container large-circles d-block d-sm-none" id="circle-links-container-large">
+
+                <div class="row" id="circle-links-large">
+
+                    <div class="circle col-6 col-sm-3" id="design-large">
+                        <a href="#design-section"><div class="circle red">
+                            <h3>Design</h3>
+                        </div></a>
+                    </div>
+
+                    <div class="circle col-6 col-sm-3" id="develop-large">
+                        <a href="#develop-section"><div class="circle orange">
+                            <h3>Develop</h3>
+                        </div></a>
+                    </div>
+
+                    <div class="circle col-6 col-sm-3" id="support-large">
+                        <a href="#support-section"><div class="circle green">
+                            <h3>Support</h3>
+                        </div></a>
+                    </div>
+
+                    <div class="circle col-6 col-sm-3" id="host-large">
+                        <a href="#host-section"><div class="circle blue">
+                            <h3>Host</h3>
+                        </div></a>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!--     SMALL CIRCLES (FOR S+)       -->
+
+            <div class="container-fluid small-circles d-none d-sm-block" id="circle-links-container-small">
+
+                <div class="row d-flex justify-content-center" id="circle-links-small">
+
+                    <div class="circle d-flex justify-content-center col-6 p-0 col-sm-auto col-md-3" id="design-small">
+                        <a href="#design-section"><div class="circle red">
+                            <h4>Design</h4>
+                        </div></a>
+                    </div>
+
+                    <div class="circle d-flex justify-content-center col-6 p-0 col-sm-auto col-md-3" id="develop-small">
+                        <a href="#develop-section"><div class="circle orange">
+                            <h4>Develop</h4>
+                        </div></a>
+                    </div>
+
+                    <div class="circle d-flex justify-content-center col-6 p-0 col-sm-auto col-md-3" id="support-small">
+                        <a href="#support-section"><div class="circle green">
+                            <h4>Support</h4>
+                        </div></a>
+                    </div>
+
+                    <div class="circle d-flex justify-content-center col-6 p-0 col-sm-auto col-md-3" id="host-small">
+                        <a href="#host-section"><div class="circle blue">
+                            <h4>Host</h4>
+                        </div></a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container text-center text-uppercase">
+    <hr class="d-none d-sm-block">
+
+    <!--    SELECTED WORK    -->
+
+    <p class="mx-auto d-block d-md-none" id="selected-work">Selected Work</p>
+
+
+    <!--   BOTTOM GRID     -->
+
     <div class="container">
 
+        <!--     GRID TITLES       -->
 
-<!-- Headers Under Nav Bar Start -->
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="text-center mt-5">Visual Design & Web Development</h1>
-                </div>
+        <div class="row text-left pl-3">
+            <div class="col-md-8">
+                <p class="d-none d-md-block"> Selected Work</p>
+            </div>
+            <div class="col-md-4">
+                <p class="d-none d-md-block">The Last</p>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="text-center mt-4">From Park City, Utah</h2>
+
+
+
+        <div class="row">
+            <div class="col-md-8">
+
+                <!--     CARDS      -->
+
+                <div class="row">
+
+                    <!--     FIRST CARD      -->
+
+                    <div class="col-sm-6">
+                        <div class="card bg-transparent border-0 mx-auto">
+                            <img src="../img/assets/images/apple-ipad.jpg" class="card-img-top" alt="iPad with green apples">
+                            <div class="card-body p-1 d-flex justify-content-between">
+                                <div class="card-text">
+                                    <p class="card-text text-left">Featured Project</p>
+                                </div>
+                                <div class="small-circle-container d-flex">
+                                    <div class="small-circle red" id="design-sm-circle-1">
+                                        <h5>D</h5>
+                                    </div>
+                                    <div class="small-circle orange" id="develop-sm-circle-1">
+                                        <h5>D</h5>
+                                    </div>
+                                    <div class="small-circle green" id="support-sm-circle-1">
+                                        <h5>S</h5>
+                                    </div>
+                                    <div class="small-circle blue" id="host-sm-circle-1">
+                                        <h5>H</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--    SECOND CARD       -->
+
+                    <div class="col-sm-6">
+                        <div class="card bg-transparent border-0 mx-auto d-none d-sm-block">
+                            <img src="../img/assets/images/macbook.jpg" class="card-img-top" alt="Macbook">
+                            <div class="card-body p-1 d-flex justify-content-between">
+                                <div class="card-text">
+                                    <p class="card-text text-left">Featured Project</p>
+                                </div>
+                                <div class="small-circle-container d-flex">
+                                    <div class="small-circle red" id="design-sm-circle-2">
+                                        <h5>D</h5>
+                                    </div>
+                                    <div class="small-circle orange" id="develop-sm-circle-2">
+                                        <h5>D</h5>
+                                    </div>
+                                    <div class="small-circle green" id="support-sm-circle-2">
+                                        <h5>S</h5>
+                                    </div>
+                                    <div class="small-circle blue" id="host-sm-circle-2">
+                                        <h5>H</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--     THIRD CARD       -->
+
+                    <div class="col-sm-6">
+                        <div class="card bg-transparent border-0 mx-auto d-none d-sm-block">
+                            <img src="../img/assets/images/man.jpg" class="card-img-top" alt="Man">
+                            <div class="card-body p-1 d-flex justify-content-between">
+                                <div class="card-text">
+                                    <p class="card-text text-left">Featured Project</p>
+                                </div>
+                                <div class="small-circle-container d-flex">
+                                    <div class="small-circle red" id="design-sm-circle-3">
+                                        <h5>D</h5>
+                                    </div>
+                                    <div class="small-circle orange" id="develop-sm-circle-3">
+                                        <h5>D</h5>
+                                    </div>
+                                    <div class="small-circle green" id="support-sm-circle-3">
+                                        <h5>S</h5>
+                                    </div>
+                                    <div class="small-circle blue" id="host-sm-circle-3">
+                                        <h5>H</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--    FOURTH CARD        -->
+
+                    <div class="col-sm-6">
+                        <div class="card bg-transparent border-0 mx-auto d-none d-sm-block">
+                            <img src="../img/assets/images/security.jpg" class="card-img-top" alt="Security">
+                            <div class="card-body p-1 d-flex justify-content-between">
+                                <div class="card-text">
+                                    <p class="card-text text-left">Featured Project</p>
+                                </div>
+                                <div class="small-circle-container d-flex">
+                                    <div class="small-circle red" id="design-sm-circle-4">
+                                        <h5>D</h5>
+                                    </div>
+                                    <div class="small-circle orange" id="develop-sm-circle-4">
+                                        <h5>D</h5>
+                                    </div>
+                                    <div class="small-circle green" id="support-sm-circle-4">
+                                        <h5>S</h5>
+                                    </div>
+                                    <div class="small-circle blue" id="host-sm-circle-4">
+                                        <h5>H</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-<!-- Headers Under Nav Bar End-->
 
 
-<!-- Round Sections Start -->
-        <div class="container">
-            <div class="row">
-                <div class="rounded-circle col-lg-3 bg-light p-5">
-                    <div class="card rounded-circle" id="design-circle">
-                        <div class="card-body text-center">
-                            <a href="#" class="card-link">Design</a>
-                        </div>
+            <!--     THE LAST SECTION      -->
+
+            <div class="col-md-4 d-none d-md-block">
+                <div class="d-flex flex-column align-items-start" id="last-images">
+
+                    <div class="d-flex mb-4">
+                        <img class="img-fluid mr-3" src="../img/assets/images/mobile-phone.jpg" alt="">
+                        <p class="h5 text-left">The Admin Bar and the Absolute Positioning</p>
                     </div>
-                </div>
-                <div class="rounded-circle col-lg-3 bg-light p-5">
-                <div class="card rounded-circle" id="develop-circle">
-                        <div class="card-body text-center">
-                            <a href="#" class="card-link">Develop</a>
-                        </div>
+
+                    <div class="d-flex mb-4">
+                        <img class="img-fluid mr-3" src="../img/assets/images/head.jpg" alt="">
+                        <p class="h5 text-left">Nibbler Awesome Website Testing</p>
                     </div>
-                </div>
-                <div class="rounded-circle col-lg-3 bg-light p-5">
-                    <div class="card rounded-circle" id="support-circle">
-                        <div class="card-body text-center">
-                            <a href="#" class="card-link">Support</a>
-                        </div>
+
+                    <div class="d-flex mb-4">
+                        <img class="img-fluid mr-3" src="../img/assets/images/ipad.jpg" alt="">
+                        <p class="h5 text-left">How to Get Google to Like You</p>
                     </div>
-                </div>
-                <div class="rounded-circle col-lg-3 bg-light p-5">
-                    <div class="card rounded-circle" id="host-circle">
-                        <div class="card-body text-center">
-                            <a href="#" class="card-link">Host</a>
-                        </div>
+
+                    <div class="d-flex">
+                        <i class="fa fa-twitter text-primary mr-2"></i>
+                        <p>Last Tweet</p>
                     </div>
+                    <p id="twitter-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aut blanditiis eligendi natus optio, quam, quas quos recusandae, rerum sequi sit soluta. Asperiores porro quia ullam! Ad fugiat hic saepe.</p>
                 </div>
             </div>
+
         </div>
-<!-- Round Section End -->
+    </div> <!-- End of bottom container -->
 
+</div>
 
-    </div>
-<!-- Main Body End -->
-
-
-
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
