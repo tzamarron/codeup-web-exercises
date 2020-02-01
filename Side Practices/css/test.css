@@ -36,7 +36,7 @@ h5 {
 }
 
 .orange {
-    background: #EB0D3A;
+    background: #EB9D3A;
 }
 
 .green {
@@ -75,21 +75,50 @@ h5 {
 }
 
 /* Middle Circle Links*/
+#mid-cir-link-container {
+    width: 605px;
+}
 
+/*Large Screen*/
+#lg-circle-column {
+    max-width: 700px;
+}
 /*Red Circle*/
 #big-design-circle {
-    height: 6em;
+    height: 107px;
+    width: 107px;
+    border: 3px solid white;
+    color: white;
+}
+
+#big-design-circle > h5:nth-child(1) {
+    line-height: 100px;
 }
 
 #big-develop-circle {
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
+}
+
+#big-develop-circle > h5:nth-child(1) {
+    line-height: 130px;
 }
 
 #big-support-circle {
-    height: 6em;
+    height: 130px;
+    width: 130px;
+}
+
+#big-support-circle > h5:nth-child(1) {
+    line-height: 130px;
 }
 
 #big-host-circle {
-    height: 6em;
+    height: 130px;
+    width: 130px;
 }
+
+#big-host-circle > h5:nth-child(1) {
+    line-height: 130px;
+}
+
