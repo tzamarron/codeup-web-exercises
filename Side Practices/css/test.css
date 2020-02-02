@@ -143,3 +143,18 @@ h5 {
     width: 65%;
 }
 
+/* Bottom Area Section Titles */
+#bottom-area-container p {
+    font-size: 1.2em;
+}
+
+/*All Bottom Area Cards*/
+.bot-left-side-card {
+    border: none;
+    background-color: #E6E6E6;
+}
+
+.bot-left-side-card img {
+    border: 10px solid #F0F0F0;
+}
+
