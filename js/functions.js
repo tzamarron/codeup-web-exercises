@@ -1,4 +1,6 @@
 "use strict";
+(function () {
+
 
 /**
  * TODO:
@@ -112,3 +114,5 @@ var random = Math.floor((Math.random() * 3) + 1);
 //     return actualPrice - (actualPrice * (discountAmt / 100));
 // }
 // alert(applyDiscount());
+
+})();
