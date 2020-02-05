@@ -110,5 +110,5 @@ var random = Math.floor((Math.random() * 3) + 1);
 //     var actualPrice = parseFloat(prompt("How much is the item?"));
 //     var discountAmt = parseFloat(prompt("What discount percent is offered?"));
 //     return actualPrice - (actualPrice * (discountAmt / 100));
-}
-alert(applyDiscount());
+// }
+// alert(applyDiscount());
