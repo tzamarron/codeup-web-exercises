@@ -12,51 +12,58 @@
 
 
 	<script>
-		//
+
+
+		//Write a function called isString that accepts a single input, and returns true of the data type is a sting or false if it is not a string
+		function isString(input) {
+			return typeof input === "string";
+		}
+		// console.log(isString(1));//false
+		// console.log(isString(true));//false
+		// console.log(isString("hello"));//true
 
 		// Write a javascript function that returns the string "Hello World!"
-		// function helloWorld() {
-		// 	return 'Hello World!';
-		// }
+		function helloWorld() {
+			return 'Hello World!';
+		}
 		// console.log(helloWorld());
 
 		//write a function that takes in two numbers and returns the quotient of the two numbers passed
-		// function quotient(x,y) {
-		// 	return x / y;
-		// }
+		function quotient(x,y) {
+			return x / y;
+		}
 		// console.log(quotient(6,3));
 
 		//write a function that takes in a name and returns "Hello, the name"
-		// function helloName(name) {
-		// 	return "Hello," + name;
-		// }
+		function helloName(name) {
+			return "Hello," + name;
+		}
 		// console.log(helloName("Ted"));
 
 		//write a function called calculateRectangleArea that accepts a length and width, and returns the area
-		// function calculateRectangleArea(length, width) {
-		// 	return 'The area is ' + (length * width)
-		// }
-		//
+		function calculateRectangleArea(length, width) {
+			return 'The area is ' + (length * width)
+		}
 		// console.log(calculateRectangleArea(2, 2)); //expect 4
 		// console.log(calculateRectangleArea(5, 4)); //expect 20
 
 		//Write a function called arrayLength that accepts an array and returns the length of that array
-		// function arrayLength(input) {
-		// 	return input.length;
-		// }
+		function arrayLength(input) {
+			return input.length;
+		}
 		// console.log(arrayLength([1,2,3,4])) //return 4
 		// console.log(arrayLength(['dog', 'cat', 'wolf', 'ferret', 'bird'])); //return 5
 
 		// write a function that returns the number 7
-		// 	function sevenReturn() {
-		// 		return 7;
-		// 	}
+			function sevenReturn() {
+				return 7;
+			}
 		// 	console.log(sevenReturn(19));
 
 		// Write a function called firstItem that accepts an array and returns the first item of that array
-		// function firstItem(array) {
-		// 	return array[0];
-		// }
+		function firstItem(array) {
+			return array[0];
+		}
 		// console.log(firstItem(["dog", "cat", "fish", "bird", "fox"])); //expect "dog"
 		// console.log(firstItem([1, 2, 3, 4])); //expect 1
 
@@ -75,17 +82,17 @@
 		// console.log(sumAll([1, 4]));
 
 		//Write a function called determineType that accepts a single input, and returns the type of data that input is
-		// function determineType(input) {
-		// 	return typeof input;
-		// }
+		function determineType(input) {
+			return typeof input;
+		}
 		// console.log(determineType(7));//number
 		// console.log(determineType(true));//boolean
 		// console.log(determineType("hello"));//string
 
 		//Write a function that returns true or false based off whether the number passed, squared, is evenly divisible by 3.
-		// function divisBy3(num) {
-		// 	return (num * num) % 3 === 0
-		// }
+		function divisBy3(num) {
+			return (num * num) % 3 === 0
+		}
 		// console.log(divisBy3(3));//true
 		// console.log(divisBy3(7));//false
 
