@@ -1,5 +1,41 @@
 "use strict";
 
+
+
+
+
+
+
+// sample.substring(sample.indexOf("C"), sample.indexOf("p"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // alert("Welcome to my Website!");
 //
 // var userFavColor = prompt("What is your favorite color?");
@@ -45,7 +81,7 @@
 // var offer = confirm("Is the offer your using expired?");
 // var ableToSave = (amountPurch > 2 || primMem === true) && offer === false;
 // var tellCustomer = function saver() {
-//     if(ableToSave ===true) {
+//     if(ableToSave === true) {
 //         return "Product offer applied!"
 //     } else {
 //         return "Product offer not valid."
