@@ -56,13 +56,13 @@ function isMultipleOf(target, n) {
 // console.log(isMultipleOf(20, 3));
 
 function isTrue(boolean) {
-    return typeof boolean === "boolean";
+    return !!boolean === true;
 }
 // console.log(isTrue(true));
 // console.log(isTrue(5));
 
 function isFalse(boolean) {
-    return boolean === false;
+    return !!boolean === false;
 }
 // console.log(isFalse(false));
 // console.log(isFalse("true"));
@@ -74,3 +74,4 @@ function isTruthy(input) {
 function isFalsy(input) {
     return input === false;
 }
+
