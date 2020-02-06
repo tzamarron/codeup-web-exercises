@@ -16,42 +16,69 @@
  * Can you refactor your code to use functions?
  */
 
-function evenOdd (number) {
-    if (number % 2 === 0) {
-        alert("Your number is even.");
-    } else {
-        alert("Your number is odd.");
-    }
-}
-function plus100 (number) {
-    alert(number + 100);
-}
-function negPos (number) {
-    if(number >= 0) {
-        alert("Your number is positive.");
-    } else {
-        alert("Your number is negative.");
-    }
-}
-function isNum (){
-    var userNumberSelect = +(prompt("Sweet, pick a whole number please."));
-    if(/^\d+$/.test(userNumberSelect)) {
-        return [evenOdd(userNumberSelect), plus100(userNumberSelect), negPos(userNumberSelect)]
-    } else {
-        alert("If you didn't want to pick a number if you didn't want too.");
-    }
-}
-function areWePlaying() {
-    var wannaPlay = confirm("Do you want to pick a number?");
-    if (wannaPlay) {
-        return isNum()
-    } else {
-        alert("Have a great day!");
-    }
+//multiple functions
+// function evenOdd (number) {
+//     if (number % 2 === 0) {
+//         alert("Your number is even.");
+//     } else {
+//         alert("Your number is odd.");
+//     }
+// }
+// function plus100 (number) {
+//     alert(number + 100);
+// }
+// function negPos (number) {
+//     if(number >= 0) {
+//         alert("Your number is positive.");
+//     } else {
+//         alert("Your number is negative.");
+//     }
+// }
+// function isNum (){
+//     var userNumberSelect = +(prompt("Sweet, pick a whole number please."));
+//     if(/^\d+$/.test(userNumberSelect)) {
+//         return [evenOdd(userNumberSelect), plus100(userNumberSelect), negPos(userNumberSelect)]
+//     } else {
+//         alert("If you didn't want to pick a number if you didn't want too.");
+//     }
+// }
+// function areWePlaying() {
+//     var wannaPlay = confirm("Do you want to pick a number?");
+//     if (wannaPlay) {
+//         return isNum()
+//     } else {
+//         alert("Have a great day!");
+//     }
+//
+// }
+// areWePlaying();
 
-}
-areWePlaying();
-
+//single function
+// function wannaPlay() {
+//     var letsPlayAGame = confirm("Do you want to pick a number?");
+//     if (!letsPlayAGame) {
+//         alert('Ok have a nice day.');
+//     } else {
+//         var userPickNum =prompt("Pick any number.");
+//         if(isNaN(userPickNum)) {
+//             alert("You didn't have to play along if you didn't want to...");
+//         } else {
+//             if(userPickNum % 2 === 0){
+//                 alert("Your number is even.");
+//             } else {
+//                 alert("Your number is odd.");
+//             }
+//             var plus100 = parseFloat(userPickNum) + 100;
+//             alert(" Your number plus 100 is " + plus100 + ".");
+//             if(userPickNum >= 0) {
+//                 alert("Your number is positive.");
+//             } else {
+//                 alert("Your number is negative.");
+//             }
+//         }
+//     }
+// }
+// wannaPlay();
 //confirm if user wants to pick number
 //if no then end conversation-----END
 //If yes the have user select number
