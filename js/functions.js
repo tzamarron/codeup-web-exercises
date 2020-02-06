@@ -110,7 +110,9 @@ var random = Math.floor((Math.random() * 3) + 1);
  */
 // function applyDiscount(price, disPercent) {
 //     var actualPrice = parseFloat(prompt("How much is the item?"));
-//     var discountAmt = parseFloat(prompt("What discount percent is offered?"));
+//     var discountAmt = prompt("What discount percent is offered?");
+//     var percentNum = discountAmt.indexOf("%");
+//     var deciNum = discountAmt.indexOf("")
 //     return actualPrice - (actualPrice * (discountAmt / 100));
 // }
 // alert(applyDiscount());
