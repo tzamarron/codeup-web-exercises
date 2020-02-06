@@ -15,32 +15,33 @@
  *
  * Can you refactor your code to use functions?
  */
-var isPlaying = function (input) {
-    if (input === true) {
-        alert ("Let's play a game.");
-    }   else alert ("Ok..I'll see you around.");
-};
-var pickNum = function (input) {
-    if (typeof input === "number") {
-        alert("Abra Kadabra");
-    }   alert ("That's not a number");
-} ;
-var evenOdd = function (input) {
-    if (input % 2 === 0) {
-        return "This is a even number.";
-    }   return "This is a odd number.";
-};
-var plus100 = function (input) {
-    return input + 100;
-};
-var negPos = function (input) {
-    if (input > 0) {
-        return "This number is positive.";
-    }   return "This number is negative.";
-};
+//confirm if user wants to pick number
+// var givenNum = prompt("Pick a number");
+// var evenOdd = givenNum % 2 === 0;
+// var add100 = givenNum + 100;
+// var negPos = givenNum > 0;
+// function wannaPlay() {
+// var isGoingOn = confirm("Do you want to pick a number?");
+//     if (isGoingOn) {
+//         return givenNum;
+//     } else {
+//         return alert("Ok I'll ask some else.");
+//     }
+// }
+// wannaPlay();
+// console.log(evenOdd);
+// console.log(add100);
+// console.log(negPos);
 
-isPlaying(confirm("DO you want to pick a number?"));
-function fun()
+//if no then end conversation-----END
+//If yes the have user select number
+
+//determine is what user entered is a number
+//use alert to inform them if not a number
+//if it is a number then:
+//use number to determine whether even or odd
+//use number to determine whether negative or postive
+// add 100 to number
 
 /* ########################################################################## */
 
@@ -61,24 +62,77 @@ function fun()
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
+function analyzeColor(color) {
+    if (color === "blue") {
+        return "blue is the color of a sky on a clear day.";
+    } else if (color === "red") {
+        return "red is the color of my favorite Gatorade flavor.";
+    } else if (color === "orange"){
+        return "Orange is the color of fruit I love most.";
+    } else if (color === "yellow" ){
+        return "Yellow is the color of the submarine.";
+    } else if (color === "green") {
+        return "Green is one of the color of my old high school.";
+    } else if (color === "indigo") {
+        return "Indigo is my sister's favorite color.";
+    } else if (color === "violet") {
+        return 'Violet looks like purple to me.';
+    } else {
+        return "I'm not sure what to say for that one.";
+    }
+}
+//
+// console.log(analyzeColor("orange"));
+// console.log(analyzeColor("red"));
+// console.log(analyzeColor("pencil"));
+// console.log(analyzeColor("blue"));
+
 
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-// var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-// var randomColor = colors[Math.floor(Math.random() * colors.length)];
+var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+var randomColor = colors[Math.floor(Math.random() * colors.length)];
 /**
  * TODO:
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
+// console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+// switch (randomColor) {
+//     case ('blue'):
+//         alert("blue is the color of a sky on a clear day.");
+//         break;
+//     case ('red'):
+//         alert("red is the color of my favorite Gatorade flavor.");
+//         break;
+//     case ('orange'):
+//         alert("Orange is the color of fruit I love most.");
+//         break;
+//     case ('yellow'):
+//         alert("Yellow is the color of the submarine.");
+//         break;
+//     case ('green'):
+//         alert("Green is one of the color of my old high school.");
+//         break;
+//     case ('indigo'):
+//         alert("Indigo is my sister's favorite color.");
+//         break;
+//     case ('violet'):
+//         alert('Violet looks like purple to me.');
+//         break;
+//     default:
+//         alert("I dont know anything about that");
+//         break;
+// }
+// console.log(randomColor);
 
 /**
  * TODO:
@@ -86,6 +140,9 @@ function fun()
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+// var userColor = prompt("What is your favorite color?");
+// var userAnswer = analyzeColor(userColor);
+// alert(userAnswer);
 
 /* ########################################################################## */
 
@@ -109,6 +166,7 @@ function fun()
  * return value.
  */
 
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -118,3 +176,4 @@ function fun()
  */
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
+
