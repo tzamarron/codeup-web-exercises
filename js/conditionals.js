@@ -15,27 +15,46 @@
  *
  * Can you refactor your code to use functions?
  */
-//confirm if user wants to pick number
-// var givenNum = prompt("Pick a number");
-// var evenOdd = givenNum % 2 === 0;
-// var add100 = givenNum + 100;
-// var negPos = givenNum > 0;
-// function wannaPlay() {
-// var isGoingOn = confirm("Do you want to pick a number?");
-//     if (isGoingOn) {
-//         return givenNum;
-//     } else {
-//         return alert("Ok I'll ask some else.");
-//     }
-// }
-// wannaPlay();
-// console.log(evenOdd);
-// console.log(add100);
-// console.log(negPos);
 
+function evenOdd (number) {
+    if (number % 2 === 0) {
+        alert("Your number is even.");
+    } else {
+        alert("Your number is odd.");
+    }
+}
+function plus100 (number) {
+    alert(number + 100);
+}
+function negPos (number) {
+    if(number >= 0) {
+        alert("Your number is positive.");
+    } else {
+        alert("Your number is negative.");
+    }
+}
+function isNum (){
+    var userNumberSelect = +(prompt("Sweet, pick a whole number please."));
+    if(/^\d+$/.test(userNumberSelect)) {
+        return [evenOdd(userNumberSelect), plus100(userNumberSelect), negPos(userNumberSelect)]
+    } else {
+        alert("If you didn't want to pick a number if you didn't want too.");
+    }
+}
+function areWePlaying() {
+    var wannaPlay = confirm("Do you want to pick a number?");
+    if (wannaPlay) {
+        return isNum()
+    } else {
+        alert("Have a great day!");
+    }
+
+}
+areWePlaying();
+
+//confirm if user wants to pick number
 //if no then end conversation-----END
 //If yes the have user select number
-
 //determine is what user entered is a number
 //use alert to inform them if not a number
 //if it is a number then:
@@ -62,26 +81,25 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
-function analyzeColor(color) {
-    if (color === "blue") {
-        return "blue is the color of a sky on a clear day.";
-    } else if (color === "red") {
-        return "red is the color of my favorite Gatorade flavor.";
-    } else if (color === "orange"){
-        return "Orange is the color of fruit I love most.";
-    } else if (color === "yellow" ){
-        return "Yellow is the color of the submarine.";
-    } else if (color === "green") {
-        return "Green is one of the color of my old high school.";
-    } else if (color === "indigo") {
-        return "Indigo is my sister's favorite color.";
-    } else if (color === "violet") {
-        return 'Violet looks like purple to me.';
-    } else {
-        return "I'm not sure what to say for that one.";
-    }
-}
-//
+// function analyzeColor(color) {
+//     if (color === "blue") {
+//         return "blue is the color of a sky on a clear day.";
+//     } else if (color === "red") {
+//         return "red is the color of my favorite Gatorade flavor.";
+//     } else if (color === "orange"){
+//         return "Orange is the color of fruit I love most.";
+//     } else if (color === "yellow" ){
+//         return "Yellow is the color of the submarine.";
+//     } else if (color === "green") {
+//         return "Green is one of the color of my old high school.";
+//     } else if (color === "indigo") {
+//         return "Indigo is my sister's favorite color.";
+//     } else if (color === "violet") {
+//         return 'Violet looks like purple to me.';
+//     } else {
+//         return "I'm not sure what to say for that one.";
+//     }
+// }
 // console.log(analyzeColor("orange"));
 // console.log(analyzeColor("red"));
 // console.log(analyzeColor("pencil"));
@@ -93,8 +111,8 @@ function analyzeColor(color) {
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-var randomColor = colors[Math.floor(Math.random() * colors.length)];
+// var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+// var randomColor = colors[Math.floor(Math.random() * colors.length)];
 /**
  * TODO:
  * Pass the `randomColor` variable to your function and console.log the results.
@@ -165,15 +183,35 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-function calculateTotal(lucky, startAmt) {
-    var luckNum = lucky;
-    var totalAmt = startAmt;
-    var isLucky = luckNum === 0;
-    switch (isLucky) {
-        case ("0"):
-            return
-    }
-}
+
+// var personalDis = parseInt(prompt('Enter your lucky number'));
+// var totalPrice = parseFloat(prompt("How much is your total without discount?"));
+// function calculateTotal(luckyNum, totalAmt) {
+//     var userDiscountTotal;
+//     switch (luckyNum) {
+//         case 1:
+//             userDiscountTotal = .1;
+//             break;
+//         case 2:
+//             userDiscountTotal = .25;
+//             break;
+//         case 3:
+//             userDiscountTotal = .35;
+//             break;
+//         case 4:
+//             userDiscountTotal = .5;
+//             break;
+//         case 5:
+//             userDiscountTotal = 1;
+//             break;
+//         default:
+//             userDiscountTotal = 0;
+//             break;
+//     }
+//     var calcUserDiscount = totalAmt * userDiscountTotal;
+//     return totalAmt - calcUserDiscount;
+// }
+// alert("Your total amount is $" + (calculateTotal(personalDis, totalPrice)).toFixed(2) + ".");
 
 /**
  * TODO:
@@ -184,4 +222,11 @@ function calculateTotal(lucky, startAmt) {
  */
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
+
+// var userBill = parseFloat(prompt("What is your total bill?"));
+// alert("Your Lucky number today was " + luckyNumber + ".");
+// alert("Your total of $" + userBill + " is now $" + calculateTotal(luckyNumber, userBill) + " thanks to your lucky number.");
+
+
+
 
