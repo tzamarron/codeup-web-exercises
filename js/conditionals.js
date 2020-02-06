@@ -165,7 +165,15 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-
+function calculateTotal(lucky, startAmt) {
+    var luckNum = lucky;
+    var totalAmt = startAmt;
+    var isLucky = luckNum === 0;
+    switch (isLucky) {
+        case ("0"):
+            return
+    }
+}
 
 /**
  * TODO:
