@@ -204,14 +204,33 @@ console.log("hello from conditionals lec.js!");
 // =============== IF / ELSE IF/ELSE STATEMENT EXAMPLES ================
 //TODO Together: Write an if/else if/else statement that alerts "It's snowing!" if weather is equal to "snowing", alerts "It's raining" if weather is equal to "raining", alerts "have a nice day" for all other cases
 
+// var weather = "raining";
+// if(weather === 'snowing') {
+//     alert('It\'s snowing');
+// } else if (weather === 'raining') {
+//     alert("It's raining");
+// } else {
+//     alert("Have a nice day");
+// }
 
 
 //TODO Together: refactor the above statement as a function
 
+// function checkWeather(weather) {
+//     if(weather === 'snowing') {
+//         return 'It\'s snowing';
+//     } else if (weather === 'raining') {
+//         return "It's raining";
+//     } else {
+//         return "Have a nice day";
+//     }
+// }
+// alert(checkWeather(weather));
+
 // Together: PIZZA PREFERENCE EXAMPLE 
 
-// var pizzaPreference = prompt("What kind of pizza do you like?");
-// console.log("User pizza input: " + pizzaPreference);
+// var pizzaPreference = (prompt("What kind of pizza do you like?")).toLowerCase();//did so we know its all the same
+// console.log("User pizza input: " + pizzaPreference);// console log for debugging
 //
 // if (pizzaPreference === "pineapple and hot sauce") {
 //     alert("What a coincidence, that's my favorite!");
@@ -228,17 +247,19 @@ console.log("hello from conditionals lec.js!");
 
 //TODO: Write a function that accepts a string that is a traffic light color as an input. When this function is called, it should return a message informing the user what to do when approaching that color light at an intersection.
 
-// var lightColor = "red";
+// var lightColor = (prompt("What color is the light?")).toLowerCase();
 // function lightstatus(color) {
 //     if(lightColor === "red") {
-//         return "Stop"
-//     } else if ('green') {
-//         return "Go"
+//         return "Stop";
+//     } else if (lightColor === 'yellow') {
+//         return "Slow Down";
+//     } else if (lightColor==='green') {
+//         return "Go";
 //     } else {
-//         return "Slow down"
+//         return 'Where are you at?'
 //     }
 // }
-// lightstatus(lightColor);
+// alert(lightstatus(lightColor));
 
 
 
@@ -308,7 +329,26 @@ console.log("hello from conditionals lec.js!");
 
 //TODO: Write a switch statement that evaluates weather as the condition. Check for "rainy", "sunny", "snow", and a default case.
 
-
+// var outside = (prompt("What is the weather outside?")).toLowerCase();
+// function currentStatus(weather) {
+//     var whatWeAreDoing;
+//     switch (weather) {
+//         case "rainy":
+//             whatWeAreDoing = "So we need a umbrella";
+//             break;
+//         case 'sunny':
+//             whatWeAreDoing = "Let's go for a walk.";
+//             break;
+//         case 'snow':
+//             whatWeAreDoing = "I have to find my snow boots.";
+//             break;
+//         default:
+//             whatWeAreDoing = "Let's see what else we can do";
+//             break;
+//     }
+//     return whatWeAreDoing;
+// }
+// alert (currentStatus(outside));
 
 //TODO: Rewrite the intersection function from earlier as a switch statement.
 
