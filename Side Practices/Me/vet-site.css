@@ -1,0 +1,12 @@
+
+#main-body-container {
+    background-color: cadetblue;
+}
+#logo-row {
+    height: 90vh;
+    background-image: url("flag.jpg");
+}
+.three-cards {
+    background: none;
+    height:50vh
+}
