@@ -16,6 +16,8 @@
  * Can you refactor your code to use functions?
  */
 
+// var isNum = !isNaN(number) used to find if input is a real number false is not a real number
+
 //multiple functions
 // function evenOdd (number) {
 //     if (number % 2 === 0) {
@@ -53,7 +55,7 @@
 // }
 // areWePlaying();
 
-//single function
+// single function
 // function wannaPlay() {
 //     var letsPlayAGame = confirm("Do you want to pick a number?");
 //     if (!letsPlayAGame) {
@@ -68,9 +70,11 @@
 //             } else {
 //                 alert("Your number is odd.");
 //             }
+//
 //             var plus100 = parseFloat(userPickNum) + 100;
 //             alert(" Your number plus 100 is " + plus100 + ".");
-//             if(userPickNum >= 0) {
+//
+//             if(userPickNum > 0) {
 //                 alert("Your number is positive.");
 //             } else {
 //                 alert("Your number is negative.");
