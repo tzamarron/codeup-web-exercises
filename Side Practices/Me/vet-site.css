@@ -8,5 +8,9 @@
 }
 .three-cards {
     background: none;
-    height:50vh
+    height:70vh
+}
+
+.make-fit {
+    object-fit: fill;
 }
