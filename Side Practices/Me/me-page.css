@@ -4,5 +4,5 @@ body {
 
 /* Image on top of page */
 #main-top-image {
-    /*background-image: url("");*/
+    height: 80vh;
 }

@@ -1,4 +1,7 @@
 
+body {
+    background-color: cadetblue;
+}
 #main-body-container {
     background-color: cadetblue;
 }
@@ -11,6 +14,3 @@
     height:70vh
 }
 
-.make-fit {
-    object-fit: fill;
-}
