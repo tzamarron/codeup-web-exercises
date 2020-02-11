@@ -8,13 +8,8 @@
 // showMultiplicationTable(7);
 
 
-// var randomNumber = function() {
-//     return Math.floor(Math.random() * 20) + 180;
-// };
-//
-//
 // for (var i = 1; i<=10;i++){
-//     var x = randomNumber();
+//     var x = Math.floor(Math.random() * 5) + 1;
 //     // console.log(x);
 //     if (x % 2 === 0){
 //         console.log(x + " is even");

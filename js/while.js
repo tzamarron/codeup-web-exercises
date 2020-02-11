@@ -14,21 +14,22 @@
     // Math.floor(Math.random() * 5) + 1;
 
     var allCones = Math.floor(Math.random() * 50) + 50;
-    var userCones = function(){
-        return Math.floor(Math.random() * 5) + 1;
-        };
+    var numCustomers = 0
 
     do{
-        var xSold = userCones();
+        var xSold = Math.floor(Math.random() * 5) + 1;
         console.log(allCones);
         if (allCones>=xSold){
             console.log(xSold + 'cones sold ...');
             allCones-=xSold;
-        } else if (allCones === 0){
-            console.log("Yay! I sold them all!");
-            break;
+            numCustomers+=1;
         } else {
             console.log("Cannot sell you " + xSold + " I only have " + allCones + " ...");
+            numCustomers+=1;
         }
-    } while (allCones >= 0);
+    } while (allCones !== 0);
+console.log("Yay! I sold them all!");
+console.log("Total customers today: " + numCustomers);
+
+
 
