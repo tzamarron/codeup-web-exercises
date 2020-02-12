@@ -20,7 +20,7 @@
         var xSold = Math.floor(Math.random() * 5) + 1;
         console.log(allCones);
         if (allCones>=xSold){
-            console.log(xSold + 'cones sold ...');
+            console.log(xSold + ' cones sold ...');
             allCones-=xSold;
             numCustomers+=1;
         } else {
