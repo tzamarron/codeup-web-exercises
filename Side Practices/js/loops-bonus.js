@@ -29,5 +29,22 @@
         }
     }
 
+    // do {
+    //
+    //     var userNumber = parseFloat(prompt("Please enter a number between 1 and 99"));
+    //
+    //     if (userNumber < 1 || userNumber > 50){
+    //         alert(userNumber + " is not between 1 and 50, please enter again");
+    //     } else if (userNumber % 2 === 0){
+    //         alert(userNumber + " is not odd, please enter again");
+    //     } else if ( isNaN(userNumber)){
+    //         alert(userNumber = " is not a number! Please enter again");
+    //     } else {
+    //         alert("Congrats, you picked the right number!");
+    //         break;
+    //     }
+    //
+    // } while(true);
+
 
 })();
