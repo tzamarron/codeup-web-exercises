@@ -26,8 +26,8 @@ console.log("Welcome to intro to arrays");
 
 //TODO TOGETHER: Declare an empty array set equal to the variable `pies` - then console.log `pies`
 
-var pies = [];
-// console.log(pies);
+// var pies = [];
+// // console.log(pies);
 
 //TODO TOGETHER: Set the following array equal to `pies` - then console.log `pies`
 // ["apple", "cherry", "key lime", "huckleberry"];
@@ -121,10 +121,9 @@ var favoriteFoods = ["philly steak", "pizza", "sushi", "ramen"];
 
 // TODO: create a function called `returnLastElement` that accepts an array and returns the last element of that array
 
-function returnLastElement(array) {
-    return array[array.length - 1];
-}
-
+// function returnLastElement(array) {
+//     return array[array.length - 1];
+// }
 // console.log(returnLastElement(instructors));
 
 
