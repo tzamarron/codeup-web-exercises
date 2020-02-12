@@ -14,7 +14,7 @@
     // Math.floor(Math.random() * 5) + 1;
 
     var allCones = Math.floor(Math.random() * 50) + 50;
-    var numCustomers = 0
+    var numCustomers = 0;
 
     do{
         var xSold = Math.floor(Math.random() * 5) + 1;
