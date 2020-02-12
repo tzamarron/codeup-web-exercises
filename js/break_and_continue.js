@@ -1,10 +1,9 @@
+(function(){
 "use strict";
-
 
 // do {
 //     var userNum = parseFloat(prompt("Pick an odd number between 1 and 50."));
 // } while(isNaN(userNum) || userNum % 2 === 0);
-
 
 
 // var userNum = parseFloat(prompt("Pick a number between 1 and 50"));
@@ -16,3 +15,6 @@
 // 	}
 // 	console.log('Here is an odd number: ' + i);
 // }
+
+
+})();

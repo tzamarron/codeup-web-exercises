@@ -1,3 +1,4 @@
+(function(){
 "use strict";
 
 // function showMultiplicationTable(number) {
@@ -30,5 +31,4 @@
 // }
 
 
-
-
+})();

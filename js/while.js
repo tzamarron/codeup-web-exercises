@@ -1,3 +1,4 @@
+(function(){
 "use strict";
 
     //exercise 1
@@ -32,4 +33,4 @@
 // console.log("Total customers today: " + numCustomers);
 
 
-
+})();
