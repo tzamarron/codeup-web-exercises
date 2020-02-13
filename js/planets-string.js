@@ -25,7 +25,15 @@
      * string, and <li> tags around each planet.
      */
 
-    var planets = planetsArray.join("|");
+    var planets = planetsArray.join("<br>");
     console.log(planets);
+
+    var listLoopString = "<ul>";
+    planetsArray.forEach(function (planet) {
+        listLoopString += '<li>';
+        listLoopString += planet;
+        listLoopString += '<li>';
+    });
+    listLoopString += "<ul>";
 
 })();
