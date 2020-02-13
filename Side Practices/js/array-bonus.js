@@ -172,20 +172,110 @@
 
 
     // Bonus 2-7
+    // var tests = [1,2,3,4,5,5,6,2,2,4,3];
     // var tests = ["a",'b','a','b','c','c'];
     // function getUniqueValues(array) {
-    //     return array.filter((a,b) => array.indexOf(a) === b);
+    //     return [...new Set(array)]
+    //     // return array.filter((a,b) => array.indexOf(a) === b);
     // }
     // console.log(getUniqueValues(tests));
 
 
     // Bonus 2-8
-    // var tests = [1,2,3,4,5,6];
+    // var test1s = [1,2,3];
+    // var test2s = [4,5,6];
     // function addTwoArrays(array1, array2) {
     //     return array1.concat(array2);
     // }
     // console.log(addTwoArrays(test1s, test2s));
 
 
+    // Bonus 2-9
+    // function getRandomQuote() {
+    //     var inspire = [
+    //         "I am not afraid of an Army of lions lead by a sheep; I am afraid of sheep lead by a lion.  -  Alexander the Great", "We all make choices, but in the end our choices make us.  -  Andrew Ryan (BioShock)", "Don’t ever stop. Always keep going, no matter what happens and is taken from you. Even when life is so unfair, don’t give up.  -  Ezio(AC2)", "A journey of a thousand miles begins with a single step. So just take it step by step.  -  Waka (Okami)", "No matter how dark the night, the morning always comes.  -  Lulu (FFX)"];
+    //     return inspire[Math.floor(Math.random() * inspire.length)];
+    // }
+    // console.log(getRandomQuote());
+
+
+    // Bonus 2-10
+    // function getIndexesOf(input1, string) {
+    //     var result = [];
+    //     for (var i =0;i < string.length; i++){
+    //         if (string[i] === input1){
+    //             result.push(i);
+    //         }
+    //     }
+    //     return result;
+    // }
+    // console.log(getIndexesOf("a", "banana")); // [1, 3, 5]
+    // console.log(getIndexesOf("z", "banana")); // []
+
+
+    // Bonus 2-11
+    // function removeAll(array, value){
+    //     var newArray = [];
+    //     for (var i = 0;i < array.length; i++) {
+    //         if (array[i]!== value){newArray.push(array[i])}
+    //     }
+    //     return newArray;
+    // }
+    // console.log(removeAll([1, 2, 3], 2)); //[1,3]
+    // console.log(removeAll([2,2,3,4,5,2,2], 2)); // [3,4,5]
+
+
+    // Bonus 2-12
+    // function firstTenFibonacciNumbers() {
+    //     var fib = [0,1];
+    //     for(var i = fib.length; i <= 9; i++){
+    //         var calcNext = (fib[i - 2]) + (fib[i - 1]);
+    //         fib.push(calcNext);
+    //     }
+    //     return fib;
+    // }
+    // console.log(firstTenFibonacciNumbers());
+
+
+    // Bonus 2-13
+    // function getNFibonacci(num) {
+    //     var fib = [0,1];
+    //     if (num === 1 || num === 0){
+    //         fib.pop();
+    //         return fib;
+    //     } else if (num === 2){
+    //         return fib;
+    //     } else {
+    //         for (var i = fib.length; i < num; i++) {
+    //             fib[i] = fib[i-2] + fib[i-1];
+    //         }
+    //         return fib;
+    //     }
+    // }
+    // console.log(getNFibonacci(0));
+    // console.log(getNFibonacci(1));
+    // console.log(getNFibonacci(2));
+    // console.log(getNFibonacci(3));
+    // console.log(getNFibonacci(10));
+
+
+    // Bonus 2-14
+    // var test = [1,2,3,4];
+    // function moveFirstToLast(array) {
+    //     var first = array.shift();
+    //     array.push(first);
+    //     return array;
+    // }
+    // console.log(moveFirstToLast(test)); // [2,3,4,1]
+
+
+    // Bonus 2-15
+    // var test1 = [1,2,3];
+    // var test2 = [4,5,6];
+    // var test3 = ['a','b','c'];
+    // var test4 = ['x','y','z'];
+    // function zip(array1, array2) {
+    //
+    // }
 })();
 
