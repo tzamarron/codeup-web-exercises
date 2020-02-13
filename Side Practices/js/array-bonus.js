@@ -2,18 +2,20 @@
     "use strict";
 
     //bonus 1
-    var fruits = ["apple", "banana", "orange", "apple", "pineapple"];
-
-    function allIndexesOf(array,value){
-        var timesInArray = [];
-        for(var i = 0; i < array.length; i++){
-            if(array[i] === value){timesInArray.push(i)}
-        }
-        return timesInArray;
-    }
-    console.log(allIndexesOf(fruits, 'apple'));//[0,3]
-    console.log(allIndexesOf(fruits, 'guava'));//[]
-    console.log(allIndexesOf(fruits, 'pineapple'));//[4]
+    // var fruits = ["apple", "banana", "orange", "apple", "pineapple"];
+    //
+    // function allIndexesOf(array,value){
+    //     var timesInArray = [];
+    //     for(var i = 0; i < array.length; i++){
+    //         if(array[i] === value) {
+    //             timesInArray.push(i)
+    //         }
+    //     }
+    //     return timesInArray;
+    // }
+    // console.log(allIndexesOf(fruits, 'apple'));//[0,3]
+    // console.log(allIndexesOf(fruits, 'guava'));//[]
+    // console.log(allIndexesOf(fruits, 'pineapple'));//[4]
 
 
     //Bonus 2
@@ -139,9 +141,51 @@
 
 
     // Bonus 2-4
-    function getLongestString(array) {
-        return array[0];
-    }
+    // var tests = ["ad", "bbb", "c", "dddd", "ee"];
+    // function getLongestString(array) {
+    //     var short = array.sort(function (a, b) {
+    //         return b.length - a.length
+    //     });
+    //     return short[0];
+    // }
+    // console.log(getLongestString(tests));
+
+
+    // Bonus 2-5
+    // var tests = ["ad", "bbb", "c", "dddd", "ee"];
+    // function getShortestString(array) {
+    //     var short = array.sort(function (a, b) {
+    //         return a.length - b.length
+    //     });
+    //     return short[0];
+    // }
+    // console.log(getShortestString(tests));
+
+
+    // Bonus 2-6
+    // var test1s = [1,2,3];
+    // var test2s = [4,5,6];
+    // function addTwoArrays(array1, array2) {
+    //     return array1.concat(array2);
+    // }
+    // console.log(addTwoArrays(test1s, test2s));
+
+
+    // Bonus 2-7
+    // var tests = ["a",'b','a','b','c','c'];
+    // function getUniqueValues(array) {
+    //     return array.filter((a,b) => array.indexOf(a) === b);
+    // }
+    // console.log(getUniqueValues(tests));
+
+
+    // Bonus 2-8
+    // var tests = [1,2,3,4,5,6];
+    // function addTwoArrays(array1, array2) {
+    //     return array1.concat(array2);
+    // }
+    // console.log(addTwoArrays(test1s, test2s));
 
 
 })();
+
