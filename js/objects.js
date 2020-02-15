@@ -11,6 +11,12 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
+    // var person = {
+    //     firstName: "Ted",
+    //     lastName: "Zamarron"
+    // };
+    // console.log(person.firstName);
+    // console.log(person.lastName);
 
     /**
      * TODO:
@@ -21,6 +27,11 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+    // person.sayHello = function(){
+    //     return("Hello from " + this.firstName +" " + this.lastName);
+    // };
+    // console.log(person.sayHello());
+
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -41,6 +52,20 @@
     //     {name: 'Ryan', amount: 250},
     //     {name: 'George', amount: 320}
     // ];
+    // shoppers.forEach(function(name){
+    //     console.log(shoppers);
+    //     var determineTotal = name.amount - 200 >= 0;
+    //     var calcDiscount = name.amount - (name.amount * .12);
+    //     var discountMessage = name.name + " you received a 12% discount! Your total of $" + name.amount + " is now $" + calcDiscount;
+    //     var noDiscountMessage = name.name + " your total is $" + name.amount;
+    //
+    //     if(determineTotal){
+    //         console.log(discountMessage);
+    //     } else {
+    //         console.log(noDiscountMessage);
+    //     }
+    // });
+
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -54,6 +79,27 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+    // var books = [
+    //     {title: "It", author:{
+    //         firstName: "Stephen", lastName: "King"
+    //         }},
+    //     {title: "Dracula", author:{
+    //         firstName: "Bram", lastName: "Stoker"
+    //         }},
+    //     {title: "Frankenstein", author:{
+    //         firstName: "Mary", lastName: "Shelley"
+    //         }},
+    //     {title: "Interview With A Vampire", author:{
+    //         firstName: "Anne", lastName: "Rice"
+    //         }},
+    //     {title: "City of Bones", author:{
+    //         firstName: "Cassandra", lastName: "Clare"
+    //         }}
+    // ]
+    // console.log(books[2].title);
+    // console.log(books[3].author.firstName);
+    // console.log(books[3].author.lastName);
+
 
     /**
      * TODO:
@@ -79,6 +125,12 @@
      *      ---
      *      ...
      */
+    // books.forEach(function (name) {
+    //     console.log("Book #" + books.indexOf(name));
+    //     console.log("Title: " + name.title);
+    //     console.log("Author: " + name.author.firstName + " " + name.author.lastName);
+    //     console.log("---");
+    // });
 
     /**
      * Bonus:
@@ -90,5 +142,27 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+    var myLibrary = [];
+    function createBooks(title, firstName, lastName) {
+        myLibrary.push(
+            {
+            title: title,
+            author:{
+                firstName: firstName,
+                lastName: lastName
+            },
+            bookInfo:function(){
+                    console.log("Book #" + myLibrary.indexOf(this));
+                    console.log("Title: " + this.title);
+                    console.log("Author: " + this.author.firstName + " " + this.author.lastName);
+                    console.log("---");
+            }
+        })
+    }
 
+    console.log(createBooks("It", "Stephen", "King"));
+
+    console.log(myLibrary);
+    console.log(myLibrary[0].title);
+    console.log(myLibrary[0].bookInfo());
 })();
