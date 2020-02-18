@@ -11,6 +11,7 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
+
     // var person = {
     //     firstName: "Ted",
     //     lastName: "Zamarron"
@@ -27,6 +28,7 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+
     // person.sayHello = function(){
     //     return("Hello from " + this.firstName +" " + this.lastName);
     // };
@@ -53,11 +55,11 @@
     //     {name: 'George', amount: 320}
     // ];
     // shoppers.forEach(function(name){
-    //     console.log(shoppers);
-    //     var determineTotal = name.amount - 200 >= 0;
+    //     var determineTotal = name.amount > 200;
+    //     var discount = name.amount* .12;
     //     var calcDiscount = name.amount - (name.amount * .12);
-    //     var discountMessage = name.name + " you received a 12% discount! Your total of $" + name.amount + " is now $" + calcDiscount;
-    //     var noDiscountMessage = name.name + " your total is $" + name.amount;
+    //     var discountMessage = name.name + " you received a 12% discount! Your total of $" + name.amount.toFixed(2) + " is now $" + calcDiscount.toFixed(2) + '. You saved $' + discount.toFixed(2) + "!";
+    //     var noDiscountMessage = name.name + " your total is $" + name.amount.toFixed(2);
     //
     //     if(determineTotal){
     //         console.log(discountMessage);
@@ -79,6 +81,7 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
     // var books = [
     //     {title: "It", author:{
     //         firstName: "Stephen", lastName: "King"
@@ -95,7 +98,7 @@
     //     {title: "City of Bones", author:{
     //         firstName: "Cassandra", lastName: "Clare"
     //         }}
-    // ]
+    // ];
     // console.log(books[2].title);
     // console.log(books[3].author.firstName);
     // console.log(books[3].author.lastName);
@@ -125,11 +128,17 @@
      *      ---
      *      ...
      */
+
     // books.forEach(function (name) {
     //     console.log("Book #" + books.indexOf(name));
     //     console.log("Title: " + name.title);
     //     console.log("Author: " + name.author.firstName + " " + name.author.lastName);
     //     console.log("---");
+    // });
+
+    // review answer
+    // books.forEach(function (book, index) {
+    //     console.log("Book #" + (index + 1) + "\n Title: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
     // });
 
     /**
@@ -142,27 +151,28 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
-    var myLibrary = [];
-    function createBooks(title, firstName, lastName) {
-        myLibrary.push(
-            {
-            title: title,
-            author:{
-                firstName: firstName,
-                lastName: lastName
-            },
-            bookInfo:function(){
-                    console.log("Book #" + myLibrary.indexOf(this));
-                    console.log("Title: " + this.title);
-                    console.log("Author: " + this.author.firstName + " " + this.author.lastName);
-                    console.log("---");
-            }
-        })
-    }
 
-    console.log(createBooks("It", "Stephen", "King"));
-
-    console.log(myLibrary);
-    console.log(myLibrary[0].title);
-    console.log(myLibrary[0].bookInfo());
+//     var myLibrary = [];
+//     function createBooks(title, firstName, lastName) {
+//         myLibrary.push(
+//             {
+//             title: title,
+//             author:{
+//                 firstName: firstName,
+//                 lastName: lastName
+//             },
+//             bookInfo:function(){
+//                     console.log("Book #" + myLibrary.indexOf(this));
+//                     console.log("Title: " + this.title);
+//                     console.log("Author: " + this.author.firstName + " " + this.author.lastName);
+//                     console.log("---");
+//             }
+//         })
+//     }
+//
+//     console.log(createBooks("It", "Stephen", "King"));
+//
+//     console.log(myLibrary);
+//     console.log(myLibrary[0].title);
+//     console.log(myLibrary[0].bookInfo());
 })();
