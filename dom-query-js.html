@@ -54,11 +54,19 @@
                 listItems[l].style.color = "blue";
             }
         }
+        // review answer
+        // for (var i = 0; i < listItems.length; i+=2){
+        //     if (listItems[i].getAttribute("data-dbid")==="1"){
+        //         listItems[i].style.color = "blue";
+        //     } else if (i % 2 === 0){
+        //         listItems[i].style.color = "grey"
+        //     }
+        // }
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         var subParagraphs = document.getElementsByClassName("sub-paragraph");
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs.innerText = "Mission Accomplished";
+        subParagraphs[0].innerText = "Mission Accomplished";
     })();
 </script>
 </body>
