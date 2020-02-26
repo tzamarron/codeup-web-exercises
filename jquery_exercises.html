@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery_exercises</title>
+</head>
+<body>
+
+<div id="div_1">
+
+    <h1 id="header">Hello Me!</h1>
+
+    <p id="para_1">You're a very talented young man, with your own clever thoughts and ideas. Do you need a manager? Jaguar shark! So tell me - does it really exist? You're a very talented young man, with your own clever thoughts and ideas. Do you need a manager? Do you have any idea how long it takes those cups to decompose.</p>
+
+    <p id="para_2">I was part of something special. You really think you can fly that thing? I gave it a cold? I gave it a virus. A computer virus. Life finds a way. Hey, take a look at the earthlings. Goodbye! Hey, you know how I'm, like, always trying to save the planet? Here's my chance.</p>
+
+</div>
+
+<div id="div_2">
+    <ul id="list_main">
+        <li id="item_1" class="codeup">HTML</li>
+        <li id="item_2" class="codeup">CSS</li>
+        <li id="item_3" class="codeup">JavaScript</li>
+    </ul>
+</div>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    $(document).ready(function() {
+        let jeffWords = $('#para_1').html();
+        alert(jeffWords);
+    });
+</script>
+</body>
+</html>
