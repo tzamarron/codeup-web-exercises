@@ -26,10 +26,29 @@
 
 <script src="js/jquery-2.2.4.js"></script>
 <script>
-    $(document).ready(function() {
-        let jeffWords = $('#para_1').html();
-        alert(jeffWords);
+    // $(document).ready(function() {
+    //     let jeffWords = $('#para_1').html();
+    //     alert(jeffWords);
+    // });
+
+    $("h1").click(function () {
+        $(this).css({
+            "background": "rebeccapurple"
+        })
     });
+
+    $("p").dblclick(function () {
+        $(this).css({
+            'font-size': '18px'
+        })
+    });
+
+    $("li").hover(function () {
+        $(this).css('color', 'red')
+    }, function () {
+        $(this).css('color', 'black')
+    })
+
 </script>
 </body>
 </html>
