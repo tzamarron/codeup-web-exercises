@@ -1,3 +1,63 @@
+
+body{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: grey;
+}
+#screen{
+    position: absolute;
+    height: 80vh;
+    width: 75vw;
+    top: 80px;
+    left: 13%;
+    background-color: black;
+    z-index: 1;
+}
+#mario{
+    position: absolute;
+    height: auto;
+    top: 50px;
+    left: 70px;
+    display: inline-block;
+}
+#ash{
+    position: absolute;
+    height: auto;
+    top: 50px;
+    right: 55px;
+    display: inline-block;
+}
+#bulba{
+    position: absolute;
+    height: auto;
+    top: 211px;
+    left: 50px;
+    display: inline-block;
+}
+#char{
+    position: absolute;
+    height: auto;
+    top: 211px;
+    right: 38px;
+    display: inline-block;
+}
+#squirtle{
+    position: absolute;
+    height: auto;
+    top: 400px;
+    left: 55px;
+    display: inline-block;
+}
+#kirby{
+    position: absolute;
+    height: auto;
+    top: 400px;
+    right: 50px;
+    display: inline-block;
+}
+
+/* Picture inside Screen */
 .slot{
     background-image: url("../img/slot.gif");
     background-repeat: no-repeat;
@@ -37,7 +97,7 @@
     background-size: cover;
 }
 .BOTW{
-    background-image: url("img/BOTW.gif");
+    background-image: url("../img/BOTW.gif");
     background-repeat: no-repeat;
     background-position: top;
     background-position-y: 40px;

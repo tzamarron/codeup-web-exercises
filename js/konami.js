@@ -33,7 +33,7 @@ $(document).keyup(function (input) {
 });
 
 let sound = 0;
-$(document).click(function () {
+$("#screen").click(function () {
     if (sound === 0){
         $(".coin").get(0).play();
         console.log("yes");
