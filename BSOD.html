@@ -9,77 +9,19 @@
         body{
             background-color: black;
         }
-        .slot{
-            background-image: url("img/slot.gif");
-            background-repeat: no-repeat;
-            background-position: top;
-            background-position-y: 80px;
-        }
-        .Contra{
-            background-image: url("img/Contraj_title.gif");
-            background-repeat: no-repeat;
-            background-position: top;
-            background-size: 730px;
-        }
-        .KDreamland{
-            background-image: url("img/KDreamLand.gif");
-            background-repeat: no-repeat;
-            background-position: top;
-            background-position-y: 40px;
-            background-size: cover;
-        }
-        .KAdventure{
-            background-image: url("img/KAdventure.gif");
-            background-repeat: no-repeat;
-            background-position: top;
-            background-size: 607px;
-        }
-        .ZeldaOG{
-            background-image: url("img/zelda-start-screen.gif");
-            background-repeat: no-repeat;
-            background-position: top;
-            background-position-y: 40px;
-            background-size: cover;
-        }
-        .OOT{
-            background-image: url("img/OOT.gif");
-            background-repeat: no-repeat;
-            background-position: top;
-            background-position-y: 40px;
-            background-size: cover;
-        }
-        .BOTW{
-            background-image: url("img/BOTW.gif");
-            background-repeat: no-repeat;
-            background-position: top;
-            background-position-y: 40px;
-            background-size: cover;
-        }
+
 
     </style>
 </head>
 <body id="BSOD" class="slot">
 <audio src="sound/16767_1460739418.mp3" class="coin" type="audio/mp3"></audio>
 <script src="js/jquery-2.2.4.js"></script>
-<!--<script src="js/BSOD.js"></script>-->
+<script src="js/konami.js"></script>
 <script>
     $(document).ready(function () {
 
 
 
-
-                let sound = 0;
-            $(document).click(function () {
-                if (sound === 0){
-                    $(".coin").get(0).play();
-                    console.log("yes");
-                    sound++
-                }
-            });
-
-            $(document).dblclick(function () {
-                sound = 0;
-            });
 
 
 

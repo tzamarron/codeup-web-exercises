@@ -5,133 +5,95 @@
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <title>Konami Code</title>
     <style>
+
         body{
-            position: absolute;
+            position: relative;
             margin: 0;
             padding: 0;
             background-color: grey;
         }
-        iframe{
-            position: relative;
-            height: 70vh;
-            width: 50vw;
-            top: 120px;
-            left: 50%;
+        #screen{
+            position: absolute;
+            height: 80vh;
+            width: 75vw;
+            top: 80px;
+            left: 13%;
             background-color: black;
             z-index: 1;
         }
-        #sprite1{
-            position: relative;
-            height: auto;
-            top: -570px;
-            left: -80px;
-            display: none;
-        }
-        #sprite2{
-            position: relative;
-            height: auto;
-            top: -1012px;
-            left: 552px;
-            display: none;
-        }
-        #sprite2>img{height: 401px}
-        #sprite3{
-            position: relative;
-            height: auto;
-            top: -1271px;
-            left: 1370px;
-            display: none;
-        }
-        #sprite3>img{height: 250px}
-        #sprite4{
-            position: relative;
+        #mario{
+            position: absolute;
             height: auto;
             top: 50px;
-            left: 50px;
-            display: none;
+            left: 70px;
+            display: inline-block;
         }
-        #sprite5{
-            position: relative;
+        #ash{
+            position: absolute;
             height: auto;
             top: 50px;
-            left: 50px;
-            display: none;
+            right: 55px;
+            display: inline-block;
         }
-        #sprite6{
-            position: relative;
+        #bulba{
+            position: absolute;
             height: auto;
-            top: 50px;
+            top: 211px;
             left: 50px;
-            display: none;
+            display: inline-block;
         }
-        #sprite7{
-            position: relative;
+        #char{
+            position: absolute;
             height: auto;
-            top: 50px;
-            left: 50px;
-            display: none;
+            top: 211px;
+            right: 38px;
+            display: inline-block;
         }
-        #sprite8{
-            position: relative;
+        #squirtle{
+            position: absolute;
             height: auto;
-            top: 50px;
-            left: 50px;
-            display: none;
+            top: 400px;
+            left: 55px;
+            display: inline-block;
         }
-        #sprite9{
-            position: relative;
+        #kirby{
+            position: absolute;
             height: auto;
-            top: 50px;
-            left: 50px;
-            display: none;
+            top: 400px;
+            right: 50px;
+            display: inline-block;
         }
-        #sprite10{
-            position: relative;
-            height: auto;
-            top: -616px;
-            left: 552px;
-            display: none;
-        }
+
 
     </style>
 </head>
 <body>
 
-<iframe src="BSOD.html"></iframe>
+<div id="screen"></div>
+<audio src="sound/16767_1460739418.mp3" class="coin" type="audio/mp3"></audio>
 
-<div id="sprite1">
-    <img src="img/KB/kirby_calling_for_an_assistant_by_marxkirby-dbo5isa.gif" alt="Kirby inhaling" id="kirby-call">
-</div>
-<div id="sprite2">
-    <img src="img/6sages.gif" alt="6 Sages" id="6-sages">
-</div>
-<div id="sprite3">
-    <img src="img/BOTW-Link.gif" alt="BOTW Link" id="BOTW-Link">
-</div>
-<div id="sprite4">
+<div id="mario">
     <i class="nes-mario"></i>
 </div>
-<div id="sprite5">
+<div id="ash">
     <i class="nes-ash"></i>
 </div>
-<div id="sprite6">
+<div id="bulba">
     <i class="nes-bulbasaur"></i>
 </div>
-<div id="sprite7">
+<div id="char">
     <i class="nes-charmander"></i>
 </div>
-<div id="sprite8">
+<div id="squirtle">
     <i class="nes-squirtle"></i>
 </div>
-<div id="sprite9">
+<div id="kirby">
     <i class="nes-kirby"></i>
 </div>
-<div id="sprite10">
-    <img src="img/6sages.gif" alt="6 Sages" id="6-sages2">
-</div>
+
 
 <script src="js/jquery-2.2.4.js"></script>
-<script src="js/BSOD.js"></script>
+<script src="js/konami.js"></script>
 
 </body>
 </html>

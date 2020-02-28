@@ -1,0 +1,45 @@
+.slot{
+    background-image: url("../img/slot.gif");
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.Contra{
+    background-image: url("../img/Contraj_title.gif");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 730px;
+}
+.KDreamland{
+    background-image: url("../img/KDreamLand.gif");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-position-y: 40px;
+    background-size: cover;
+}
+.KAdventure{
+    background-image: url("../img/KAdventure.gif");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 607px;
+}
+.ZeldaOG{
+    background-image: url("../img/zelda-start-screen.gif");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-position-y: 40px;
+    background-size: cover;
+}
+.OOT{
+    background-image: url("../img/OOT.gif");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-position-y: 40px;
+    background-size: cover;
+}
+.BOTW{
+    background-image: url("img/BOTW.gif");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-position-y: 40px;
+    background-size: cover;
+}
