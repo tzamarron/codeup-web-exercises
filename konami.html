@@ -3,38 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/konami.css">
     <title>Konami Code</title>
-    <style>
 
-
-
-
-    </style>
 </head>
 <body>
 
-<div id="screen"></div>
-<audio src="sound/16767_1460739418.mp3" class="coin" type="audio/mp3"></audio>
+<section id="show1" class="slot screen"></section>
+<section id="show2" class="screen"></section>
+<iframe src="https://www.playemulator.com/nes-online/super-mario-bros/#emu_game_area" allowfullscreen="allowfullscreen"></iframe>
+
+<audio src="sound/16767_1460739418.mp3" class="coinSound" type="audio/mp3"></audio>
 
 <div id="mario">
     <i class="nes-mario"></i>
 </div>
-<div id="ash">
-    <i class="nes-ash"></i>
-</div>
 <div id="bulba">
     <i class="nes-bulbasaur"></i>
-</div>
-<div id="char">
-    <i class="nes-charmander"></i>
-</div>
-<div id="squirtle">
-    <i class="nes-squirtle"></i>
 </div>
 <div id="kirby">
     <i class="nes-kirby"></i>
 </div>
-
+<div id="contraP1">
+    <img src="img/konami/C1.png" alt="Contra player">
+</div>
+<div id="kirbyOG">
+    <img src="img/konami/kirbyOG.png" alt="OG Kirby">
+</div>
+<div id="ogLink">
+    <img src="img/konami/link-nes.png" alt="Original Link">
+</div>
+<div id="ootLink">
+    <img src="img/konami/OOT-link.png" alt="Ocarina Link">
+</div>
+<div id="botwLink">
+    <img src="img/konami/BOTW-link.png" alt="Switch Link">
+</div>
 
 <script src="js/jquery-2.2.4.js"></script>
 <script src="js/konami.js"></script>

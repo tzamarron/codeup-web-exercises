@@ -5,14 +5,22 @@ body{
     padding: 0;
     background-color: grey;
 }
-#screen{
+#show2{display: none}
+#show2, #show1{
     position: absolute;
     height: 80vh;
     width: 75vw;
     top: 80px;
     left: 13%;
     background-color: black;
-    z-index: 1;
+}
+iframe{
+    display: none;
+    position: absolute;
+    height: 80vh;
+    width: 75vw;
+    top: 80px;
+    left: 13%;
 }
 #mario{
     position: absolute;
@@ -21,85 +29,107 @@ body{
     left: 70px;
     display: inline-block;
 }
-#ash{
-    position: absolute;
-    height: auto;
-    top: 50px;
-    right: 55px;
-    display: inline-block;
-}
 #bulba{
     position: absolute;
     height: auto;
     top: 211px;
-    left: 50px;
-    display: inline-block;
-}
-#char{
-    position: absolute;
-    height: auto;
-    top: 211px;
-    right: 38px;
-    display: inline-block;
-}
-#squirtle{
-    position: absolute;
-    height: auto;
-    top: 400px;
-    left: 55px;
+    right: 29px;
     display: inline-block;
 }
 #kirby{
     position: absolute;
     height: auto;
-    top: 400px;
-    right: 50px;
+    top: 382px;
+    right: 38px;
     display: inline-block;
+}
+#contraP1{
+    position: absolute;
+    height: auto;
+    top: 200px;
+    left: 78px;
+    display: inline-block;
+}
+#contraP1>img{
+    height: 120px;
+}
+#kirbyOG{
+    position: absolute;
+    height: auto;
+    top: 335px;
+    left: -20px;
+    display: inline-block;
+}
+#ogLink{
+    position: absolute;
+    height: auto;
+    top: 50px;
+    right: 10px;
+    display: inline-block;
+}
+#ogLink>img{
+    height: 100px
+}
+#ootLink{
+    position: absolute;
+    height: auto;
+    top: 537px;
+    left: 0;
+    display: inline-block;
+}
+#ootLink>img{
+    height: 200px;
+}
+#botwLink{
+    position: absolute;
+    height: auto;
+    top: 553px;
+    right: 35px;
+    display: inline-block;
+}
+#botwLink>img{
+    height: 145px;
 }
 
 /* Picture inside Screen */
 .slot{
-    background-image: url("../img/slot.gif");
+    background-image: url("../img/konami/slot.gif");
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: center;
 }
 .Contra{
-    background-image: url("../img/Contraj_title.gif");
+    background-image: url("../img/konami/Contraj_title.gif");
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: center;
     background-size: 730px;
 }
 .KDreamland{
-    background-image: url("../img/KDreamLand.gif");
+    background-image: url("../img/konami/KDreamLand.gif");
     background-repeat: no-repeat;
-    background-position: top;
-    background-position-y: 40px;
-    background-size: cover;
+    background-position: center;
+    background-size: contain;
 }
 .KAdventure{
-    background-image: url("../img/KAdventure.gif");
+    background-image: url("../img/konami/KAdventure.gif");
     background-repeat: no-repeat;
-    background-position: top;
-    background-size: 607px;
+    background-position: center;
+    background-size: contain;
 }
 .ZeldaOG{
-    background-image: url("../img/zelda-start-screen.gif");
+    background-image: url("../img/konami/zelda-start-screen.gif");
     background-repeat: no-repeat;
     background-position: top;
-    background-position-y: 40px;
-    background-size: cover;
+    background-size: contain;
 }
 .OOT{
-    background-image: url("../img/OOT.gif");
+    background-image: url("../img/konami/OOT.gif");
     background-repeat: no-repeat;
     background-position: top;
-    background-position-y: 40px;
-    background-size: cover;
+    background-size: contain;
 }
 .BOTW{
-    background-image: url("../img/BOTW.gif");
+    background-image: url("../img/konami/BOTW.gif");
     background-repeat: no-repeat;
     background-position: top;
-    background-position-y: 40px;
-    background-size: cover;
+    background-size: contain;
 }
