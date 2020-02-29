@@ -1,21 +1,22 @@
 "use strict";
 
 let userInput = [];
-// let konamiCode = "38,38,40,40,37,39,37,39,66,65,13";
+let konamiCode = "38,38,40,40,37,39,37,39,66,65,13";
 let sound = 0;
-let konamiCode = ["38","38","40","40","37","39","37","39","66","65","13"];
+let konami = ["38","38","40","40","37","39","37","39","66","65","13"];
 
 $(document).keyup(function (input) {
     userInput.push(input.keyCode);
-    console.log(userInput);
+    // console.log(userInput);
 
-    // if (userInput.toString().indexOf(konamiCode) >= 0){
-    //     $("#show2").fadeOut("fast").removeClass().addClass("screen");
-    //     $("#show1").fadeIn("fast");
-    //     $("div").unbind();
-    //     sound = 0;
-    //     userInput = [];
-    // }
+    if (userInput.toString().indexOf(konamiCode) >= 0){
+        $("#show2").fadeOut("fast").removeClass().addClass("screen");
+        $("#show1").fadeIn("fast");
+        $("#pp7").fadeIn("fast");
+        $("div").unbind();
+        sound = 0;
+        userInput = [];
+    }
 });
 
 $(".screen").click(function () {
@@ -41,12 +42,12 @@ $(".screen").click(function () {
             $("#show2").removeClass()
         });
         $("#mario").hover(function () {
-            $("#show2").addClass("Contra")
+            $("#show2").addClass("mario")
         },function(){
             $("#show2").removeClass()
         });
         $("#bulba").hover(function () {
-            $("#show2").addClass("Contra")
+            $("#show2").addClass("pokemon")
         },function(){
             $("#show2").removeClass()
         });
@@ -67,4 +68,10 @@ $(".screen").click(function () {
         });
 
     }
+});
+
+$("#pp7").click(function () {
+    //popup
+    console.log("cheat");
+    // $(this).fadeOut("fast");
 });

@@ -22,6 +22,20 @@ iframe{
     top: 80px;
     left: 13%;
 }
+#topBorder{
+    position: absolute;
+    top: 6px;
+    left: 228px;
+    size: auto;
+    display: inline-block;
+}
+#bottomBorder{
+    position: absolute;
+    top: 734px;
+    left: 228px;
+    size: auto;
+    display: inline-block;
+}
 #mario{
     position: absolute;
     height: auto;
@@ -87,8 +101,18 @@ iframe{
     right: 35px;
     display: inline-block;
 }
+#pp7{
+    position: absolute;
+    height: auto;
+    top: 730px;
+    left: 50px;
+    display: none;
+}
 #botwLink>img{
     height: 145px;
+}
+#pp7>img{
+    height: 75px;
 }
 
 /* Picture inside Screen */
@@ -129,6 +153,18 @@ iframe{
 }
 .BOTW{
     background-image: url("../img/konami/BOTW.gif");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+}
+.pokemon{
+    background-image: url("https://i.gifer.com/IQfU.gif");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+}
+.mario{
+    background-image: url("../img/konami/mario.gif");
     background-repeat: no-repeat;
     background-position: top;
     background-size: contain;
