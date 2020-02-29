@@ -94,13 +94,6 @@ iframe{
 #ootLink>img{
     height: 200px;
 }
-#botwLink{
-    position: absolute;
-    height: auto;
-    top: 553px;
-    right: 35px;
-    display: inline-block;
-}
 #pp7{
     position: absolute;
     height: auto;
@@ -108,11 +101,15 @@ iframe{
     left: 50px;
     display: none;
 }
-#botwLink>img{
-    height: 145px;
-}
 #pp7>img{
     height: 75px;
+}
+#tetrisBlock{
+    position: absolute;
+    height: auto;
+    top: 536px;
+    right: 15px;
+    display: inline-block;
 }
 
 /* Picture inside Screen */
@@ -151,12 +148,6 @@ iframe{
     background-position: top;
     background-size: contain;
 }
-.BOTW{
-    background-image: url("../img/konami/BOTW.gif");
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: contain;
-}
 .pokemon{
     background-image: url("https://i.gifer.com/IQfU.gif");
     background-repeat: no-repeat;
@@ -165,6 +156,12 @@ iframe{
 }
 .mario{
     background-image: url("../img/konami/mario.gif");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+}
+.tetris{
+    background-image: url("../img/konami/tetris.png");
     background-repeat: no-repeat;
     background-position: top;
     background-size: contain;

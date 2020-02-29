@@ -12,8 +12,12 @@ $(document).keyup(function (input) {
     if (userInput.toString().indexOf(konamiCode) >= 0){
         $("#show2").fadeOut("fast").removeClass().addClass("screen");
         $("#show1").fadeIn("fast");
-        $("#pp7").fadeIn("fast");
         $("div").unbind();
+        $("#pp7").fadeIn("fast").click(function () {
+            //popup
+            console.log("cheat");
+            // $(this).fadeOut("fast");
+        });
         sound = 0;
         userInput = [];
     }
@@ -61,17 +65,11 @@ $(".screen").click(function () {
         },function(){
             $("#show2").removeClass()
         });
-        $("#botwLink").hover(function () {
-            $("#show2").addClass("BOTW")
+        $("#tetrisBlock").hover(function () {
+            $("#show2").addClass("tetris")
         },function(){
             $("#show2").removeClass()
         });
 
     }
-});
-
-$("#pp7").click(function () {
-    //popup
-    console.log("cheat");
-    // $(this).fadeOut("fast");
 });
