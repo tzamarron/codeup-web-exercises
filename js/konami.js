@@ -11,12 +11,13 @@ $(document).keyup(function (input) {
 
     if (userInput.toString().indexOf(konamiCode) >= 0){
         $("#show2").fadeOut("fast").removeClass().addClass("screen");
+        $("#iframe").fadeOut("fast").removeClass().addClass("screen");
         $("#show1").fadeIn("fast");
         $("div").unbind();
         $("#pp7").fadeIn("fast").click(function () {
-            //popup
-            console.log("cheat");
-            // $(this).fadeOut("fast");
+            $(".cheatEnable").get(0).play();
+            $(this).fadeOut("fast");
+            $("#show1").fadeOut('fast').removeClass().addClass("screen");
         });
         sound = 0;
         userInput = [];
@@ -31,44 +32,60 @@ $(".screen").click(function () {
         $("#show1").fadeOut("slow");
         $("#show2").fadeIn("fast");
         $("#contraP1").hover(function () {
-            $("#show2").addClass("Contra")
+            $("#show2").addClass("Contra");
+            $(".contraSound").get(0).play();
         },function(){
-            $("#show2").removeClass()
+            $("#show2").removeClass();
+            $(".contraSound").get(0).pause();
         });
         $("#kirby").hover(function () {
-            $("#show2").addClass("KAdventure")
+            $("#show2").addClass("KAdventure");
+            $(".kirbySound").get(0).play();
         },function(){
-            $("#show2").removeClass()
+            $("#show2").removeClass();
+            $(".kirbySound").get(0).pause();
         });
         $("#kirbyOG").hover(function () {
-            $("#show2").addClass("KDreamland")
+            $("#show2").addClass("KDreamland");
+            $(".kirbyOGSound").get(0).play();
         },function(){
-            $("#show2").removeClass()
+            $("#show2").removeClass();
+            $(".kirbyOGSound").get(0).pause();
         });
         $("#mario").hover(function () {
-            $("#show2").addClass("mario")
+            $("#show2").addClass("mario");
+            $(".marioSound").get(0).play();
         },function(){
-            $("#show2").removeClass()
+            $("#show2").removeClass();
+            $(".marioSound").get(0).pause();
         });
         $("#bulba").hover(function () {
-            $("#show2").addClass("pokemon")
+            $("#show2").addClass("pokemon");
+            $(".pokemonSound").get(0).play();
         },function(){
-            $("#show2").removeClass()
+            $("#show2").removeClass();
+            $(".pokemonSound").get(0).pause();
         });
         $("#ogLink").hover(function () {
-            $("#show2").addClass("ZeldaOG")
+            $("#show2").addClass("ZeldaOG");
+            $(".linkSound").get(0).play();
         },function(){
-            $("#show2").removeClass()
+            $("#show2").removeClass();
+            $(".linkSound").get(0).pause();
         });
         $("#ootLink").hover(function () {
-            $("#show2").addClass("OOT")
+            $("#show2").addClass("OOT");
+            $(".ootSound").get(0).play();
         },function(){
-            $("#show2").removeClass()
+            $("#show2").removeClass();
+            $(".ootSound").get(0).pause();
         });
         $("#tetrisBlock").hover(function () {
-            $("#show2").addClass("tetris")
+            $("#show2").addClass("tetris");
+            $(".tetrisSound").get(0).play();
         },function(){
-            $("#show2").removeClass()
+            $("#show2").removeClass();
+            $(".tetrisSound").get(0).pause();
         });
 
     }
