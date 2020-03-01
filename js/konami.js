@@ -10,14 +10,16 @@ $(document).keyup(function (input) {
     // console.log(userInput);
 
     if (userInput.toString().indexOf(konamiCode) >= 0){
-        $("#show2").fadeOut("fast").removeClass().addClass("screen");
-        $("#iframe").fadeOut("fast").removeClass().addClass("screen");
+        $("#show2").fadeOut("fast");
+        $("iframe").fadeOut("fast");
         $("#show1").fadeIn("fast");
         $("div").unbind();
         $("#pp7").fadeIn("fast").click(function () {
             $(".cheatEnable").get(0).play();
             $(this).fadeOut("fast");
-            $("#show1").fadeOut('fast').removeClass().addClass("screen");
+            $("#show1").fadeOut('fast');
+            $("#show2").fadeOut('fast');
+            $("iframe").fadeIn("slow");
         });
         sound = 0;
         userInput = [];
