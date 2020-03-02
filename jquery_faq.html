@@ -3,63 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <style>
+        body{
+            font-size: 1.5rem;
+        }
         .invisible{
             display: none;
         }
         .highlight{
             background: yellow;
         }
+        .blueFont{
+            color: blue;
+        }
+        .picture{
+            display: inline-flex;
+            flex-direction: column;
+            border: 3px solid tan;
+            border-radius: 5px;
+        }
+        .picture>img{
+            height: 200px;
+        }
+        .picture>button{
+            background-color: grey;
+            height: 100px;
+            width: 100%;
+        }
     </style>
     <title>National Parks</title>
 </head>
 <body>
-<dl>
-    <dt>Who is the director of the National Park Service?
-    </dt>
-    <dd>David Vela is the Deputy Director, exercising the authority of the Director of the National Park Service.
-    </dd>
-    <dt>What government agency oversees the National Park Service?
-    </dt>
-    <dd>The National Park Service is a bureau of the Department of the Interior. Directly overseeing its operation is the department's Assistant Secretary for Fish, Wildlife and Parks.
-    </dd>
-    <dt>How many employees are in the National Park Service?
-    </dt>
-    <dd>Permanent, temporary, and seasonal employees: More than 20,000
-    </dd>
-    <dt>How old is the National Park System?
-    </dt>
-    <dd>The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. View the National Park System timeline.
-    </dd>
-    <dt>What is the largest national park site?</dt>
-    <dd>Largest: Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres
-    </dd>
-    <dt>What is the smallest national park site?</dt>
-    <dd>Smallest: Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres
-    </dd>
-    <dt>How many people visit the national parks?
-    </dt>
-    <dd>Total recreation visitors to the national parks in 2018: 318,211,833.
-    </dd>
-    <dt>How many areas are in the National Park System?
-    </dt>
-    <dd>The system includes 419 areas covering more than 85 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands. These areas include national parks, monuments, battlefields, military parks, historical parks, historic sites, lakeshores, seashores, recreation areas, scenic rivers and trails, and the White House. Learn more about national park designations. See the complete list of National Park Service units and affiliated areas by type and number.
-    </dd>
-    <dt>What is the most-visited national park?
-    </dt>
-    <dd>Great Smoky Mountains National Park
-    </dd>
-    <dt>How do I apply for a job with the National Park Service?
-    </dt>
-    <dd>National Park Service jobs, including both permanent and seasonal positions, are listed on USAJOBs. Learn more about working for us, including opportunities for students and volunteers and tips for applying for jobs.
-    </dd>
-    <button type="button" id="btn-dd">Show answers</button>
+<!-- 10 FAQS -->
+<div>
+    <dl>
+        <dt>Who is the director of the National Park Service?
+        </dt>
+        <dd>David Vela is the Deputy Director, exercising the authority of the Director of the National Park Service.
+        </dd>
+        <dt>What government agency oversees the National Park Service?
+        </dt>
+        <dd>The National Park Service is a bureau of the Department of the Interior. Directly overseeing its operation is the department's Assistant Secretary for Fish, Wildlife and Parks.
+        </dd>
+        <dt>How many employees are in the National Park Service?
+        </dt>
+        <dd>Permanent, temporary, and seasonal employees: More than 20,000
+        </dd>
+        <dt>How old is the National Park System?
+        </dt>
+        <dd>The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. View the National Park System timeline.
+        </dd>
+        <dt>What is the largest national park site?</dt>
+        <dd>Largest: Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres
+        </dd>
+        <dt>What is the smallest national park site?</dt>
+        <dd>Smallest: Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres
+        </dd>
+        <dt>How many people visit the national parks?
+        </dt>
+        <dd>Total recreation visitors to the national parks in 2018: 318,211,833.
+        </dd>
+        <dt>How many areas are in the National Park System?
+        </dt>
+        <dd>The system includes 419 areas covering more than 85 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands. These areas include national parks, monuments, battlefields, military parks, historical parks, historic sites, lakeshores, seashores, recreation areas, scenic rivers and trails, and the White House. Learn more about national park designations. See the complete list of National Park Service units and affiliated areas by type and number.
+        </dd>
+        <dt>What is the most-visited national park?
+        </dt>
+        <dd>Great Smoky Mountains National Park
+        </dd>
+        <dt>How do I apply for a job with the National Park Service?
+        </dt>
+        <dd>National Park Service jobs, including both permanent and seasonal positions, are listed on USAJOBs. Learn more about working for us, including opportunities for students and volunteers and tips for applying for jobs.
+        </dd>
+    </dl>
+</div>
 
-</dl>
+<button type="button" id="btn-dd">Show answers</button>
+
+<!-- 3 Parks -->
+<div>
+    <ul>
+        <h3>Great Smokey Mountains National Park</h3>
+        <ul>
+            <li>The Smoky Mountains Are Among the Oldest in the World</li>
+            <li>A Woman Was the First Settler to the Smoky Mountains</li>
+            <li>It Was the First National Park to be Partially Federally Funded</li>
+            <li>A Third of the Trees in the Park Are Over 100 Years Old</li>
+        </ul>
+    </ul>
+
+    <ul>
+        <h3>Grand Canyon National Park</h3>
+        <ul>
+            <li>Grand Canyon National Park is bigger than the entire state of Rhode Island.</li>
+            <li>The Hopi Tribe considers the Grand Canyon a gateway to the afterlife.</li>
+            <li>The most dangerous animal in the canyon is actually the rock squirrel!</li>
+            <li>Despite being the most famous, the Grand Canyon is not actually the world’s deepest canyon.</li>
+        </ul>
+    </ul>
+
+    <ul>
+        <h3>Zion National Park</h3>
+        <ul>
+            <li>Before it was a national park, Zion was a national monument, and it’s name wasn’t Zion.</li>
+            <li>Zion’s Angels Landing provides spectacular views, but it’s one of the world’s most dangerous.</li>
+            <li>The park has a Subway, but it’s not a form of public transportation.</li>
+            <li>Zion has one of the largest freestanding arches in the world.</li>
+        </ul>
+    </ul>
+</div>
+
+<!-- Picture Carousel -->
+<div>
+    <!-- Pictures -->
+    <div id="pic-slot1" class="picture">
+        <img src="img/gray-bridge-and-trees-814499.jpg" alt="Archway between trees" id="pic1">
+        <button type="button" id="pic-btn1">Move</button>
+    </div>
+    <div id="pic-slot2" class="picture">
+        <img src="img/alberta-amazing-attraction-banff-417074.jpg" alt="View of Mountains" id="pic2">
+        <button type="button" id="pic-btn2">Move</button>
+    </div>
+    <div id="pic-slot3" class="picture">
+        <img src="img/body-of-water-between-green-leaf-trees-709552.jpg" alt="Water by Trees" id="pic3">
+        <button type="button" id="pic-btn3">Move</button>
+    </div>
+</div>
+
 <script src="js/jquery-2.2.4.js"></script>
 <script>
-    //hide DD
+    // hide DD
     $("dd").addClass("invisible");
-    //function to change btn text
+
+    // function to change btn text
     function ddSwitch(){
         let btnText = $("#btn-dd");
         let showDD = "Show answers";
@@ -71,14 +146,65 @@
             btnText.html(showDD)
         }
     }
-    //on button click toggle showing DD and btn text
+
+    // on button click toggle showing DD and btn text
     $("#btn-dd").click(function () {
         ddSwitch();
         $("dd").toggleClass("invisible");
     });
-    //Highlight DT when clicked
+
+    // Highlight DT when clicked
     $("dt").click(function () {
         $(this).toggleClass("highlight");
+    });
+
+    // h3 is clicked highlight li's
+    $("h3").click(function () {
+        $(this).next().children().toggleClass("highlight");
+    });
+
+    // li is clicked first li of parent ul turn blue
+    $("li").click(function () {
+        $(this).parent().children(':first-child').toggleClass("blueFont");
+    });
+
+//Bonus
+//The rules are the following:
+    //buttons
+    let btn1 = $("#pic-btn1");
+    let btn2 = $("#pic-btn2");
+    let btn3 = $("#pic-btn3");
+
+    //Picture div
+    let picArea = $("#pic-slot");
+
+    // The left frame swaps to the right and takes the image from the frame in the center.
+    btn1.click(function () {
+        console.log("btn1 clicked");
+
+
+    });
+    //     The center frame swaps randomly to either the left or right.
+    btn2.click(function () {
+        console.log("btn2 clicked");
+
+        let random = Math.floor(Math.random() * 2);
+        console.log(random);
+
+        if (random === 0){
+
+
+        } else {
+
+
+        }
+    });
+    //     The right frame swaps to the left and takes the image from the frame in the center.
+    btn3.click(function () {
+        console.log("btn3 clicked");
+
+
+
     });
 </script>
 </body>
