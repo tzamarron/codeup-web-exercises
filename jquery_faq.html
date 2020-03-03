@@ -110,6 +110,7 @@
             <li>Zion has one of the largest freestanding arches in the world.</li>
         </ul>
     </ul>
+    <button type="button" id="rando-btn">See what I do</button>
 </div>
 
 <!-- Picture Carousel -->
@@ -158,9 +159,14 @@
         $(this).toggleClass("highlight");
     });
 
-    // h3 is clicked highlight li's
+    //button click highlight last li
+    $("#rando-btn").click(function () {
+        $("h3>ul").children(":last-child").toggleClass("highlight");
+    });
+    // h3 is clicked li's are bolded
     $("h3").click(function () {
-        $(this).next().children().toggleClass("highlight");
+        $(this).children("ul").children(":last-child").css("font-weight",'bold');
+
     });
 
     // li is clicked first li of parent ul turn blue
