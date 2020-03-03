@@ -29,10 +29,23 @@
             height: 100px;
             width: 100%;
         }
+        ul{
+            display: none;
+        }
+        h1{
+            display: inline-block;
+        }
+        h2{
+            display: none;
+        }
     </style>
     <title>National Parks</title>
 </head>
 <body>
+<div>
+    <h1>Would you like to sign up for our newletter?</h1><span>x</span>
+</div>
+ <h2>Please register for our site.</h2>
 <!-- 10 FAQS -->
 <div>
     <dl>
@@ -78,37 +91,29 @@
 </div>
 
 <button type="button" id="btn-dd">Show answers</button>
-
 <!-- 3 Parks -->
 <div>
+    <h3>Great Smokey Mountains National Park</h3>
     <ul>
-        <h3>Great Smokey Mountains National Park</h3>
-        <ul>
-            <li>The Smoky Mountains Are Among the Oldest in the World</li>
-            <li>A Woman Was the First Settler to the Smoky Mountains</li>
-            <li>It Was the First National Park to be Partially Federally Funded</li>
-            <li>A Third of the Trees in the Park Are Over 100 Years Old</li>
-        </ul>
+        <li>The Smoky Mountains Are Among the Oldest in the World</li>
+        <li>A Woman Was the First Settler to the Smoky Mountains</li>
+        <li>It Was the First National Park to be Partially Federally Funded</li>
+        <li>A Third of the Trees in the Park Are Over 100 Years Old</li>
+    </ul>
+     <h3>Grand Canyon National Park</h3>
+    <ul>
+        <li>Grand Canyon National Park is bigger than the entire state of Rhode Island.</li>
+        <li>The Hopi Tribe considers the Grand Canyon a gateway to the afterlife.</li>
+        <li>The most dangerous animal in the canyon is actually the rock squirrel!</li>
+        <li>Despite being the most famous, the Grand Canyon is not actually the world’s deepest canyon.</li>
     </ul>
 
+    <h3>Zion National Park</h3>
     <ul>
-        <h3>Grand Canyon National Park</h3>
-        <ul>
-            <li>Grand Canyon National Park is bigger than the entire state of Rhode Island.</li>
-            <li>The Hopi Tribe considers the Grand Canyon a gateway to the afterlife.</li>
-            <li>The most dangerous animal in the canyon is actually the rock squirrel!</li>
-            <li>Despite being the most famous, the Grand Canyon is not actually the world’s deepest canyon.</li>
-        </ul>
-    </ul>
-
-    <ul>
-        <h3>Zion National Park</h3>
-        <ul>
-            <li>Before it was a national park, Zion was a national monument, and it’s name wasn’t Zion.</li>
-            <li>Zion’s Angels Landing provides spectacular views, but it’s one of the world’s most dangerous.</li>
-            <li>The park has a Subway, but it’s not a form of public transportation.</li>
-            <li>Zion has one of the largest freestanding arches in the world.</li>
-        </ul>
+        <li>Before it was a national park, Zion was a national monument, and it’s name wasn’t Zion.</li>
+        <li>Zion’s Angels Landing provides spectacular views, but it’s one of the world’s most dangerous.</li>
+        <li>The park has a Subway, but it’s not a form of public transportation.</li>
+        <li>Zion has one of the largest freestanding arches in the world.</li>
     </ul>
     <button type="button" id="rando-btn">See what I do</button>
 </div>
@@ -132,6 +137,10 @@
 
 <script src="js/jquery-2.2.4.js"></script>
 <script>
+
+    //after 8 secs fade in h2 asking user to register
+    $("h2").delay(8000).fadeIn(2000);
+
     // hide DD
     $("dd").addClass("invisible");
 
@@ -161,12 +170,15 @@
 
     //button click highlight last li
     $("#rando-btn").click(function () {
-        $("h3>ul").children(":last-child").toggleClass("highlight");
+        $("ul").each(function(){
+            $(this).children().last().css("background","yellow");
+        });
     });
-    // h3 is clicked li's are bolded
-    $("h3").click(function () {
-        $(this).children("ul").children(":last-child").css("font-weight",'bold');
 
+    // h3 is clicked li's are bolded and show UL
+    $("h3").click(function () {
+        $(this).next().slideToggle('slow');
+        $(this).next().children().css("font-weight",'bold');
     });
 
     // li is clicked first li of parent ul turn blue
@@ -212,6 +224,11 @@
 
 
     });
+
+//Effects exercise
+    $("span").click(function () {
+        $(this).parent().fadeOut('slow');
+    })
 </script>
 </body>
 </html>
