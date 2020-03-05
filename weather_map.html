@@ -12,8 +12,8 @@
 
     <style>
         #mapBody {
-            width: 100%;
-            height: 98vh;
+            width: 50%;
+            height: 62vh;
             font-size: 20px;
         }
     </style>
@@ -65,9 +65,7 @@
     </div>
 
 <!-- Weather Map -->
-    <div class="jumbotron-fluid" id="mapBody">
-
-    </div>
+    <div id="mapBody"></div>
 
 <script src="Side Practices/js/keys.js"></script>
 <script src="js/jquery-2.2.4.js"></script>
@@ -165,7 +163,7 @@
     ////Runs Data and adds to HTML
     let weather = function(){
         $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+ darkSkyKey + "/29.4241,-98.4936").done(function(data) {
-            // console.log(data);
+            console.log(data);
             dayPageInfo.forEach(function (day) {
                 let dayinfo = data.daily.data;
 
@@ -208,7 +206,7 @@
     let mapBody = new mapboxgl.Map({
         container: 'mapBody',
         style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 11,
+        zoom: 10,
         center: [-98.5216, 29.4626]
     });
 
