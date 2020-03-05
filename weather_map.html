@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
+
+    <style>
+        #mapBody {
+            width: 100%;
+            height: 98vh;
+            font-size: 20px;
+        }
+    </style>
+
+    <title>Hello, world!</title>
+</head>
+<body>
+
+<!-- 3 Day Forecast -->
+    <div class="card-deck">
+        <!-- Day 1 card -->
+        <div class="card" style="width: 15rem;">
+            <div class="card-body text-center">
+                <img src="#" alt="weather status">
+                <h5 class="my-2" id="hiLow1"></h5>
+                <p class="card-text" id="summary1"></p>
+                <p class="card-text" id="humidity1"></p>
+                <p class="card-text" id="wind1"></p>
+                <p class="card-text" id="pressure1"></p>
+                <h5 class="card-title" id="day1"></h5>
+            </div>
+        </div>
+
+        <!-- Day 2 card -->
+        <div class="card" style="width: 15rem;">
+            <div class="card-body text-center">
+                <img src="#" alt="weather status">
+                <h5 class="card-subtitle my-2" id="hiLow2"></h5>
+                <p class="card-text" id="summary2"></p>
+                <p class="card-text" id="humidity2"></p>
+                <p class="card-text" id="wind2"></p>
+                <p class="card-text" id="pressure2"></p>
+                <h5 class="card-title" id="day2"></h5>
+            </div>
+        </div>
+
+        <!-- Day 3 card -->
+        <div class="card" style="width: 15rem;">
+            <div class="card-body text-center">
+                <img src="#" alt="weather status">
+                <h5 class="card-subtitle my-2" id="hiLow3"></h5>
+                <p class="card-text" id="summary3"></p>
+                <p class="card-text" id="humidity3"></p>
+                <p class="card-text" id="wind3"></p>
+                <p class="card-text" id="pressure3"></p>
+                <h5 class="card-title" id="day3"></h5>
+            </div>
+        </div>
+    </div>
+
+<!-- Weather Map -->
+    <div class="jumbotron-fluid" id="mapBody">
+
+    </div>
+
+<script src="Side Practices/js/keys.js"></script>
+<script src="js/jquery-2.2.4.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+<script>
+
+    //convert to metric so celsius
+    // $.get("REQUEST_URL_HERE?units=si").done(function(data) {
+    //     console.log(data); // si is the equivalent to metric units
+    // });
+
+    let icons = [
+        {
+            type: "clear-day",
+            icon:"",
+        },
+        {
+            type: "clear-night",
+            icon:"",
+        },
+        {
+            type: "rain",
+            icon:"",
+        },
+        {
+            type: "snow",
+            icon:"",
+        },
+        {
+            type: "sleet",
+            icon:"",
+        },
+        {
+            type: "wind",
+            icon:"",
+        },
+        {
+            type: "fog",
+            icon:"",
+        },
+        {
+            type: "cloudy",
+            icon:"",
+        },
+        {
+            type: "partly-cloudy-night",
+            icon:"",
+        },
+        {
+            type: "partly-cloudy-night",
+            icon:"",
+        }
+    ];
+    let dayPageInfo = [
+        {
+            c_day:$("#day1"),
+            c_hilow:$("#hiLow1"),
+            c_summary:$("#summary1"),
+            c_humidity:$("#humidity1"),
+            c_wind:$("#wind1"),
+            c_pressure:$("#pressure1")
+        },
+        {
+            c_day:$("#day2"),
+            c_hilow:$("#hiLow2"),
+            c_summary:$("#summary2"),
+            c_humidity:$("#humidity2"),
+            c_wind:$("#wind2"),
+            c_pressure:$("#pressure2")
+        },
+        {
+            c_day:$("#day3"),
+            c_hilow:$("#hiLow3"),
+            c_summary:$("#summary3"),
+            c_humidity:$("#humidity3"),
+            c_wind:$("#wind3"),
+            c_pressure:$("#pressure3")
+        }
+    ];
+    let firstDay = 0;
+
+    // Function to convert data to date
+    function dateObject(num){
+        let dataDate = new Date(num * 1000).toDateString();
+        return dataDate.slice(0,dataDate.length - 4);
+
+    }
+
+    ////Runs Data and adds to HTML
+    let weather = function(){
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+ darkSkyKey + "/29.4241,-98.4936").done(function(data) {
+            // console.log(data);
+            dayPageInfo.forEach(function (day) {
+                let dayinfo = data.daily.data;
+
+                day.c_hilow.html((dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/" + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
+                day.c_summary.html( dayinfo[firstDay].summary );
+                day.c_humidity.html( "Humidity: " + dayinfo[firstDay].humidity );
+                day.c_wind.html( "Wind: " + (dayinfo[firstDay].windSpeed).toFixed(0) );
+                day.c_pressure.html( "Pressure: " + dayinfo[firstDay].pressure.toFixed(2) );
+                day.c_day.html( dateObject(dayinfo[firstDay].time) );
+                firstDay++
+            });
+            firstDay = 0;
+
+        });
+    };
+
+    let weatherMetric = function(){
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+ darkSkyKey + "/29.4241,-98.4936").done(function(data) {
+            // console.log(data);
+            dayPageInfo.forEach(function (day) {
+                let dayinfo = data.daily.data;
+
+                day.c_hilow.html((dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/" + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
+                day.c_summary.html( dayinfo[firstDay].summary );
+                day.c_humidity.html( "Humidity: " + dayinfo[firstDay].humidity );
+                day.c_wind.html( "Wind: " + (dayinfo[firstDay].windSpeed).toFixed(0) );
+                day.c_pressure.html( "Pressure: " + dayinfo[firstDay].pressure.toFixed(2) );
+                day.c_day.html( dateObject(dayinfo[firstDay].time) );
+                firstDay++
+            });
+            firstDay = 0;
+
+        });
+    };
+
+    weather();
+
+    //Creates Map
+    mapboxgl.accessToken = mapboxToken;
+    let mapBody = new mapboxgl.Map({
+        container: 'mapBody',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 11,
+        center: [-98.5216, 29.4626]
+    });
+
+
+
+</script>
+</body>
+</html>
