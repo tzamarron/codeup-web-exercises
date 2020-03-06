@@ -8,209 +8,455 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- MapBox CSS -->
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
-
+    <!-- Custom CSS -->
     <style>
-        #mapBody {
-            width: 50%;
-            height: 62vh;
+
+        /*** Map size ***/
+        #map {
+            width: 100%;
+            height: 500px;
             font-size: 20px;
         }
+
     </style>
 
-    <title>Hello, world!</title>
+    <title>Weather</title>
+
 </head>
 <body>
 
-<!-- 3 Day Forecast -->
-    <div class="card-deck">
-        <!-- Day 1 card -->
-        <div class="card" style="width: 15rem;">
-            <div class="card-body text-center">
-                <img src="#" alt="weather status">
-                <h5 class="my-2" id="hiLow1"></h5>
-                <p class="card-text" id="summary1"></p>
-                <p class="card-text" id="humidity1"></p>
-                <p class="card-text" id="wind1"></p>
-                <p class="card-text" id="pressure1"></p>
-                <h5 class="card-title" id="day1"></h5>
-            </div>
-        </div>
+<main class="container-fluid m-0 p-0">
 
-        <!-- Day 2 card -->
-        <div class="card" style="width: 15rem;">
-            <div class="card-body text-center">
-                <img src="#" alt="weather status">
-                <h5 class="card-subtitle my-2" id="hiLow2"></h5>
-                <p class="card-text" id="summary2"></p>
-                <p class="card-text" id="humidity2"></p>
-                <p class="card-text" id="wind2"></p>
-                <p class="card-text" id="pressure2"></p>
-                <h5 class="card-title" id="day2"></h5>
-            </div>
-        </div>
-
-        <!-- Day 3 card -->
-        <div class="card" style="width: 15rem;">
-            <div class="card-body text-center">
-                <img src="#" alt="weather status">
-                <h5 class="card-subtitle my-2" id="hiLow3"></h5>
-                <p class="card-text" id="summary3"></p>
-                <p class="card-text" id="humidity3"></p>
-                <p class="card-text" id="wind3"></p>
-                <p class="card-text" id="pressure3"></p>
-                <h5 class="card-title" id="day3"></h5>
-            </div>
-        </div>
+    <!-- Current Location -->
+    <div class="col-12 text-center">
+        <h1 id="currLoc"> San Antonio, TX</h1>
     </div>
+    <!-- Current Location End -->
 
-<!-- Weather Map -->
-    <div id="mapBody"></div>
+    <!-- Current Weather -->
+    <div class="col-12 text-center d-flex justify-content-center font-weight-bold" id="currWeather">
+        Currently :
+        <div class="d-inline-block mx-3" id="hiLowC1"></div>
+        <div class="d-inline-block mx-3" id="summaryC1"></div>
+        <div class="d-inline-block mx-3" id="precipC1"></div>
+    </div>
+    <!-- Current Weather End -->
 
+    <!-- 3 Day Forecast -->
+    <section class="row" id="3dayforecast">
+
+        <div class="card-deck mx-auto col-12">
+
+            <!-- Day 1 card -->
+            <div class="card border-dark" style="width: 12rem;">
+                <div class="card-body text-center">
+                    <img src="#" alt="weather status">
+                    <h4 class="my-2" id="hiLow1"></h4>
+                    <p class="card-text font-weight-bold" id="summary1"></p>
+                    <p class="card-text font-weight-bold" id="humidity1"></p>
+                    <p class="card-text font-weight-bold" id="wind1"></p>
+                    <p class="card-text font-weight-bold" id="precip1"></p>
+                    <h3 class="card-title" id="day1"></h3>
+                </div>
+            </div>
+
+            <!-- Day 2 card -->
+            <div class="card border-dark" style="width: 12rem;">
+                <div class="card-body text-center">
+                    <img src="#" alt="weather status">
+                    <h4 class="card-subtitle my-2" id="hiLow2"></h4>
+                    <p class="card-text font-weight-bold" id="summary2"></p>
+                    <p class="card-text font-weight-bold" id="humidity2"></p>
+                    <p class="card-text font-weight-bold" id="wind2"></p>
+                    <p class="card-text font-weight-bold" id="precip2"></p>
+                    <h3 class="card-title" id="day2"></h3>
+                </div>
+            </div>
+
+            <!-- Day 3 card -->
+            <div class="card border-dark" style="width: 12rem;">
+                <div class="card-body text-center">
+                    <img src="#" alt="weather status">
+                    <h4 class="card-subtitle my-2" id="hiLow3"></h4>
+                    <p class="card-text font-weight-bold" id="summary3"></p>
+                    <p class="card-text font-weight-bold" id="humidity3"></p>
+                    <p class="card-text font-weight-bold" id="wind3"></p>
+                    <p class="card-text font-weight-bold" id="precip3"></p>
+                    <h3 class="card-title" id="day3"></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 3 Day Forecast End -->
+
+    <!-- Interaction Section -->
+    <section class="row my-3 d-flex justify-content-around" id="interaction">
+
+        <!--Lat/Long Input -->
+        <div class="input-group d col-5">
+            <div class="input-group-prepend">
+                <button type="button" class="btn btn-light btn-outline-dark" id="coords_btn">Find Coords</button>
+            </div>
+            <input type="text" aria-label="Lat" class="form-control border-dark" placeholder="Latitude" id="lat_coords">
+            <input type="text" aria-label="Long" class="form-control border-dark" placeholder="Longitude" id="long_coords">
+        </div>
+        <!-- Lat/Long Input End -->
+
+        <!-- Hard Location -->
+            <div class="input-group d col-5">
+                <div class="input-group-prepend">
+                    <button type="button" class="btn btn-light btn-outline-dark" id="addr_btn">What's the Weather</button>
+                </div>
+                <input type="text" aria-label="Address" class="form-control border-dark" placeholder="Address" id="addrInput">
+            </div>
+        <!-- Hard Location End -->
+
+    </section>
+    <!-- Middle Section End-->
+
+    <!-- Weather Map -->
+    <div class="row mt-3 mx-0 p-0" id="map"></div>
+    <!-- Weather Map End -->
+
+</main>
+
+<!-- Keys -->
 <script src="Side Practices/js/keys.js"></script>
-<script src="js/jquery-2.2.4.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+<!--Mapbox -->
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+<link
+        rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+        type="text/css"
+/>
+<!--Custom JS -->
 <script>
 
-    //convert to metric so celsius
-    // $.get("REQUEST_URL_HERE?units=si").done(function(data) {
-    //     console.log(data); // si is the equivalent to metric units
-    // });
-
+$(document).ready(function( ) {
+    //Variables
     let icons = [
         {
             type: "clear-day",
-            icon:"",
+            icon: "",
         },
         {
             type: "clear-night",
-            icon:"",
+            icon: "",
         },
         {
             type: "rain",
-            icon:"",
+            icon: "",
         },
         {
             type: "snow",
-            icon:"",
+            icon: "",
         },
         {
             type: "sleet",
-            icon:"",
+            icon: "",
         },
         {
             type: "wind",
-            icon:"",
+            icon: "",
         },
         {
             type: "fog",
-            icon:"",
+            icon: "",
         },
         {
             type: "cloudy",
-            icon:"",
+            icon: "",
         },
         {
             type: "partly-cloudy-night",
-            icon:"",
+            icon: "",
         },
         {
             type: "partly-cloudy-night",
-            icon:"",
+            icon: "",
         }
     ];
+    let currPageInfo = {
+            c_hilow: $("#hiLowC1"),
+            c_summary: $("#summaryC1"),
+            c_precip: $("#precipC1")
+        };
     let dayPageInfo = [
         {
-            c_day:$("#day1"),
-            c_hilow:$("#hiLow1"),
-            c_summary:$("#summary1"),
-            c_humidity:$("#humidity1"),
-            c_wind:$("#wind1"),
-            c_pressure:$("#pressure1")
+            c_day: $("#day1"),
+            c_hilow: $("#hiLow1"),
+            c_summary: $("#summary1"),
+            c_humidity: $("#humidity1"),
+            c_wind: $("#wind1"),
+            c_precip: $("#precip1")
         },
         {
-            c_day:$("#day2"),
-            c_hilow:$("#hiLow2"),
-            c_summary:$("#summary2"),
-            c_humidity:$("#humidity2"),
-            c_wind:$("#wind2"),
-            c_pressure:$("#pressure2")
+            c_day: $("#day2"),
+            c_hilow: $("#hiLow2"),
+            c_summary: $("#summary2"),
+            c_humidity: $("#humidity2"),
+            c_wind: $("#wind2"),
+            c_precip: $("#precip2")
         },
         {
-            c_day:$("#day3"),
-            c_hilow:$("#hiLow3"),
-            c_summary:$("#summary3"),
-            c_humidity:$("#humidity3"),
-            c_wind:$("#wind3"),
-            c_pressure:$("#pressure3")
+            c_day: $("#day3"),
+            c_hilow: $("#hiLow3"),
+            c_summary: $("#summary3"),
+            c_humidity: $("#humidity3"),
+            c_wind: $("#wind3"),
+            c_precip: $("#precip3")
         }
     ];
     let firstDay = 0;
 
     // Function to convert data to date
-    function dateObject(num){
+    function dateObject(num) {
         let dataDate = new Date(num * 1000).toDateString();
-        return dataDate.slice(0,dataDate.length - 4);
+        return dataDate.slice(0, dataDate.length - 4);
 
     }
 
-    ////Runs Data and adds to HTML
-    let weather = function(){
-        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+ darkSkyKey + "/29.4241,-98.4936").done(function(data) {
-            console.log(data);
-            dayPageInfo.forEach(function (day) {
-                let dayinfo = data.daily.data;
-
-                day.c_hilow.html((dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/" + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
-                day.c_summary.html( dayinfo[firstDay].summary );
-                day.c_humidity.html( "Humidity: " + dayinfo[firstDay].humidity );
-                day.c_wind.html( "Wind: " + (dayinfo[firstDay].windSpeed).toFixed(0) );
-                day.c_pressure.html( "Pressure: " + dayinfo[firstDay].pressure.toFixed(2) );
-                day.c_day.html( dateObject(dayinfo[firstDay].time) );
-                firstDay++
-            });
-            firstDay = 0;
-
-        });
-    };
-
-    let weatherMetric = function(){
-        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+ darkSkyKey + "/29.4241,-98.4936").done(function(data) {
+    // Function runs data according to given coords
+    function userWeather(lat, long) {
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + long).done(function (data) {
             // console.log(data);
+            // Cycle thru and add info for 3-day
             dayPageInfo.forEach(function (day) {
+
+                // Daily Info path
                 let dayinfo = data.daily.data;
 
-                day.c_hilow.html((dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/" + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
-                day.c_summary.html( dayinfo[firstDay].summary );
-                day.c_humidity.html( "Humidity: " + dayinfo[firstDay].humidity );
-                day.c_wind.html( "Wind: " + (dayinfo[firstDay].windSpeed).toFixed(0) );
-                day.c_pressure.html( "Pressure: " + dayinfo[firstDay].pressure.toFixed(2) );
-                day.c_day.html( dateObject(dayinfo[firstDay].time) );
+                // Appending data to HTML
+                day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
+                day.c_summary.html(dayinfo[firstDay].summary);
+                day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
+                day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
+                day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
+                day.c_day.html(dateObject(dayinfo[firstDay].time));
+
+                //Increase counter to get correct daily info
                 firstDay++
             });
+            // Reset counter to start back at current day
             firstDay = 0;
 
+            //Current info path
+            let currInfo = data.currently;
+
+            // Appending data to HTML
+            currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
+            currPageInfo.c_summary.html(currInfo.summary);
+            currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
+        });
+    }
+
+    // Function runs data  in Metric according to given coords
+    function userWeatherMet(lat, long) {
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + long).done(function (data) {
+            // console.log(data);
+            // Cycle thru and add info for 3-day
+            dayPageInfo.forEach(function (day) {
+
+                // Daily Info path
+                let dayinfo = data.daily.data;
+
+                // Appending data to HTML
+                day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
+                day.c_summary.html(dayinfo[firstDay].summary);
+                day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
+                day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
+                day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
+                day.c_day.html(dateObject(dayinfo[firstDay].time));
+
+                //Increase counter to get correct daily info
+                firstDay++
+            });
+            // Reset counter to start back at current day
+            firstDay = 0;
+
+            //Current info path
+            let currInfo = data.currently;
+
+            // Appending data to HTML
+            currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
+            currPageInfo.c_summary.html(currInfo.summary);
+            currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
+        });
+    }
+
+    ////Runs Data and adds to HTML
+    let weather = function () {
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function (data) {
+            console.log(data);
+            // Cycle thru and add info for 3-day
+            dayPageInfo.forEach(function (day) {
+
+                // Daily Info path
+                let dayinfo = data.daily.data;
+
+                // Appending data to HTML
+                day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
+                day.c_summary.html(dayinfo[firstDay].summary);
+                day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
+                day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
+                day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
+                day.c_day.html(dateObject(dayinfo[firstDay].time));
+
+                //Increase counter to get correct daily info
+                firstDay++
+            });
+            // Reset counter to start back at current day
+            firstDay = 0;
+
+            //Current info path
+            let currInfo = data.currently;
+
+            // Appending data to HTML
+            currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
+            currPageInfo.c_summary.html(currInfo.summary);
+            currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
         });
     };
 
+    //Function to convert data to Metric
+    let weatherMetric = function () {
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function (data) {
+            // console.log(data);
+            // Cycle thru and add info for 3-day
+            dayPageInfo.forEach(function (day) {
+
+                // Daily Info path
+                let dayinfo = data.daily.data;
+
+                // Appending data to HTML
+                day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
+                day.c_summary.html(dayinfo[firstDay].summary);
+                day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
+                day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
+                day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
+                day.c_day.html(dateObject(dayinfo[firstDay].time));
+
+                //Increase counter to get correct daily info
+                firstDay++
+            });
+            // Reset counter to start back at current day
+            firstDay = 0;
+
+            //Current info path
+            let currInfo = data.currently;
+
+            // Appending data to HTML
+            currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0/" );
+            currPageInfo.c_summary.html(currInfo.summary);
+            currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
+        });
+    };
+
+    //runs data at start
     weather();
 
     //Creates Map
     mapboxgl.accessToken = mapboxToken;
-    let mapBody = new mapboxgl.Map({
-        container: 'mapBody',
+    let map = new mapboxgl.Map({
+        container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 10,
         center: [-98.5216, 29.4626]
     });
 
+    // Search Bar (GeoCoder) on map
+    map.addControl(
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        })
+    );
 
+    //Marker Custom
+    let markerOptions = {
+        color:"rebeccapurple",
+        draggable: true
+    };
+    let marker;
+
+    //Function takes address and turns it into "object" then takes the coords
+    function geocode(search, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+            }).then(function(data) {
+                return data.features[0].center;
+            });
+    }
+
+    //reverse Geocode get place name from coords
+    function reverseGeocode(coordinates, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+            })
+            // to get all the data from the request, comment out the following three lines...
+            .then(function(data) {
+                return data.features[3].place_name;
+            });
+    }
+
+    // When "Find This" btn is pushed go to location and get weather
+    $("#addr_btn").click(function () {
+        let val = $("#addrInput").val();
+        // Turns address to array
+        geocode(val,mapboxToken).then(function (result) {
+            // Moves Map
+            map.flyTo({center:result});
+            // Runs weather for location
+            userWeather(result[1],result[0]);
+            // Sets marker at spot
+            marker = new mapboxgl.Marker(markerOptions)
+                .setLngLat(result)
+                .addTo(map);
+        });
+        // Resets input value
+        $("#addrInput").val("");
+    });
+
+    // When "Find Coords" btn is pushed go to location and get weather
+    $("#coords_btn").click(function () {
+        let lat = $("#lat_coords").val();
+        let long = $("#long_coords").val();
+        // Moves Map
+        map.flyTo({long,lat});
+        // Runs weather for location
+        userWeather(lat,long);
+        // Sets marker at spot
+        marker = new mapboxgl.Marker(markerOptions)
+            .setLngLat({long,lat})
+            .addTo(map);
+        // Reset input
+        $("#lat_coords").val("");
+        $("#long_coords").val("");
+    })
+
+
+
+
+
+});
 
 </script>
 </body>
