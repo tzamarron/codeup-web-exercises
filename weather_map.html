@@ -31,7 +31,7 @@
 
     <!-- Current Location -->
     <div class="col-12 text-center">
-        <h1 id="currLoc"> San Antonio, TX</h1>
+        <h1 id="currLoc"></h1>
     </div>
     <!-- Current Location End -->
 
@@ -53,12 +53,12 @@
             <div class="card border-dark" style="width: 12rem;">
                 <div class="card-body text-center">
                     <img src="#" alt="weather status">
+                    <h3 class="card-title" id="day1"></h3>
                     <h4 class="my-2" id="hiLow1"></h4>
                     <p class="card-text font-weight-bold" id="summary1"></p>
                     <p class="card-text font-weight-bold" id="humidity1"></p>
                     <p class="card-text font-weight-bold" id="wind1"></p>
                     <p class="card-text font-weight-bold" id="precip1"></p>
-                    <h3 class="card-title" id="day1"></h3>
                 </div>
             </div>
 
@@ -66,12 +66,12 @@
             <div class="card border-dark" style="width: 12rem;">
                 <div class="card-body text-center">
                     <img src="#" alt="weather status">
+                    <h3 class="card-title" id="day2"></h3>
                     <h4 class="card-subtitle my-2" id="hiLow2"></h4>
                     <p class="card-text font-weight-bold" id="summary2"></p>
                     <p class="card-text font-weight-bold" id="humidity2"></p>
                     <p class="card-text font-weight-bold" id="wind2"></p>
                     <p class="card-text font-weight-bold" id="precip2"></p>
-                    <h3 class="card-title" id="day2"></h3>
                 </div>
             </div>
 
@@ -79,12 +79,12 @@
             <div class="card border-dark" style="width: 12rem;">
                 <div class="card-body text-center">
                     <img src="#" alt="weather status">
+                    <h3 class="card-title" id="day3"></h3>
                     <h4 class="card-subtitle my-2" id="hiLow3"></h4>
                     <p class="card-text font-weight-bold" id="summary3"></p>
                     <p class="card-text font-weight-bold" id="humidity3"></p>
                     <p class="card-text font-weight-bold" id="wind3"></p>
                     <p class="card-text font-weight-bold" id="precip3"></p>
-                    <h3 class="card-title" id="day3"></h3>
                 </div>
             </div>
         </div>
@@ -144,7 +144,7 @@
 <!--Custom JS -->
 <script>
 
-$(document).ready(function( ) {
+// $(document).ready(function( ) {
     //Variables
     let icons = [
         {
@@ -220,6 +220,27 @@ $(document).ready(function( ) {
         }
     ];
     let firstDay = 0;
+    //Marker Custom
+    let markerOptions = {
+        color:"rebeccapurple",
+        draggable: true
+    };
+    let marker;
+
+    //reverse Geocode get place name from coords
+    function reverseGeocode(coordinates, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+            })
+            .then(function(data) {
+                // console.log(data);
+                // console.log(data.features[2].place_name);
+                return data.features[3].place_name;
+            });
+    }
 
     // Function to convert data to date
     function dateObject(num) {
@@ -232,6 +253,12 @@ $(document).ready(function( ) {
     function userWeather(lat, long) {
         $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + long).done(function (data) {
             // console.log(data);
+            //Place Location in HTML
+            let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
+            place.then(function (result) {
+                $("#currLoc").html(result)
+            });
+
             // Cycle thru and add info for 3-day
             dayPageInfo.forEach(function (day) {
 
@@ -259,6 +286,16 @@ $(document).ready(function( ) {
             currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
             currPageInfo.c_summary.html(currInfo.summary);
             currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
+
+            // Add new marker
+            marker = new mapboxgl.Marker({
+                color:"rebeccapurple",
+                draggable: true
+            })
+                //default Coords and intial add to map
+                .setLngLat([data.longitude, data.latitude])
+                .addTo(map);
+
         });
     }
 
@@ -266,6 +303,12 @@ $(document).ready(function( ) {
     function userWeatherMet(lat, long) {
         $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + long).done(function (data) {
             // console.log(data);
+            //Place Location in HTML
+            let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
+            place.then(function (result) {
+                $("#currLoc").html(result)
+            });
+
             // Cycle thru and add info for 3-day
             dayPageInfo.forEach(function (day) {
 
@@ -293,13 +336,29 @@ $(document).ready(function( ) {
             currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
             currPageInfo.c_summary.html(currInfo.summary);
             currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
+
+            // Add new marker
+            marker = new mapboxgl.Marker({
+                color:"rebeccapurple",
+                draggable: true
+            })
+                //default Coords and intial add to map
+                .setLngLat([data.longitude, data.latitude])
+                .addTo(map);
+
         });
     }
 
     ////Runs Data and adds to HTML
     let weather = function () {
         $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function (data) {
-            console.log(data);
+            // console.log(data);
+            //Place Location in HTML
+            let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
+            place.then(function (result) {
+                $("#currLoc").html(result)
+            });
+
             // Cycle thru and add info for 3-day
             dayPageInfo.forEach(function (day) {
 
@@ -327,6 +386,15 @@ $(document).ready(function( ) {
             currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
             currPageInfo.c_summary.html(currInfo.summary);
             currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
+
+            // Add new marker
+            marker = new mapboxgl.Marker({
+                color:"rebeccapurple",
+                draggable: true
+            })
+                //default Coords and intial add to map
+                .setLngLat([data.longitude, data.latitude])
+                .addTo(map);
         });
     };
 
@@ -334,6 +402,12 @@ $(document).ready(function( ) {
     let weatherMetric = function () {
         $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function (data) {
             // console.log(data);
+            //Place Location in HTML
+            let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
+            place.then(function (result) {
+                $("#currLoc").html(result)
+            });
+
             // Cycle thru and add info for 3-day
             dayPageInfo.forEach(function (day) {
 
@@ -358,9 +432,19 @@ $(document).ready(function( ) {
             let currInfo = data.currently;
 
             // Appending data to HTML
-            currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0/" );
+            currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
             currPageInfo.c_summary.html(currInfo.summary);
             currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
+
+            // Add new marker
+            marker = new mapboxgl.Marker({
+                color:"rebeccapurple",
+                draggable: true
+            })
+                //default Coords and intial add to map
+                .setLngLat([data.longitude, data.latitude])
+                .addTo(map);
+
         });
     };
 
@@ -384,12 +468,33 @@ $(document).ready(function( ) {
         })
     );
 
-    //Marker Custom
-    let markerOptions = {
-        color:"rebeccapurple",
-        draggable: true
-    };
-    let marker;
+    // Creates Marker and adds to map
+    // marker = new mapboxgl.Marker({
+    //     draggable: true
+    // });
+        //default Coords and intial add to map
+        // .setLngLat([0, 0])
+        // .addTo(map);
+
+    // When marker is moved, function is fired to determine new coords
+    marker.on("dragend",function(e){
+        let lngLat = e.getLngLat();
+        console.log('Longitude: ' + lngLat.lng + ' Latitude: ' + lngLat.lat);
+
+        // move map to where the marker is dragged
+        map.flyTo({
+            center: [
+                lngLat.lng,
+                lngLat.lat
+            ],
+            essential: false // this animation is considered essential with respect to prefers-reduced-motion
+        });
+    });
+
+    // Function to "move" map when marker is dragged
+    // function onDragEnd() {
+    //
+    // }
 
     //Function takes address and turns it into "object" then takes the coords
     function geocode(search, token) {
@@ -399,21 +504,8 @@ $(document).ready(function( ) {
             .then(function(res) {
                 return res.json();
             }).then(function(data) {
+                // console.log(data);
                 return data.features[0].center;
-            });
-    }
-
-    //reverse Geocode get place name from coords
-    function reverseGeocode(coordinates, token) {
-        var baseUrl = 'https://api.mapbox.com';
-        var endPoint = '/geocoding/v5/mapbox.places/';
-        return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
-            .then(function(res) {
-                return res.json();
-            })
-            // to get all the data from the request, comment out the following three lines...
-            .then(function(data) {
-                return data.features[3].place_name;
             });
     }
 
@@ -440,12 +532,12 @@ $(document).ready(function( ) {
         let lat = $("#lat_coords").val();
         let long = $("#long_coords").val();
         // Moves Map
-        map.flyTo({long,lat});
+        map.flyTo({center:{lng:long,lat:lat}});
         // Runs weather for location
         userWeather(lat,long);
         // Sets marker at spot
         marker = new mapboxgl.Marker(markerOptions)
-            .setLngLat({long,lat})
+            .setLngLat([long,lat])
             .addTo(map);
         // Reset input
         $("#lat_coords").val("");
@@ -454,9 +546,7 @@ $(document).ready(function( ) {
 
 
 
-
-
-});
+// });
 
 </script>
 </body>
