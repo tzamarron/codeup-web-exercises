@@ -45,7 +45,7 @@
     <!-- Current Weather End -->
 
     <!-- 3 Day Forecast -->
-    <section class="row" id="3dayforecast">
+    <section class="row accordion" id="3dayforecast">
 
         <div class="card-deck mx-auto col-12">
 
@@ -91,31 +91,6 @@
     </section>
     <!-- 3 Day Forecast End -->
 
-    <!-- Interaction Section -->
-    <section class="row my-3 d-flex justify-content-around" id="interaction">
-
-        <!--Lat/Long Input -->
-        <div class="input-group d col-5">
-            <div class="input-group-prepend">
-                <button type="button" class="btn btn-light btn-outline-dark" id="coords_btn">Find Coords</button>
-            </div>
-            <input type="text" aria-label="Lat" class="form-control border-dark" placeholder="Latitude" id="lat_coords">
-            <input type="text" aria-label="Long" class="form-control border-dark" placeholder="Longitude" id="long_coords">
-        </div>
-        <!-- Lat/Long Input End -->
-
-        <!-- Hard Location -->
-            <div class="input-group d col-5">
-                <div class="input-group-prepend">
-                    <button type="button" class="btn btn-light btn-outline-dark" id="addr_btn">What's the Weather</button>
-                </div>
-                <input type="text" aria-label="Address" class="form-control border-dark" placeholder="Address" id="addrInput">
-            </div>
-        <!-- Hard Location End -->
-
-    </section>
-    <!-- Middle Section End-->
-
     <!-- Weather Map -->
     <div class="row mt-3 mx-0 p-0" id="map"></div>
     <!-- Weather Map End -->
@@ -144,8 +119,8 @@
 <!--Custom JS -->
 <script>
 
-// $(document).ready(function( ) {
-    //Variables
+$(document).ready(function( ) {
+    // Variables
     let icons = [
         {
             type: "clear-day",
@@ -220,14 +195,76 @@
         }
     ];
     let firstDay = 0;
-    //Marker Custom
+
+    // Creates Map
+    mapboxgl.accessToken = mapboxToken;
+    let map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 9,
+        center: [-98.5216, 29.4626]
+    });
+
+    // Make marker
+    marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([-98.4936, 29.4241])
+        .addTo(map);
+
+    marker.on('dragend', onDragEnd);
+
+    // Marker Custom
     let markerOptions = {
         color:"rebeccapurple",
         draggable: true
     };
-    let marker;
 
-    //reverse Geocode get place name from coords
+    ////Runs Data and adds to HTML
+    let weather = function () {
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function (data) {
+            // console.log(data);
+            //Place Location in HTML
+            let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
+            place.then(function (result) {
+                $("#currLoc").html(result)
+            });
+
+            // Cycle thru and add info for 3-day
+            dayPageInfo.forEach(function (day) {
+
+                // Daily Info path
+                let dayinfo = data.daily.data;
+
+                // Appending data to HTML
+                day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
+                day.c_summary.html(dayinfo[firstDay].summary);
+                day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
+                day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
+                day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
+                day.c_day.html(dateObject(dayinfo[firstDay].time));
+
+                //Increase counter to get correct daily info
+                firstDay++
+            });
+            // Reset counter to start back at current day
+            firstDay = 0;
+
+            //Current info path
+            let currInfo = data.currently;
+
+            // Appending data to HTML
+            currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
+            currPageInfo.c_summary.html(currInfo.summary);
+            currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
+
+        });
+    };
+
+    //runs data at start
+    weather();
+
+    // Reverse Geocode get place name from coords
     function reverseGeocode(coordinates, token) {
         var baseUrl = 'https://api.mapbox.com';
         var endPoint = '/geocoding/v5/mapbox.places/';
@@ -238,7 +275,7 @@
             .then(function(data) {
                 // console.log(data);
                 // console.log(data.features[2].place_name);
-                return data.features[3].place_name;
+                return data.features[2].place_name;
             });
     }
 
@@ -287,178 +324,17 @@
             currPageInfo.c_summary.html(currInfo.summary);
             currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
 
-            // Add new marker
-            marker = new mapboxgl.Marker({
-                color:"rebeccapurple",
-                draggable: true
-            })
-                //default Coords and intial add to map
-                .setLngLat([data.longitude, data.latitude])
-                .addTo(map);
+            // // Add new marker
+            // marker = new mapboxgl.Marker({
+            //     color:"rebeccapurple",
+            //     draggable: true
+            // })
+            //     //default Coords and intial add to map
+            //     .setLngLat([data.longitude, data.latitude])
+            //     .addTo(map);
 
         });
     }
-
-    // Function runs data  in Metric according to given coords
-    function userWeatherMet(lat, long) {
-        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + long).done(function (data) {
-            // console.log(data);
-            //Place Location in HTML
-            let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
-            place.then(function (result) {
-                $("#currLoc").html(result)
-            });
-
-            // Cycle thru and add info for 3-day
-            dayPageInfo.forEach(function (day) {
-
-                // Daily Info path
-                let dayinfo = data.daily.data;
-
-                // Appending data to HTML
-                day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
-                day.c_summary.html(dayinfo[firstDay].summary);
-                day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
-                day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
-                day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
-                day.c_day.html(dateObject(dayinfo[firstDay].time));
-
-                //Increase counter to get correct daily info
-                firstDay++
-            });
-            // Reset counter to start back at current day
-            firstDay = 0;
-
-            //Current info path
-            let currInfo = data.currently;
-
-            // Appending data to HTML
-            currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
-            currPageInfo.c_summary.html(currInfo.summary);
-            currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
-
-            // Add new marker
-            marker = new mapboxgl.Marker({
-                color:"rebeccapurple",
-                draggable: true
-            })
-                //default Coords and intial add to map
-                .setLngLat([data.longitude, data.latitude])
-                .addTo(map);
-
-        });
-    }
-
-    ////Runs Data and adds to HTML
-    let weather = function () {
-        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function (data) {
-            // console.log(data);
-            //Place Location in HTML
-            let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
-            place.then(function (result) {
-                $("#currLoc").html(result)
-            });
-
-            // Cycle thru and add info for 3-day
-            dayPageInfo.forEach(function (day) {
-
-                // Daily Info path
-                let dayinfo = data.daily.data;
-
-                // Appending data to HTML
-                day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
-                day.c_summary.html(dayinfo[firstDay].summary);
-                day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
-                day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
-                day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
-                day.c_day.html(dateObject(dayinfo[firstDay].time));
-
-                //Increase counter to get correct daily info
-                firstDay++
-            });
-            // Reset counter to start back at current day
-            firstDay = 0;
-
-            //Current info path
-            let currInfo = data.currently;
-
-            // Appending data to HTML
-            currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
-            currPageInfo.c_summary.html(currInfo.summary);
-            currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
-
-            // Add new marker
-            marker = new mapboxgl.Marker({
-                color:"rebeccapurple",
-                draggable: true
-            })
-                //default Coords and intial add to map
-                .setLngLat([data.longitude, data.latitude])
-                .addTo(map);
-        });
-    };
-
-    //Function to convert data to Metric
-    let weatherMetric = function () {
-        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function (data) {
-            // console.log(data);
-            //Place Location in HTML
-            let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
-            place.then(function (result) {
-                $("#currLoc").html(result)
-            });
-
-            // Cycle thru and add info for 3-day
-            dayPageInfo.forEach(function (day) {
-
-                // Daily Info path
-                let dayinfo = data.daily.data;
-
-                // Appending data to HTML
-                day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
-                day.c_summary.html(dayinfo[firstDay].summary);
-                day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
-                day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
-                day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
-                day.c_day.html(dateObject(dayinfo[firstDay].time));
-
-                //Increase counter to get correct daily info
-                firstDay++
-            });
-            // Reset counter to start back at current day
-            firstDay = 0;
-
-            //Current info path
-            let currInfo = data.currently;
-
-            // Appending data to HTML
-            currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
-            currPageInfo.c_summary.html(currInfo.summary);
-            currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
-
-            // Add new marker
-            marker = new mapboxgl.Marker({
-                color:"rebeccapurple",
-                draggable: true
-            })
-                //default Coords and intial add to map
-                .setLngLat([data.longitude, data.latitude])
-                .addTo(map);
-
-        });
-    };
-
-    //runs data at start
-    weather();
-
-    //Creates Map
-    mapboxgl.accessToken = mapboxToken;
-    let map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 10,
-        center: [-98.5216, 29.4626]
-    });
 
     // Search Bar (GeoCoder) on map
     map.addControl(
@@ -467,34 +343,6 @@
             mapboxgl: mapboxgl
         })
     );
-
-    // Creates Marker and adds to map
-    // marker = new mapboxgl.Marker({
-    //     draggable: true
-    // });
-        //default Coords and intial add to map
-        // .setLngLat([0, 0])
-        // .addTo(map);
-
-    // When marker is moved, function is fired to determine new coords
-    marker.on("dragend",function(e){
-        let lngLat = e.getLngLat();
-        console.log('Longitude: ' + lngLat.lng + ' Latitude: ' + lngLat.lat);
-
-        // move map to where the marker is dragged
-        map.flyTo({
-            center: [
-                lngLat.lng,
-                lngLat.lat
-            ],
-            essential: false // this animation is considered essential with respect to prefers-reduced-motion
-        });
-    });
-
-    // Function to "move" map when marker is dragged
-    // function onDragEnd() {
-    //
-    // }
 
     //Function takes address and turns it into "object" then takes the coords
     function geocode(search, token) {
@@ -509,44 +357,122 @@
             });
     }
 
-    // When "Find This" btn is pushed go to location and get weather
-    $("#addr_btn").click(function () {
-        let val = $("#addrInput").val();
-        // Turns address to array
-        geocode(val,mapboxToken).then(function (result) {
-            // Moves Map
-            map.flyTo({center:result});
-            // Runs weather for location
-            userWeather(result[1],result[0]);
-            // Sets marker at spot
-            marker = new mapboxgl.Marker(markerOptions)
-                .setLngLat(result)
-                .addTo(map);
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        console.log('Longitude: ' + lngLat.lng + ' Latitude: ' + lngLat.lat);
+
+        // move map to where the marker is dragged
+        map.flyTo({
+            center: [
+                lngLat.lng,
+                lngLat.lat
+            ],
+            essential: false // this animation is considered essential with respect to prefers-reduced-motion
         });
-        // Resets input value
-        $("#addrInput").val("");
-    });
+        userWeather(lngLat.lat,lngLat.lng);
+    }
 
-    // When "Find Coords" btn is pushed go to location and get weather
-    $("#coords_btn").click(function () {
-        let lat = $("#lat_coords").val();
-        let long = $("#long_coords").val();
-        // Moves Map
-        map.flyTo({center:{lng:long,lat:lat}});
-        // Runs weather for location
-        userWeather(lat,long);
-        // Sets marker at spot
-        marker = new mapboxgl.Marker(markerOptions)
-            .setLngLat([long,lat])
-            .addTo(map);
-        // Reset input
-        $("#lat_coords").val("");
-        $("#long_coords").val("");
-    })
+    // //Function to convert data to Metric
+    // let weatherMetric = function () {
+    //     $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function (data) {
+    //         // console.log(data);
+    //         //Place Location in HTML
+    //         let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
+    //         place.then(function (result) {
+    //             $("#currLoc").html(result)
+    //         });
+    //
+    //         // Cycle thru and add info for 3-day
+    //         dayPageInfo.forEach(function (day) {
+    //
+    //             // Daily Info path
+    //             let dayinfo = data.daily.data;
+    //
+    //             // Appending data to HTML
+    //             day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
+    //             day.c_summary.html(dayinfo[firstDay].summary);
+    //             day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
+    //             day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
+    //             day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
+    //             day.c_day.html(dateObject(dayinfo[firstDay].time));
+    //
+    //             //Increase counter to get correct daily info
+    //             firstDay++
+    //         });
+    //         // Reset counter to start back at current day
+    //         firstDay = 0;
+    //
+    //         //Current info path
+    //         let currInfo = data.currently;
+    //
+    //         // Appending data to HTML
+    //         currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
+    //         currPageInfo.c_summary.html(currInfo.summary);
+    //         currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
+    //
+    //         // // Add new marker
+    //         // marker = new mapboxgl.Marker({
+    //         //     color:"rebeccapurple",
+    //         //     draggable: true
+    //         // })
+    //         //     //default Coords and intial add to map
+    //         //     .setLngLat([data.longitude, data.latitude])
+    //         //     .addTo(map);
+    //
+    //     });
+    // };
+    //
+    // // Function runs data  in Metric according to given coords
+    // function userWeatherMet(lat, long) {
+    //     $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + long).done(function (data) {
+    //         // console.log(data);
+    //         //Place Location in HTML
+    //         let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
+    //         place.then(function (result) {
+    //             $("#currLoc").html(result)
+    //         });
+    //
+    //         // Cycle thru and add info for 3-day
+    //         dayPageInfo.forEach(function (day) {
+    //
+    //             // Daily Info path
+    //             let dayinfo = data.daily.data;
+    //
+    //             // Appending data to HTML
+    //             day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
+    //             day.c_summary.html(dayinfo[firstDay].summary);
+    //             day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
+    //             day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
+    //             day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
+    //             day.c_day.html(dateObject(dayinfo[firstDay].time));
+    //
+    //             //Increase counter to get correct daily info
+    //             firstDay++
+    //         });
+    //         // Reset counter to start back at current day
+    //         firstDay = 0;
+    //
+    //         //Current info path
+    //         let currInfo = data.currently;
+    //
+    //         // Appending data to HTML
+    //         currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
+    //         currPageInfo.c_summary.html(currInfo.summary);
+    //         currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
+    //
+    //         // // Add new marker
+    //         // marker = new mapboxgl.Marker({
+    //         //     color:"rebeccapurple",
+    //         //     draggable: true
+    //         // })
+    //         //     //default Coords and intial add to map
+    //         //     .setLngLat([data.longitude, data.latitude])
+    //         //     .addTo(map);
+    //
+    //     });
+    // }
 
-
-
-// });
+});
 
 </script>
 </body>
