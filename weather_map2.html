@@ -51,55 +51,41 @@
     <!-- Top Header End -->
 
     <!-- 3 Day Forecast -->
-    <section class="row accordion collapse" id="forecast3day">
 
-        <div class="card-deck mx-auto col-12">
-
+<!--        <div class="card-deck mx-auto col-12">-->
             <!-- Day 1 card -->
-            <div class="card border-dark" style="width: 12rem;">
-                <div class="card-body text-center">
-                    <img src="#" alt="weather status">
-                    <h3 class="card-title" id="day1"></h3>
-                    <h4 class="my-2" id="hiLow1"></h4>
-                    <p class="card-text font-weight-bold" id="summary1"></p>
-                    <p class="card-text font-weight-bold" id="humidity1"></p>
-                    <p class="card-text font-weight-bold" id="wind1"></p>
-                    <p class="card-text font-weight-bold" id="precip1"></p>
-                </div>
-            </div>
+<!--            <div class="card border-dark" style="width: 12rem;">-->
+<!--                <div class="card-body text-center">-->
+<!--                    <img src="#" alt="weather status">-->
+<!--                    <h3 class="card-title" id="day1"></h3>-->
+<!--                    <h4 class="my-2" id="hiLow1"></h4>-->
+<!--                    <p class="card-text font-weight-bold" id="summary1"></p>-->
+<!--                    <p class="card-text font-weight-bold" id="humidity1"></p>-->
+<!--                    <p class="card-text font-weight-bold" id="wind1"></p>-->
+<!--                    <p class="card-text font-weight-bold" id="precip1"></p>-->
+<!--                </div>-->
+<!--            </div>-->
 
-            <!-- Day 2 card -->
-            <div class="card border-dark" style="width: 12rem;">
-                <div class="card-body text-center">
-                    <img src="#" alt="weather status">
-                    <h3 class="card-title" id="day2"></h3>
-                    <h4 class="card-subtitle my-2" id="hiLow2"></h4>
-                    <p class="card-text font-weight-bold" id="summary2"></p>
-                    <p class="card-text font-weight-bold" id="humidity2"></p>
-                    <p class="card-text font-weight-bold" id="wind2"></p>
-                    <p class="card-text font-weight-bold" id="precip2"></p>
-                </div>
-            </div>
+    <!--     3 Day Forecast End -->
 
-            <!-- Day 3 card -->
-            <div class="card border-dark" style="width: 12rem;">
-                <div class="card-body text-center">
-                    <img src="#" alt="weather status">
-                    <h3 class="card-title" id="day3"></h3>
-                    <h4 class="card-subtitle my-2" id="hiLow3"></h4>
-                    <p class="card-text font-weight-bold" id="summary3"></p>
-                    <p class="card-text font-weight-bold" id="humidity3"></p>
-                    <p class="card-text font-weight-bold" id="wind3"></p>
-                    <p class="card-text font-weight-bold" id="precip3"></p>
+    <div class="row">
+        <div class="col-2">
+            <div class="card-deck">
+                <div class="card border-dark">
+                    <div class="card-body text-center">
+                        <img src="#" alt="weather status">
+                        <h3 class="card-title" id="day1"></h3>
+                        <h4 class="my-2" id="hiLow1"></h4>
+                        <p class="card-text font-weight-bold" id="summary1"></p>
+                        <p class="card-text font-weight-bold" id="humidity1"></p>
+                        <p class="card-text font-weight-bold" id="wind1"></p>
+                        <p class="card-text font-weight-bold" id="precip1"></p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!--     3 Day Forecast End -->
-
-    <!-- Weather Map -->
-    <div class="row m-auto" id="map"></div>
-    <!-- Weather Map End -->
+        <div class="col-10" id="map"></div>
+    </div>
 
 </main>
 
