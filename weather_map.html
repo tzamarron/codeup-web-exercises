@@ -32,14 +32,14 @@
     <!-- Top Header -->
     <div class="row d-flex justify-content-center" id="topRow">
         <!-- Current Location -->
-        <div class="col-12 text-center">
+        <div class="col-12 text-center bg-transparent">
             <h2 id="currLoc"></h2>
         </div>
         <!-- Current Location End -->
 
         <!-- Current Weather -->
-        <a data-toggle="collapse" href="#forecast3day" role="button" aria-expanded="false" aria-controls="forecast3day">
-        <div class="col-12 text-cente font-weight-bold" id="currWeather">
+        <a class="bg-transparent" data-toggle="collapse" href="#forecast3day" role="button" aria-expanded="false" aria-controls="forecast3day">
+        <div class="col-12 text-center font-weight-bold" id="currWeather">
             Currently :
             <div class="d-inline-block mx-3" id="hiLowC1"></div>
             <div class="d-inline-block mx-3" id="summaryC1"></div>
@@ -130,11 +130,11 @@ $(document).ready(function( ) {
     let icons = [
         {
             type: "clear-day",
-            icon: "",
+            src: "Cloud.svg",
         },
         {
             type: "clear-night",
-            icon: "",
+            icon: "Moon-And-Stars.svg",
         },
         {
             type: "rain",
@@ -203,7 +203,6 @@ $(document).ready(function( ) {
     let firstDay = 0;
     let gLat = 29.4241;
     let gLng = -98.4936;
-
 
     // Creates Map
     mapboxgl.accessToken = mapboxToken;
@@ -283,16 +282,16 @@ $(document).ready(function( ) {
                 return res.json();
             })
             .then(function(data) {
-                console.log(data);
+                // console.log(data);
                 // console.log(data.features[(data.features.length -1)].text);
                 // console.log(data.features[data.features.length -2].text);
                 // console.log(data.features[data.features.length -3].text);
-                console.log(data.features.length);
+                // console.log(data.features.length);
                 if(data.features.length <= 2){
-                    console.log(data.features[data.features.length - 1].text + ", " + data.features[data.features.length - 2].text);
+                    // console.log(data.features[data.features.length - 1].text + ", " + data.features[data.features.length - 2].text);
                     return data.features[data.features.length -1].text + ", " + data.features[data.features.length -2].text;
                 } else {
-                    console.log(data.features[data.features.length - 3].text + ', ' + data.features[data.features.length - 2].text + ', ' + data.features[data.features.length - 1].text);
+                    // console.log(data.features[data.features.length - 3].text + ', ' + data.features[data.features.length - 2].text + ', ' + data.features[data.features.length - 1].text);
                     return data.features[data.features.length -3].text + ', ' + data.features[data.features.length -2].text + ', ' + data.features[data.features.length -1].text
                 }
             });
