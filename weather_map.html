@@ -340,10 +340,10 @@ $(document).ready(function( ) {
     map.addControl(
         new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
-            mapboxgl: mapboxgl
+            mapboxgl: mapboxgl,
+            marker: false
         })
     );
-
     //Function takes address and turns it into "object" then takes the coords
     function geocode(search, token) {
         var baseUrl = 'https://api.mapbox.com';
@@ -357,6 +357,7 @@ $(document).ready(function( ) {
             });
     }
 
+    //Function that take coords from where marker is placed and runs the weather with info
     function onDragEnd() {
         var lngLat = marker.getLngLat();
         console.log('Longitude: ' + lngLat.lng + ' Latitude: ' + lngLat.lat);
