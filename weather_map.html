@@ -130,43 +130,47 @@ $(document).ready(function( ) {
     let icons = [
         {
             type: "clear-day",
-            src: "Cloud.svg",
+            src: "icons/Sun.svg",
         },
         {
             type: "clear-night",
-            icon: "Moon-And-Stars.svg",
+            icon: "icons/Moon-And-Stars.svg",
         },
         {
             type: "rain",
-            icon: "",
+            icon: "icons/Rain.svg",
         },
         {
             type: "snow",
-            icon: "",
+            icon: "icons/Snow.svg",
         },
         {
             type: "sleet",
-            icon: "",
+            icon: "icons/Sleet.svg",
         },
         {
             type: "wind",
-            icon: "",
+            icon: "icons/Windy-Weather.svg",
         },
         {
-            type: "fog",
-            icon: "",
+            type: "fog day",
+            icon: "icons/Fog-Day.svg",
+        },
+        {
+            type:"fog night",
+            icon: "icons/Fog-Night.svg"
         },
         {
             type: "cloudy",
-            icon: "",
+            icon: "icons/Cloud.svg",
         },
         {
             type: "partly-cloudy-night",
-            icon: "",
+            icon: "icons/Partly-Cloudy-Night.svg",
         },
         {
             type: "partly-cloudy-night",
-            icon: "",
+            icon: "icons/Partly-Cloudy-Day.svg",
         }
     ];
     let currPageInfo = {
@@ -229,8 +233,8 @@ $(document).ready(function( ) {
     };
 
     ////Runs Data and adds to HTML
-    let weather = function () {
-        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function (data) {
+    let weather = function (lat,lng) {
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + lng).done(function (data) {
             // console.log(data);
 
             //Place Location in HTML
@@ -304,60 +308,11 @@ $(document).ready(function( ) {
 
     }
 
-    // Function runs data according to given coords
-    function userWeather(lat, long) {
-        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + long).done(function (data) {
-            // console.log(data);
-            //Place Location in HTML
-            let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
-            place.then(function (result) {
-                $("#currLoc").html(result)
-            });
-
-            // Cycle thru and add info for 3-day
-            dayPageInfo.forEach(function (day) {
-
-                // Daily Info path
-                let dayinfo = data.daily.data;
-
-                // Appending data to HTML
-                day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
-                day.c_summary.html(dayinfo[firstDay].summary);
-                day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
-                day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
-                day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
-                day.c_day.html(dateObject(dayinfo[firstDay].time));
-
-                //Increase counter to get correct daily info
-                firstDay++
-            });
-            // Reset counter to start back at current day
-            firstDay = 0;
-
-            //Current info path
-            let currInfo = data.currently;
-
-            // Appending data to HTML
-            currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
-            currPageInfo.c_summary.html(currInfo.summary);
-            currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
-
-            // // Add new marker
-            // marker = new mapboxgl.Marker({
-            //     color:"rebeccapurple",
-            //     draggable: true
-            // })
-            //     //default Coords and intial add to map
-            //     .setLngLat([data.longitude, data.latitude])
-            //     .addTo(map);
-
-        });
-    }
-
     // Search Bar (GeoCoder) on map
     let geoSearch = new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             mapboxgl: mapboxgl,
+            marker:false
         });
     map.addControl(geoSearch);
 
@@ -389,7 +344,7 @@ $(document).ready(function( ) {
             ],
             essential: false // this animation is considered essential with respect to prefers-reduced-motion
         });
-        userWeather(lngLat.lat,lngLat.lng);
+        weather(lngLat.lat,lngLat.lng);
     }
 
     //Gets information from Search and turns into weather
@@ -398,114 +353,12 @@ $(document).ready(function( ) {
         let coords = e.result.geometry.coordinates;
         gLng = coords[0];
         gLat = coords[1];
-        userWeather(coords[1], coords[0]);
+        marker.remove();
+        marker.setLngLat([coords[0],coords[1]])
+            .addTo(map);
+        marker.on('dragend', onDragEnd);
+        weather(coords[1], coords[0]);
     });
-
-
-
-
-
-    // //Function to convert data to Metric
-    // let weatherMetric = function () {
-    //     $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function (data) {
-    //         // console.log(data);
-    //         //Place Location in HTML
-    //         let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
-    //         place.then(function (result) {
-    //             $("#currLoc").html(result)
-    //         });
-    //
-    //         // Cycle thru and add info for 3-day
-    //         dayPageInfo.forEach(function (day) {
-    //
-    //             // Daily Info path
-    //             let dayinfo = data.daily.data;
-    //
-    //             // Appending data to HTML
-    //             day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
-    //             day.c_summary.html(dayinfo[firstDay].summary);
-    //             day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
-    //             day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
-    //             day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
-    //             day.c_day.html(dateObject(dayinfo[firstDay].time));
-    //
-    //             //Increase counter to get correct daily info
-    //             firstDay++
-    //         });
-    //         // Reset counter to start back at current day
-    //         firstDay = 0;
-    //
-    //         //Current info path
-    //         let currInfo = data.currently;
-    //
-    //         // Appending data to HTML
-    //         currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
-    //         currPageInfo.c_summary.html(currInfo.summary);
-    //         currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
-    //
-    //         // // Add new marker
-    //         // marker = new mapboxgl.Marker({
-    //         //     color:"rebeccapurple",
-    //         //     draggable: true
-    //         // })
-    //         //     //default Coords and intial add to map
-    //         //     .setLngLat([data.longitude, data.latitude])
-    //         //     .addTo(map);
-    //
-    //     });
-    // };
-    //
-    // // Function runs data  in Metric according to given coords
-    // function userWeatherMet(lat, long) {
-    //     $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + long).done(function (data) {
-    //         // console.log(data);
-    //         //Place Location in HTML
-    //         let place = reverseGeocode({lat: data.latitude, lng: data.longitude}, mapboxToken);
-    //         place.then(function (result) {
-    //             $("#currLoc").html(result)
-    //         });
-    //
-    //         // Cycle thru and add info for 3-day
-    //         dayPageInfo.forEach(function (day) {
-    //
-    //             // Daily Info path
-    //             let dayinfo = data.daily.data;
-    //
-    //             // Appending data to HTML
-    //             day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
-    //             day.c_summary.html(dayinfo[firstDay].summary);
-    //             day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity);
-    //             day.c_wind.html("<strong>Wind: </strong>" + (dayinfo[firstDay].windSpeed).toFixed(0));
-    //             day.c_precip.html("<strong>Precip: </strong>" + dayinfo[firstDay].precipProbability.toFixed(2));
-    //             day.c_day.html(dateObject(dayinfo[firstDay].time));
-    //
-    //             //Increase counter to get correct daily info
-    //             firstDay++
-    //         });
-    //         // Reset counter to start back at current day
-    //         firstDay = 0;
-    //
-    //         //Current info path
-    //         let currInfo = data.currently;
-    //
-    //         // Appending data to HTML
-    //         currPageInfo.c_hilow.html( (currInfo.temperature).toFixed(0) + "\xB0");
-    //         currPageInfo.c_summary.html(currInfo.summary);
-    //         currPageInfo.c_precip.html("<strong>Precip: </strong>" + currInfo.precipProbability.toFixed(2));
-    //
-    //         // // Add new marker
-    //         // marker = new mapboxgl.Marker({
-    //         //     color:"rebeccapurple",
-    //         //     draggable: true
-    //         // })
-    //         //     //default Coords and intial add to map
-    //         //     .setLngLat([data.longitude, data.latitude])
-    //         //     .addTo(map);
-    //
-    //     });
-    // }
-
-
 
 });
 
