@@ -16,7 +16,7 @@
         /*** Map size ***/
         #map {
             width: 100%;
-            height: 500px;
+            height: 89vh;
             font-size: 20px;
         }
 
@@ -29,70 +29,76 @@
 
 <main class="container-fluid m-0 p-0">
 
-    <!-- Current Location -->
-    <div class="col-12 text-center">
-        <h1 id="currLoc"></h1>
-    </div>
-    <!-- Current Location End -->
+    <!-- Top Header -->
+    <div class="row d-flex justify-content-center" id="topRow">
+        <!-- Current Location -->
+        <div class="col-12 text-center">
+            <h2 id="currLoc"></h2>
+        </div>
+        <!-- Current Location End -->
 
-    <!-- Current Weather -->
-    <div class="col-12 text-center d-flex justify-content-center font-weight-bold" id="currWeather">
-        Currently :
-        <div class="d-inline-block mx-3" id="hiLowC1"></div>
-        <div class="d-inline-block mx-3" id="summaryC1"></div>
-        <div class="d-inline-block mx-3" id="precipC1"></div>
+        <!-- Current Weather -->
+        <a data-toggle="collapse" href="#forecast3day" role="button" aria-expanded="false" aria-controls="forecast3day">
+        <div class="col-12 text-cente font-weight-bold" id="currWeather">
+            Currently :
+            <div class="d-inline-block mx-3" id="hiLowC1"></div>
+            <div class="d-inline-block mx-3" id="summaryC1"></div>
+            <div class="d-inline-block mx-3" id="precipC1"></div>
+        </div>
+        </a>
+        <!-- Current Weather End -->
     </div>
-    <!-- Current Weather End -->
+    <!-- Top Header End -->
 
     <!-- 3 Day Forecast -->
-<!--    <section class="row accordion" id="3dayforecast">-->
+    <section class="row accordion collapse" id="forecast3day">
 
-<!--        <div class="card-deck mx-auto col-12">-->
+        <div class="card-deck mx-auto col-12">
 
-<!--            &lt;!&ndash; Day 1 card &ndash;&gt;-->
-<!--            <div class="card border-dark" style="width: 12rem;">-->
-<!--                <div class="card-body text-center">-->
-<!--                    <img src="#" alt="weather status">-->
-<!--                    <h3 class="card-title" id="day1"></h3>-->
-<!--                    <h4 class="my-2" id="hiLow1"></h4>-->
-<!--                    <p class="card-text font-weight-bold" id="summary1"></p>-->
-<!--                    <p class="card-text font-weight-bold" id="humidity1"></p>-->
-<!--                    <p class="card-text font-weight-bold" id="wind1"></p>-->
-<!--                    <p class="card-text font-weight-bold" id="precip1"></p>-->
-<!--                </div>-->
-<!--            </div>-->
+            <!-- Day 1 card -->
+            <div class="card border-dark" style="width: 12rem;">
+                <div class="card-body text-center">
+                    <img src="#" alt="weather status">
+                    <h3 class="card-title" id="day1"></h3>
+                    <h4 class="my-2" id="hiLow1"></h4>
+                    <p class="card-text font-weight-bold" id="summary1"></p>
+                    <p class="card-text font-weight-bold" id="humidity1"></p>
+                    <p class="card-text font-weight-bold" id="wind1"></p>
+                    <p class="card-text font-weight-bold" id="precip1"></p>
+                </div>
+            </div>
 
-<!--            &lt;!&ndash; Day 2 card &ndash;&gt;-->
-<!--            <div class="card border-dark" style="width: 12rem;">-->
-<!--                <div class="card-body text-center">-->
-<!--                    <img src="#" alt="weather status">-->
-<!--                    <h3 class="card-title" id="day2"></h3>-->
-<!--                    <h4 class="card-subtitle my-2" id="hiLow2"></h4>-->
-<!--                    <p class="card-text font-weight-bold" id="summary2"></p>-->
-<!--                    <p class="card-text font-weight-bold" id="humidity2"></p>-->
-<!--                    <p class="card-text font-weight-bold" id="wind2"></p>-->
-<!--                    <p class="card-text font-weight-bold" id="precip2"></p>-->
-<!--                </div>-->
-<!--            </div>-->
+            <!-- Day 2 card -->
+            <div class="card border-dark" style="width: 12rem;">
+                <div class="card-body text-center">
+                    <img src="#" alt="weather status">
+                    <h3 class="card-title" id="day2"></h3>
+                    <h4 class="card-subtitle my-2" id="hiLow2"></h4>
+                    <p class="card-text font-weight-bold" id="summary2"></p>
+                    <p class="card-text font-weight-bold" id="humidity2"></p>
+                    <p class="card-text font-weight-bold" id="wind2"></p>
+                    <p class="card-text font-weight-bold" id="precip2"></p>
+                </div>
+            </div>
 
-<!--            &lt;!&ndash; Day 3 card &ndash;&gt;-->
-<!--            <div class="card border-dark" style="width: 12rem;">-->
-<!--                <div class="card-body text-center">-->
-<!--                    <img src="#" alt="weather status">-->
-<!--                    <h3 class="card-title" id="day3"></h3>-->
-<!--                    <h4 class="card-subtitle my-2" id="hiLow3"></h4>-->
-<!--                    <p class="card-text font-weight-bold" id="summary3"></p>-->
-<!--                    <p class="card-text font-weight-bold" id="humidity3"></p>-->
-<!--                    <p class="card-text font-weight-bold" id="wind3"></p>-->
-<!--                    <p class="card-text font-weight-bold" id="precip3"></p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-    <!-- 3 Day Forecast End -->
+            <!-- Day 3 card -->
+            <div class="card border-dark" style="width: 12rem;">
+                <div class="card-body text-center">
+                    <img src="#" alt="weather status">
+                    <h3 class="card-title" id="day3"></h3>
+                    <h4 class="card-subtitle my-2" id="hiLow3"></h4>
+                    <p class="card-text font-weight-bold" id="summary3"></p>
+                    <p class="card-text font-weight-bold" id="humidity3"></p>
+                    <p class="card-text font-weight-bold" id="wind3"></p>
+                    <p class="card-text font-weight-bold" id="precip3"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--     3 Day Forecast End -->
 
     <!-- Weather Map -->
-    <div class="row mt-3 mx-0 p-0" id="map"></div>
+    <div class="row m-auto" id="map"></div>
     <!-- Weather Map End -->
 
 </main>
@@ -395,6 +401,8 @@ $(document).ready(function( ) {
         gLat = coords[1];
         userWeather(coords[1], coords[0]);
     });
+
+
 
 
 
