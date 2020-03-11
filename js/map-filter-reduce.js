@@ -72,8 +72,3 @@ users.reduce((instructors, person) => {return instructors += (`${person.name}, `
 //     }
 //     return skill
 // }
-
-//take each person look at language set
-//take language set and compare each skill to a master set
-// if not in master set put it in else move on.
-
