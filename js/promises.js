@@ -20,8 +20,8 @@ const githubData = (user) => fetch(`https://api.github.com/users/${user}/events`
     //Take last event(latest) and get commits array;
     .then( (data)=> {
         //take first array which is newest and get url to data
-        let latest = data[0].payload.commits[0].url;
-        console.log(data);
+        let latestCommits = data[0].payload.commits;
+        let latest = latestCommits[latestCommits.length-1].url;
         //use url of commit to fetch commit data
         fetch(latest).then(response => {
             return response.json()
@@ -33,11 +33,12 @@ const githubData = (user) => fetch(`https://api.github.com/users/${user}/events`
                 $("#latestCommit").html( "<p>Your latest commit was : </p>" + new Date(dateData) );
             })
     } )
-    .catch( error => alert('something went wrong'));
+    .catch( error => $("#latestCommit").html("<p> Something went wrong. Check the username and try again!</p>"));
 
 $("#usernameBtn").click(function(){
     let username = $("#username").val();
     githubData(username);
+    $("#username").val("");
 });
 
 
