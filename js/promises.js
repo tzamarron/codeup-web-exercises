@@ -19,8 +19,8 @@ const githubData = (user) => fetch(`https://api.github.com/users/${user}/events`
     })
     //Take last event(latest) and get commits array;
     .then( (data)=> {
-        let latest = data[data.length -1].payload.commits;
-        latest.filter(commit => commit.)
+        let latest = data[0].payload.commits[0].url;
+        console.log(latest);
     } );
 
 
