@@ -19,12 +19,22 @@ const githubData = (user) => fetch(`https://api.github.com/users/${user}/events`
     })
     //Take last event(latest) and get commits array;
     .then( (data)=> {
+        //take first array which is newest and get url to data
         let latest = data[0].payload.commits[0].url;
-        console.log(latest);
+        //use url to fetch commit data
+        fetch(latest).then(response => {
+            return response.json()
+        })
+            .then( (data) =>{
+                //get date from data
+                let dateData = data.commit.committer.date;
+                //convert to date
+                console.log(new Date(dateData));
+            })
     } );
 
 
-let results = githubData("tzamarron");
+githubData(prompt("Username"));
 
 
 
