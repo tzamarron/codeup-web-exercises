@@ -41,34 +41,51 @@ const users = [
 
 // Use .filter to create an array of user objects where each user object has at least 3 languages in the languages array.
 users.filter(person => person.languages.length >= 3);
+// console.log(users.filter(person => person.languages.length >= 3));
 
 //     Use .map to create an array of strings where each element is a user's email address
 users.map(person => person.email);
+// console.log(users.map(person => person.email));
 
 // Use .reduce to get the total years of experience from the list of users. Once you get the total of years you can use the result to calculate the average.
-users.reduce((total,person) => {return total += person.yearsOfExperience},0);
+let experience = users.reduce((total,person) => {return total += person.yearsOfExperience},0);
+// console.log(experience);
+// console.log(experience / users.length);
 
 //     Use .reduce to get the longest email from the list of users.
 const emailLongest = users.reduce((emaillength, person) => {
     emaillength[person.name] = person.email.length;
     return emaillength;
 },{});
+// console.log(emailLongest);
 
 //     Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
 users.reduce((instructors, person) => {return instructors += (`${person.name}, `)},"Your instructors area: ");
+// console.log(users.reduce((instructors, person) => {
+//     return instructors += (`${person.name}, `)
+// }, "Your instructors area: "));
+
 
 // Bonus
 // Use .reduce to get the unique list of languages from the list of users.
 
-// function skills() {
-//     let skill = [];
-//     let languages = users.map(person => person.languages);
-//     for(let special of languages){
-//         for (let unique of special){
-//             if (skill.indexOf(unique) === -1){
-//                 skill.push(unique)
-//             }
-//         }
-//     }
-//     return skill
-// }
+function skills() {
+    let skill = [];
+    let languages = users.map(person => person.languages);
+    for(let special of languages){
+        for (let unique of special){
+            if (skill.indexOf(unique) === -1){
+                skill.push(unique)
+            }
+        }
+    }
+    return skill
+}
+// console.log(skills());
+
+let allSkills = users.map(person => person.languages).reduce( (skillSet, currentSkills) => {
+        return skillSet.concat(currentSkills)
+    }, [] );
+let uniqueSkills = new Set(allSkills);
+// console.log(Array.from(uniqueSkills));
+
