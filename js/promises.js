@@ -11,7 +11,7 @@
 const githubData = (user) => fetch(`https://api.github.com/users/${user}/events`,{headers: {'Authorization': githubToken}})
     //receive data from API and turn to JSON
     .then( response => {
-        return response.json()
+        return response.json();
     })
     //Take JSON and take only "PushEvents" aka push to origin
     .then( (data) => {
@@ -21,6 +21,7 @@ const githubData = (user) => fetch(`https://api.github.com/users/${user}/events`
     .then( (data)=> {
         //take first array which is newest and get url to data
         let latest = data[0].payload.commits[0].url;
+        console.log(data);
         //use url to fetch commit data
         fetch(latest).then(response => {
             return response.json()
@@ -29,12 +30,15 @@ const githubData = (user) => fetch(`https://api.github.com/users/${user}/events`
                 //get date from data
                 let dateData = data.commit.committer.date;
                 //convert to date
-                console.log(new Date(dateData));
+                $("#latestCommit").html( "<p>Your latest commit was : </p>" + new Date(dateData) );
             })
-    } );
+    } )
+    .catch( error => alert('something went wrong'));
 
-
-githubData(prompt("Username"));
+$("#usernameBtn").click(function(){
+    let username = $("#username").val();
+    githubData(username);
+});
 
 
 
