@@ -49,10 +49,31 @@ users.map(person => person.email);
 users.reduce((total,person) => {return total += person.yearsOfExperience},0);
 
 //     Use .reduce to get the longest email from the list of users.
-
+const emailLongest = users.reduce((emaillength, person) => {
+    emaillength[person.name] = person.email.length;
+    return emaillength;
+},{});
 
 //     Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
 users.reduce((instructors, person) => {return instructors += (`${person.name}, `)},"Your instructors area: ");
 
 // Bonus
 // Use .reduce to get the unique list of languages from the list of users.
+
+// function skills() {
+//     let skill = [];
+//     let languages = users.map(person => person.languages);
+//     for(let special of languages){
+//         for (let unique of special){
+//             if (skill.indexOf(unique) === -1){
+//                 skill.push(unique)
+//             }
+//         }
+//     }
+//     return skill
+// }
+
+//take each person look at language set
+//take language set and compare each skill to a master set
+// if not in master set put it in else move on.
+
