@@ -59,11 +59,17 @@ const emailLongest = users.reduce((emaillength, person) => {
 },{});
 // console.log(emailLongest);
 
+//review answer
+let longestEmail = users.reduce((currentLongest, user) => user.email.length > currentLongest.length ? user.email: currentLongest,"j");
+// console.log(longestEmail);
+
 // Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
-users.reduce((instructors, person) => {return instructors += (`${person.name}, `)},"Your instructors area: ");
-// console.log(users.reduce((instructors, person) => {
-//     return instructors += (`${person.name}, `)
-// }, "Your instructors area: "));
+let userList = users.reduce((instructors, person) => instructors + ", " + person.name,"Your instructors area: ");
+console.log(userList + ".");
+
+//review answer
+let names = users.reduce((sentence, user) => sentence === "" ? user.name: sentence + ", " + user.name,"");
+console.log(`Your instructors are: ${names}.`);
 
 
 // Bonus
@@ -83,9 +89,7 @@ function skills() {
 }
 // console.log(skills());
 
-let allSkills = users.map(person => person.languages).reduce( (skillSet, currentSkills) => {
-        return skillSet.concat(currentSkills)
-    }, [] );
+let allSkills = users.map(person => person.languages).reduce( (skillSet, currentSkills) => skillSet.concat(currentSkills), [] );
 let uniqueSkills = new Set(allSkills);
 // console.log(Array.from(uniqueSkills));
 
