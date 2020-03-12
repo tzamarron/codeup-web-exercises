@@ -24,6 +24,7 @@ const githubData = (user) => fetch(`https://api.github.com/users/${user}/events`
         console.log(latest);
         //use url of commit to fetch commit data
         return fetch(latest);
+
     })
     // Take data and turn to JSON
     .then(response => {
