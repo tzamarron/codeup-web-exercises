@@ -51,7 +51,7 @@
     <!-- Top Header End -->
 
     <!-- 3 Day Forecast -->
-    <section class="row accordion collapse" id="forecast3day">
+    <section class="row" id="forecast3day">
 
         <div class="card-deck mx-auto col-12">
 
@@ -128,50 +128,17 @@
 $(document).ready(function( ) {
     // Variables
     let icons = [
-        {
-            type: "clear-day",
-            src: "icons/Sun.svg",
-        },
-        {
-            type: "clear-night",
-            icon: "icons/Moon-And-Stars.svg",
-        },
-        {
-            type: "rain",
-            icon: "icons/Rain.svg",
-        },
-        {
-            type: "snow",
-            icon: "icons/Snow.svg",
-        },
-        {
-            type: "sleet",
-            icon: "icons/Sleet.svg",
-        },
-        {
-            type: "wind",
-            icon: "icons/Windy-Weather.svg",
-        },
-        {
-            type: "fog day",
-            icon: "icons/Fog-Day.svg",
-        },
-        {
-            type:"fog night",
-            icon: "icons/Fog-Night.svg"
-        },
-        {
-            type: "cloudy",
-            icon: "icons/Cloud.svg",
-        },
-        {
-            type: "partly-cloudy-night",
-            icon: "icons/Partly-Cloudy-Night.svg",
-        },
-        {
-            type: "partly-cloudy-night",
-            icon: "icons/Partly-Cloudy-Day.svg",
-        }
+        { type: "clear-day", src: "icons/Sun.svg" },
+        { type: "clear-night", icon: "icons/Moon-And-Stars.svg" },
+        { type: "rain", icon: "icons/Rain.svg" },
+        { type: "snow", icon: "icons/Snow.svg" },
+        { type: "sleet", icon: "icons/Sleet.svg" },
+        { type: "wind", icon: "icons/Windy-Weather.svg" },
+        { type: "fog day", icon: "icons/Fog-Day.svg" },
+        { type:"fog night", icon: "icons/Fog-Night.svg" },
+        { type: "cloudy", icon: "icons/Cloud.svg" },
+        { type: "partly-cloudy-night", icon: "icons/Partly-Cloudy-Night.svg" },
+        { type: "partly-cloudy-night", icon: "icons/Partly-Cloudy-Day.svg" }
     ];
     let currPageInfo = {
             c_hilow: $("#hiLowC1"),
