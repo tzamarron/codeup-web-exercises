@@ -217,6 +217,7 @@ $(document).ready(function( ) {
                 let dayinfo = data.daily.data;
 
                 // Appending data to HTML
+                // day.c_status
                 day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
                 day.c_summary.html(dayinfo[firstDay].summary);
                 day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity * 100 + "&#xff05;" );
