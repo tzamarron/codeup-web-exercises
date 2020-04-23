@@ -237,6 +237,8 @@ $(document).ready(function( ) {
                 console.log("icon: " + useIcon.type);
 
                 // Appending data to HTML
+
+
                 day.c_day.parent().prepend("<img src=" + useIcon.icon + " alt=" + useIcon.type +">");
                 day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
                 day.c_summary.html(dayinfo[firstDay].summary);
