@@ -20,6 +20,11 @@
             font-size: 20px;
         }
 
+        img {
+            height: 100px;
+            width: 100px;
+        }
+
     </style>
 
     <title>Weather</title>
@@ -58,7 +63,6 @@
             <!-- Day 1 card -->
             <div class="card border-dark" style="width: 12rem;">
                 <div class="card-body text-center">
-                    <img src="#" alt="weather status">
                     <h3 class="card-title" id="day1"></h3>
                     <h4 class="my-2" id="hiLow1"></h4>
                     <p class="card-text font-weight-bold" id="summary1"></p>
@@ -71,7 +75,6 @@
             <!-- Day 2 card -->
             <div class="card border-dark" style="width: 12rem;">
                 <div class="card-body text-center">
-                    <img src="#" alt="weather status">
                     <h3 class="card-title" id="day2"></h3>
                     <h4 class="card-subtitle my-2" id="hiLow2"></h4>
                     <p class="card-text font-weight-bold" id="summary2"></p>
@@ -84,7 +87,6 @@
             <!-- Day 3 card -->
             <div class="card border-dark" style="width: 12rem;">
                 <div class="card-body text-center">
-                    <img src="#" alt="weather status">
                     <h3 class="card-title" id="day3"></h3>
                     <h4 class="card-subtitle my-2" id="hiLow3"></h4>
                     <p class="card-text font-weight-bold" id="summary3"></p>
@@ -128,7 +130,7 @@
 $(document).ready(function( ) {
     // Variables
     let icons = [
-        { type: "clear-day", src: "icons/Sun.svg" },
+        { type: "clear-day", icon: "icons/Sun.svg" },
         { type: "clear-night", icon: "icons/Moon-And-Stars.svg" },
         { type: "rain", icon: "icons/Rain.svg" },
         { type: "snow", icon: "icons/Snow.svg" },
@@ -147,7 +149,7 @@ $(document).ready(function( ) {
         };
     let dayPageInfo = [
         {
-            // c_status : $(""),
+            c_icon : $("iconDay1"),
             c_day: $("#day1"),
             c_hilow: $("#hiLow1"),
             c_summary: $("#summary1"),
@@ -156,6 +158,7 @@ $(document).ready(function( ) {
             c_precip: $("#precip1")
         },
         {
+            c_icon : $("iconDay2"),
             c_day: $("#day2"),
             c_hilow: $("#hiLow2"),
             c_summary: $("#summary2"),
@@ -164,6 +167,7 @@ $(document).ready(function( ) {
             c_precip: $("#precip2")
         },
         {
+            c_icon : $("iconDay3"),
             c_day: $("#day3"),
             c_hilow: $("#hiLow3"),
             c_summary: $("#summary3"),
@@ -175,6 +179,15 @@ $(document).ready(function( ) {
     let firstDay = 0;
     let gLat = 29.4241;
     let gLng = -98.4936;
+
+    // Function to search for which icon to use
+    let todayIcon = function search(nameKey, myArray){
+        for (var i=0; i < myArray.length; i++) {
+            if (myArray[i].type === nameKey) {
+                return myArray[i];
+            }
+        }
+    }
 
     // Creates Map
     mapboxgl.accessToken = mapboxToken;
@@ -216,9 +229,15 @@ $(document).ready(function( ) {
 
                 // Daily Info path
                 let dayinfo = data.daily.data;
+                // console.log(dayinfo);
+                console.log("day: " + dayinfo[firstDay].icon);
+
+                // find right icon for the day
+                let useIcon = todayIcon(dayinfo[firstDay].icon,icons);
+                console.log("icon: " + useIcon.type);
 
                 // Appending data to HTML
-                // day.c_status
+                day.c_day.parent().prepend("<img src=" + useIcon.icon + " alt=" + useIcon.type +">");
                 day.c_hilow.html("<strong>H</strong> " + (dayinfo[firstDay].temperatureHigh).toFixed(0) + "\xB0/ <strong>L</strong> " + (dayinfo[firstDay].temperatureLow).toFixed(0) + "\xB0");
                 day.c_summary.html(dayinfo[firstDay].summary);
                 day.c_humidity.html("<strong>Humidity: </strong>" + dayinfo[firstDay].humidity * 100 + "&#xff05;" );
